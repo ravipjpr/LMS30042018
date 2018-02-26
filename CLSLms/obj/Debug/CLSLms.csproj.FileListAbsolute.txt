@@ -1,0 +1,105 @@
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\CLSLms.dll.config
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\CLSLms.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\CLSLms.pdb
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\EntityFramework.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\LMSResourse.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\LMSResourse.pdb
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\EntityFramework.xml
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Debug\CLSLms.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Debug\CLSLms.pdb
+E:\Projects\LMS Application\CLSLms\bin\Debug\CLSLms.dll.config
+E:\Projects\LMS Application\CLSLms\bin\Debug\CLSLms.dll
+E:\Projects\LMS Application\CLSLms\bin\Debug\CLSLms.pdb
+E:\Projects\LMS Application\CLSLms\bin\Debug\EntityFramework.dll
+E:\Projects\LMS Application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\LMS Application\CLSLms\bin\Debug\LMSResourse.dll
+E:\Projects\LMS Application\CLSLms\bin\Debug\LMSResourse.pdb
+E:\Projects\LMS Application\CLSLms\bin\Debug\EntityFramework.xml
+E:\Projects\LMS Application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\LMS Application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+E:\Projects\LMS Application\CLSLms\obj\Debug\CLSLms.dll
+E:\Projects\LMS Application\CLSLms\obj\Debug\CLSLms.pdb
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\CLSLms.dll.config
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\CLSLms.dll
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\CLSLms.pdb
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\EntityFramework.dll
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\LMSResourse.dll
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\LMSResourse.pdb
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\EntityFramework.xml
+G:\VS\BitBucket\LMS Application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+G:\VS\BitBucket\LMS Application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+G:\VS\BitBucket\LMS Application\CLSLms\obj\Debug\CLSLms.dll
+G:\VS\BitBucket\LMS Application\CLSLms\obj\Debug\CLSLms.pdb
+E:\Projects\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.dll.config
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.dll
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.pdb
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.dll
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\LMSResourse.dll
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\LMSResourse.pdb
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.xml
+E:\Projects\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.dll
+E:\Projects\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.pdb
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.dll.config
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.dll
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\CLSLms.pdb
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.dll
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\LMSResourse.dll
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\LMSResourse.pdb
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.xml
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.dll
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\obj\Debug\CLSLms.pdb
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\CLSLms.dll.config
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\CLSLms.dll
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\CLSLms.pdb
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\EntityFramework.dll
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\LMSResourse.dll
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\LMSResourse.pdb
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\EntityFramework.xml
+E:\Projects\LMS Application\git1\lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\LMS Application\git1\lms-application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+E:\Projects\LMS Application\git1\lms-application\CLSLms\obj\Debug\CLSLms.dll
+E:\Projects\LMS Application\git1\lms-application\CLSLms\obj\Debug\CLSLms.pdb
+G:\VS\BitBucket\LMS Application\git\lms-application\CLSLms\bin\Debug\hi\LMSResourse.resources.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\CLSLms.dll.config
+F:\VS\ict-lms-application\CLSLms\bin\Debug\CLSLms.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\CLSLms.pdb
+F:\VS\ict-lms-application\CLSLms\bin\Debug\EntityFramework.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\LMSResourse.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\System.Web.Mvc.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\VS\ict-lms-application\CLSLms\bin\Debug\LMSResourse.pdb
+F:\VS\ict-lms-application\CLSLms\bin\Debug\EntityFramework.xml
+F:\VS\ict-lms-application\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS\ict-lms-application\CLSLms\bin\Debug\System.Web.Mvc.xml
+F:\VS\ict-lms-application\CLSLms\bin\Debug\hi\LMSResourse.resources.dll
+F:\VS\ict-lms-application\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+F:\VS\ict-lms-application\CLSLms\obj\Debug\CLSLms.dll
+F:\VS\ict-lms-application\CLSLms\obj\Debug\CLSLms.pdb
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\CLSLms.dll.config
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\CLSLms.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\CLSLms.pdb
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\EntityFramework.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\LMSResourse.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\System.Web.Mvc.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\LMSResourse.pdb
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\EntityFramework.xml
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\System.Web.Mvc.xml
+E:\Projects\LMS Application\ictlms\CLSLms\bin\Debug\hi\LMSResourse.resources.dll
+E:\Projects\LMS Application\ictlms\CLSLms\obj\Debug\CLSLms.csprojResolveAssemblyReference.cache
+E:\Projects\LMS Application\ictlms\CLSLms\obj\Debug\CLSLms.dll
+E:\Projects\LMS Application\ictlms\CLSLms\obj\Debug\CLSLms.pdb

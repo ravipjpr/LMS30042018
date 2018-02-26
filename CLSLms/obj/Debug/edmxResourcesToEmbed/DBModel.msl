@@ -1,0 +1,1879 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LeopinkLMSDBModelStoreContainer" CdmEntityContainer="LeopinkLMSDBEntities">
+    <FunctionImportMapping FunctionImportName="AddUpdateELStatus" FunctionName="LeopinkLMSDBModel.Store.AddUpdateELStatus" />
+    <FunctionImportMapping FunctionImportName="ELMAH_GetErrorsXml" FunctionName="LeopinkLMSDBModel.Store.ELMAH_GetErrorsXml" />
+    <FunctionImportMapping FunctionImportName="ELMAH_GetErrorXml" FunctionName="LeopinkLMSDBModel.Store.ELMAH_GetErrorXml" />
+    <FunctionImportMapping FunctionImportName="ELMAH_LogError" FunctionName="LeopinkLMSDBModel.Store.ELMAH_LogError" />
+    <FunctionImportMapping FunctionImportName="GetAssignedAndCompletedCourse" FunctionName="LeopinkLMSDBModel.Store.GetAssignedAndCompletedCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedAndCompletedCourse_Result">
+          <ScalarProperty Name="TotalAssignments" ColumnName="TotalAssignments" />
+          <ScalarProperty Name="Completedcourse" ColumnName="Completedcourse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedCourseGroup" FunctionName="LeopinkLMSDBModel.Store.GetAssignedCourseGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedCourseGroup_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="AssignedUsers" ColumnName="AssignedUsers" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedCoursesToUser" FunctionName="LeopinkLMSDBModel.Store.GetAssignedCoursesToUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedCoursesToUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedDocumentGroup" FunctionName="LeopinkLMSDBModel.Store.GetAssignedDocumentGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedDocumentGroup_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="AssignedUsers" ColumnName="AssignedUsers" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedDocumentsToUser" FunctionName="LeopinkLMSDBModel.Store.GetAssignedDocumentsToUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedDocumentsToUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedGroupCourse" FunctionName="LeopinkLMSDBModel.Store.GetAssignedGroupCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedGroupCourse_Result">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedUserCourse" FunctionName="LeopinkLMSDBModel.Store.GetAssignedUserCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedUserCourse_Result">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="IsGroupAssigned" ColumnName="IsGroupAssigned" />
+          <ScalarProperty Name="TotalHits" ColumnName="TotalHits" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCertificateDetails" FunctionName="LeopinkLMSDBModel.Store.GetCertificateDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetCertificateDetails_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+          <ScalarProperty Name="CompletionScore" ColumnName="CompletionScore" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCourseReport" FunctionName="LeopinkLMSDBModel.Store.GetCourseReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetCourseReport_Result">
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="TotalAssignment" ColumnName="TotalAssignment" />
+          <ScalarProperty Name="InCompleted" ColumnName="InCompleted" />
+          <ScalarProperty Name="NotStarted" ColumnName="NotStarted" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetHomePage" FunctionName="LeopinkLMSDBModel.Store.GetHomePage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetHomePage_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupHomepageID" ColumnName="GroupHomepageID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="HomePageContent" ColumnName="HomePageContent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrganizationLicenseReport" FunctionName="LeopinkLMSDBModel.Store.GetOrganizationLicenseReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetOrganizationLicenseReport_Result">
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="AssignedUsers" ColumnName="AssignedUsers" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseExpiryDate" ColumnName="CourseExpiryDate" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Completiondate" ColumnName="Completiondate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProfileSettingValues" FunctionName="LeopinkLMSDBModel.Store.GetProfileSettingValues">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetProfileSettingValues_Result">
+          <ScalarProperty Name="ProfileSettingID" ColumnName="ProfileSettingID" />
+          <ScalarProperty Name="ProfileSettignOrgId" ColumnName="ProfileSettignOrgId" />
+          <ScalarProperty Name="Options" ColumnName="Options" />
+          <ScalarProperty Name="OptionTitle" ColumnName="OptionTitle" />
+          <ScalarProperty Name="ProfileType" ColumnName="ProfileType" />
+          <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+          <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
+          <ScalarProperty Name="MaxLength" ColumnName="MaxLength" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Organisation" ColumnName="Organisation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserGroups" FunctionName="LeopinkLMSDBModel.Store.GetUserGroups">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserGroups_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ResetCourseStatus" FunctionName="LeopinkLMSDBModel.Store.ResetCourseStatus" />
+    <FunctionImportMapping FunctionImportName="Rp_SummaryReport" FunctionName="LeopinkLMSDBModel.Store.Rp_SummaryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.Rp_SummaryReport_Result">
+          <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
+          <ScalarProperty Name="ActiveUsers" ColumnName="ActiveUsers" />
+          <ScalarProperty Name="NeverLoggedIn" ColumnName="NeverLoggedIn" />
+          <ScalarProperty Name="TotalCourses" ColumnName="TotalCourses" />
+          <ScalarProperty Name="TotalActiveCourses" ColumnName="TotalActiveCourses" />
+          <ScalarProperty Name="TotalGroup" ColumnName="TotalGroup" />
+          <ScalarProperty Name="TotalActiveGroup" ColumnName="TotalActiveGroup" />
+          <ScalarProperty Name="TotalOrganisation" ColumnName="TotalOrganisation" />
+          <ScalarProperty Name="TotalActiveOrganisation" ColumnName="TotalActiveOrganisation" />
+          <ScalarProperty Name="TotalCategory" ColumnName="TotalCategory" />
+          <ScalarProperty Name="TotalActiveCategory" ColumnName="TotalActiveCategory" />
+          <ScalarProperty Name="TotalAssignments" ColumnName="TotalAssignments" />
+          <ScalarProperty Name="Completedcourse" ColumnName="Completedcourse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Rp_UserGroupReport" FunctionName="LeopinkLMSDBModel.Store.Rp_UserGroupReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.Rp_UserGroupReport_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="Groups" ColumnName="Groups" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Rp_UserReport" FunctionName="LeopinkLMSDBModel.Store.Rp_UserReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.Rp_UserReport_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="UserGroups" ColumnName="UserGroups" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="loginDate" ColumnName="loginDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Rp_UserReportChart" FunctionName="LeopinkLMSDBModel.Store.Rp_UserReportChart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.Rp_UserReportChart_Result">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="UserCount" ColumnName="UserCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ScormRetrieveS_CmiValues" FunctionName="LeopinkLMSDBModel.Store.ScormRetrieveS_CmiValues">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.ScormRetrieveS_CmiValues_Result">
+          <ScalarProperty Name="idCmi" ColumnName="idCmi" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isSuspended" ColumnName="isSuspended" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Split" FunctionName="LeopinkLMSDBModel.Store.Split" />
+    <FunctionImportMapping FunctionImportName="GetUserDocument" FunctionName="LeopinkLMSDBModel.Store.GetUserDocument">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserDocument_Result">
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="LastAccessDate" ColumnName="LastAccessDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseFile" ColumnName="CourseFile" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACLActions">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ACLAction">
+        <MappingFragment StoreEntitySet="ACLActions">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="ActionFQN" ColumnName="ActionFQN" />
+          <ScalarProperty Name="ACLActionID" ColumnName="ACLActionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACLMatrices">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ACLMatrix">
+        <MappingFragment StoreEntitySet="ACLMatrix">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedBYID" ColumnName="LastModifiedBYID" />
+          <ScalarProperty Name="IsAccess" ColumnName="IsAccess" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ACLActionID" ColumnName="ACLActionID" />
+          <ScalarProperty Name="ACLMatrixID" ColumnName="ACLMatrixID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppConstants">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AppConstant">
+        <MappingFragment StoreEntitySet="AppConstant">
+          <ScalarProperty Name="ConstantNameID" ColumnName="ConstantNameID" />
+          <ScalarProperty Name="ConstantDescription" ColumnName="ConstantDescription" />
+          <ScalarProperty Name="ConstantName" ColumnName="ConstantName" />
+          <ScalarProperty Name="ConstantID" ColumnName="ConstantID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CategoryInfo">
+        <MappingFragment StoreEntitySet="CategoryInfo">
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryInfoId" ColumnName="CategoryInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Certificates">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Certificate">
+        <MappingFragment StoreEntitySet="Certificate">
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CertificateFileName" ColumnName="CertificateFileName" />
+          <ScalarProperty Name="CertificateFileUrl" ColumnName="CertificateFileUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CertificateDescription" ColumnName="CertificateDescription" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificateInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CertificateInfo">
+        <MappingFragment StoreEntitySet="CertificateInfo">
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CertificateFileName" ColumnName="CertificateFileName" />
+          <ScalarProperty Name="CertificateFileUrl" ColumnName="CertificateFileUrl" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="CertificateDescription" ColumnName="CertificateDescription" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+          <ScalarProperty Name="CertificateInfoId" ColumnName="CertificateInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CloudRoomCartItems">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CloudRoomCartItem">
+        <MappingFragment StoreEntitySet="CloudRoomCartItems">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="BrowserSessionID" ColumnName="BrowserSessionID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CourseInfo">
+        <MappingFragment StoreEntitySet="CourseInfo">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="IsUserDefined" ColumnName="IsUserDefined" />
+          <ScalarProperty Name="PassMarks" ColumnName="PassMarks" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="IsFinalized" ColumnName="IsFinalized" />
+          <ScalarProperty Name="ScoLabel" ColumnName="ScoLabel" />
+          <ScalarProperty Name="FileSizeInKB" ColumnName="FileSizeInKB" />
+          <ScalarProperty Name="LaunchFileName" ColumnName="LaunchFileName" />
+          <ScalarProperty Name="FolderLocation" ColumnName="FolderLocation" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseInfoId" ColumnName="CourseInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElearningStatusHistories">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ElearningStatusHistory">
+        <MappingFragment StoreEntitySet="ElearningStatusHistory">
+          <ScalarProperty Name="ResetDate" ColumnName="ResetDate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="MinScore" ColumnName="MinScore" />
+          <ScalarProperty Name="MaxScore" ColumnName="MaxScore" />
+          <ScalarProperty Name="PassPercent" ColumnName="PassPercent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LogoutDate" ColumnName="LogoutDate" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="TotalHits" ColumnName="TotalHits" />
+          <ScalarProperty Name="TimeInCourse" ColumnName="TimeInCourse" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="ElearningStatusID" ColumnName="ElearningStatusID" />
+          <ScalarProperty Name="ElearningStatusHistoryID" ColumnName="ElearningStatusHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ELMAH_Error">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ELMAH_Error">
+        <MappingFragment StoreEntitySet="ELMAH_Error">
+          <ScalarProperty Name="AllXml" ColumnName="AllXml" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="TimeUtc" ColumnName="TimeUtc" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailLogs">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.EmailLog">
+        <MappingFragment StoreEntitySet="EmailLog">
+          <ScalarProperty Name="EmailToSelfRegUser" ColumnName="EmailToSelfRegUser" />
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="EmailToUser" ColumnName="EmailToUser" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="AssignedUsers" ColumnName="AssignedUsers" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupCourses">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupCourse">
+        <MappingFragment StoreEntitySet="GroupCourse">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="GroupCourseId" ColumnName="GroupCourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupDocuments">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupDocument">
+        <MappingFragment StoreEntitySet="GroupDocument">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="GroupDocumentId" ColumnName="GroupDocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupHomepages">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupHomepage">
+        <MappingFragment StoreEntitySet="GroupHomepage">
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupHomepageID" ColumnName="GroupHomepageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupHomepageInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupHomepageInfo">
+        <MappingFragment StoreEntitySet="GroupHomepageInfo">
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="HomePageContent" ColumnName="HomePageContent" />
+          <ScalarProperty Name="GroupHomepageID" ColumnName="GroupHomepageID" />
+          <ScalarProperty Name="GroupHomepageInfoID" ColumnName="GroupHomepageInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupInfo">
+        <MappingFragment StoreEntitySet="GroupInfo">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupInfoId" ColumnName="GroupInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HelpContents">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.HelpContent">
+        <MappingFragment StoreEntitySet="HelpContent">
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="ModuleContent" ColumnName="ModuleContent" />
+          <ScalarProperty Name="ModuleSectionURL" ColumnName="ModuleSectionURL" />
+          <ScalarProperty Name="ModuleParentID" ColumnName="ModuleParentID" />
+          <ScalarProperty Name="ModuleTitle" ColumnName="ModuleTitle" />
+          <ScalarProperty Name="HelpModuleID" ColumnName="HelpModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstanceInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.InstanceInfo">
+        <MappingFragment StoreEntitySet="InstanceInfo">
+          <ScalarProperty Name="IsHelpOn" ColumnName="IsHelpOn" />
+          <ScalarProperty Name="IsSelfRegistrationOn" ColumnName="IsSelfRegistrationOn" />
+          <ScalarProperty Name="GroupAdminId" ColumnName="GroupAdminId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="DefaultLanguage" ColumnName="DefaultLanguage" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="SupportEmail" ColumnName="SupportEmail" />
+          <ScalarProperty Name="HostEmail" ColumnName="HostEmail" />
+          <ScalarProperty Name="SmtpIPv4" ColumnName="SmtpIPv4" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="InstanceTitle" ColumnName="InstanceTitle" />
+          <ScalarProperty Name="ApplicationAuthToken" ColumnName="ApplicationAuthToken" />
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="ActiveForLearner" ColumnName="ActiveForLearner" />
+          <ScalarProperty Name="ActiveForAdmin" ColumnName="ActiveForAdmin" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licenses">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.License">
+        <MappingFragment StoreEntitySet="License">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="CardLast4Digits" ColumnName="CardLast4Digits" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
+          <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
+          <ScalarProperty Name="CardCountry" ColumnName="CardCountry" />
+          <ScalarProperty Name="CardBrandName" ColumnName="CardBrandName" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="DiscountInPerscent" ColumnName="DiscountInPerscent" />
+          <ScalarProperty Name="OrderCloseDatetime" ColumnName="OrderCloseDatetime" />
+          <ScalarProperty Name="OrderCreationDatetime" ColumnName="OrderCreationDatetime" />
+          <ScalarProperty Name="StripeChargeID" ColumnName="StripeChargeID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="HasPaymentDone" ColumnName="HasPaymentDone" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BrowserSessionID" ColumnName="BrowserSessionID" />
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organisations">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Organisation">
+        <MappingFragment StoreEntitySet="Organisation">
+          <ScalarProperty Name="IsUserAssignment" ColumnName="IsUserAssignment" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+          <ScalarProperty Name="OrganisationBanner" ColumnName="OrganisationBanner" />
+          <ScalarProperty Name="OrganisationLogo" ColumnName="OrganisationLogo" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrganisationUID" ColumnName="OrganisationUID" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganisationInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.OrganisationInfo">
+        <MappingFragment StoreEntitySet="OrganisationInfo">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+          <ScalarProperty Name="OrganisationBanner" ColumnName="OrganisationBanner" />
+          <ScalarProperty Name="OrganisationLogo" ColumnName="OrganisationLogo" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="OrganisationUID" ColumnName="OrganisationUID" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="OrganisationInfoId" ColumnName="OrganisationInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_cmi">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_cmi">
+        <MappingFragment StoreEntitySet="s_cmi">
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isSuspended" ColumnName="isSuspended" />
+          <ScalarProperty Name="total_time" ColumnName="total_time" />
+          <ScalarProperty Name="learner_name" ColumnName="learner_name" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="idCmi" ColumnName="idCmi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_cmiTree">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_cmiTree">
+        <MappingFragment StoreEntitySet="s_cmiTree">
+          <ScalarProperty Name="Hits" ColumnName="Hits" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="idCmi" ColumnName="idCmi" />
+          <ScalarProperty Name="cmiTreeId" ColumnName="cmiTreeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_commentsFromLearner">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_commentsFromLearner">
+        <MappingFragment StoreEntitySet="s_commentsFromLearner">
+          <ScalarProperty Name="timeStamp_CFL" ColumnName="timeStamp_CFL" />
+          <ScalarProperty Name="location_CFL" ColumnName="location_CFL" />
+          <ScalarProperty Name="comment_CFL" ColumnName="comment_CFL" />
+          <ScalarProperty Name="courseid_CFL" ColumnName="courseid_CFL" />
+          <ScalarProperty Name="studentid_CFL" ColumnName="studentid_CFL" />
+          <ScalarProperty Name="id_CFL" ColumnName="id_CFL" />
+          <ScalarProperty Name="idCommentsFromLearner" ColumnName="idCommentsFromLearner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_commentsFromLMS">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_commentsFromLMS">
+        <MappingFragment StoreEntitySet="s_commentsFromLMS">
+          <ScalarProperty Name="timeStamp_CFLM" ColumnName="timeStamp_CFLM" />
+          <ScalarProperty Name="location_CFLM" ColumnName="location_CFLM" />
+          <ScalarProperty Name="comment_CFLM" ColumnName="comment_CFLM" />
+          <ScalarProperty Name="courseid_CFLM" ColumnName="courseid_CFLM" />
+          <ScalarProperty Name="studentid_CFLM" ColumnName="studentid_CFLM" />
+          <ScalarProperty Name="id_CFLM" ColumnName="id_CFLM" />
+          <ScalarProperty Name="idCommentsFromLMS" ColumnName="idCommentsFromLMS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_communication">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_communication">
+        <MappingFragment StoreEntitySet="s_communication">
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="time_limit_action" ColumnName="time_limit_action" />
+          <ScalarProperty Name="suspend_data" ColumnName="suspend_data" />
+          <ScalarProperty Name="success_status" ColumnName="success_status" />
+          <ScalarProperty Name="session_time" ColumnName="session_time" />
+          <ScalarProperty Name="progress_measure" ColumnName="progress_measure" />
+          <ScalarProperty Name="mode" ColumnName="mode" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="exit" ColumnName="exit" />
+          <ScalarProperty Name="entry" ColumnName="entry" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="completion_status" ColumnName="completion_status" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="idCmi" ColumnName="idCmi" />
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_correctResponse">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_correctResponse">
+        <MappingFragment StoreEntitySet="s_correctResponse">
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+          <ScalarProperty Name="patternCorrectResponse" ColumnName="patternCorrectResponse" />
+          <ScalarProperty Name="nInteraction" ColumnName="nInteraction" />
+          <ScalarProperty Name="n" ColumnName="n" />
+          <ScalarProperty Name="idCorrectResponse" ColumnName="idCorrectResponse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_courseInfo">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_courseInfo">
+        <MappingFragment StoreEntitySet="s_courseInfo">
+          <ScalarProperty Name="navigationtype" ColumnName="navigationtype" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="masterCourseId" ColumnName="masterCourseId" />
+          <ScalarProperty Name="courseRelationalPath" ColumnName="courseRelationalPath" />
+          <ScalarProperty Name="importDateTime" ColumnName="importDateTime" />
+          <ScalarProperty Name="courseTitle" ColumnName="courseTitle" />
+          <ScalarProperty Name="scormCourseID" ColumnName="scormCourseID" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_interaction">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_interaction">
+        <MappingFragment StoreEntitySet="s_interaction">
+          <ScalarProperty Name="Session_id" ColumnName="Session_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="latency" ColumnName="latency" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="learner_response" ColumnName="learner_response" />
+          <ScalarProperty Name="weighting" ColumnName="weighting" />
+          <ScalarProperty Name="time_stamp" ColumnName="time_stamp" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="n" ColumnName="n" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+          <ScalarProperty Name="idInteraction" ColumnName="idInteraction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_interactionObjectives">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_interactionObjectives">
+        <MappingFragment StoreEntitySet="s_interactionObjectives">
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+          <ScalarProperty Name="idObjective" ColumnName="idObjective" />
+          <ScalarProperty Name="nInteraction" ColumnName="nInteraction" />
+          <ScalarProperty Name="n" ColumnName="n" />
+          <ScalarProperty Name="idInteractionObjectives" ColumnName="idInteractionObjectives" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_itemInfo">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_itemInfo">
+        <MappingFragment StoreEntitySet="s_itemInfo">
+          <ScalarProperty Name="prerequisites" ColumnName="prerequisites" />
+          <ScalarProperty Name="completionThreshold" ColumnName="completionThreshold" />
+          <ScalarProperty Name="timeLimitAction" ColumnName="timeLimitAction" />
+          <ScalarProperty Name="attemptAbsoluteDurationLimit" ColumnName="attemptAbsoluteDurationLimit" />
+          <ScalarProperty Name="minNormalizedMeasure" ColumnName="minNormalizedMeasure" />
+          <ScalarProperty Name="dataFromLMS" ColumnName="dataFromLMS" />
+          <ScalarProperty Name="persistState" ColumnName="persistState" />
+          <ScalarProperty Name="parameterString" ColumnName="parameterString" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="launch" ColumnName="launch" />
+          <ScalarProperty Name="identifierRes" ColumnName="identifierRes" />
+          <ScalarProperty Name="identifierItem" ColumnName="identifierItem" />
+          <ScalarProperty Name="identifierOrg" ColumnName="identifierOrg" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_objective">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_objective">
+        <MappingFragment StoreEntitySet="s_objective">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="progress_measure" ColumnName="progress_measure" />
+          <ScalarProperty Name="completion_status" ColumnName="completion_status" />
+          <ScalarProperty Name="success_status" ColumnName="success_status" />
+          <ScalarProperty Name="score_max" ColumnName="score_max" />
+          <ScalarProperty Name="score_min" ColumnName="score_min" />
+          <ScalarProperty Name="score_raw" ColumnName="score_raw" />
+          <ScalarProperty Name="score_scaled" ColumnName="score_scaled" />
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+          <ScalarProperty Name="idObjective" ColumnName="idObjective" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_objectivesInfo">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_objectivesInfo">
+        <MappingFragment StoreEntitySet="s_objectivesInfo">
+          <ScalarProperty Name="writeNormalizedMeasure" ColumnName="writeNormalizedMeasure" />
+          <ScalarProperty Name="writeSatisfiedStatus" ColumnName="writeSatisfiedStatus" />
+          <ScalarProperty Name="readNormalizedMeasure" ColumnName="readNormalizedMeasure" />
+          <ScalarProperty Name="readSatisfiedStatus" ColumnName="readSatisfiedStatus" />
+          <ScalarProperty Name="targetObjectiveID" ColumnName="targetObjectiveID" />
+          <ScalarProperty Name="satisfiedByMeasure" ColumnName="satisfiedByMeasure" />
+          <ScalarProperty Name="minNormalizedMeasure" ColumnName="minNormalizedMeasure" />
+          <ScalarProperty Name="objectiveId" ColumnName="objectiveId" />
+          <ScalarProperty Name="itemIdentifier" ColumnName="itemIdentifier" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="rowId" ColumnName="rowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_relationship">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_relationship">
+        <MappingFragment StoreEntitySet="s_relationship">
+          <ScalarProperty Name="parentItemIdentifier" ColumnName="parentItemIdentifier" />
+          <ScalarProperty Name="itemIdentifier" ColumnName="itemIdentifier" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_scoComments">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_scoComments">
+        <MappingFragment StoreEntitySet="s_scoComments">
+          <ScalarProperty Name="commentLocation" ColumnName="commentLocation" />
+          <ScalarProperty Name="commentDateTime" ColumnName="commentDateTime" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="commentid" ColumnName="commentid" />
+          <ScalarProperty Name="activityid" ColumnName="activityid" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_score">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_score">
+        <MappingFragment StoreEntitySet="s_score">
+          <ScalarProperty Name="score_raw" ColumnName="score_raw" />
+          <ScalarProperty Name="score_min" ColumnName="score_min" />
+          <ScalarProperty Name="score_max" ColumnName="score_max" />
+          <ScalarProperty Name="score_scaled" ColumnName="score_scaled" />
+          <ScalarProperty Name="idCommunication" ColumnName="idCommunication" />
+          <ScalarProperty Name="idScore" ColumnName="idScore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_scormWizard">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_scormWizard">
+        <MappingFragment StoreEntitySet="s_scormWizard">
+          <ScalarProperty Name="navigationtype" ColumnName="navigationtype" />
+          <ScalarProperty Name="coursetitle" ColumnName="coursetitle" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="updateflag" ColumnName="updateflag" />
+          <ScalarProperty Name="courseurl" ColumnName="courseurl" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="sessionid" ColumnName="sessionid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="s_studentHistory">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.s_studentHistory">
+        <MappingFragment StoreEntitySet="s_studentHistory">
+          <ScalarProperty Name="p_audio_captioning" ColumnName="p_audio_captioning" />
+          <ScalarProperty Name="p_delivery_speed" ColumnName="p_delivery_speed" />
+          <ScalarProperty Name="p_language" ColumnName="p_language" />
+          <ScalarProperty Name="p_audio_level" ColumnName="p_audio_level" />
+          <ScalarProperty Name="score_max" ColumnName="score_max" />
+          <ScalarProperty Name="score_min" ColumnName="score_min" />
+          <ScalarProperty Name="score_raw" ColumnName="score_raw" />
+          <ScalarProperty Name="score_scaled" ColumnName="score_scaled" />
+          <ScalarProperty Name="testcount" ColumnName="testcount" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="idStudentHistory" ColumnName="idStudentHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCourses">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserCourse">
+        <MappingFragment StoreEntitySet="UserCourse">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="UserCourseId" ColumnName="UserCourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDocuments">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserDocument">
+        <MappingFragment StoreEntitySet="UserDocument">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="UserDocumentId" ColumnName="UserDocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDocumentHits">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserDocumentHit">
+        <MappingFragment StoreEntitySet="UserDocumentHits">
+          <ScalarProperty Name="AccessDate" ColumnName="AccessDate" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserDocumentHitsID" ColumnName="UserDocumentHitsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="LogoutDate" ColumnName="LogoutDate" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="BrowserVersion" ColumnName="BrowserVersion" />
+          <ScalarProperty Name="BrowserName" ColumnName="BrowserName" />
+          <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+          <ScalarProperty Name="PlatformType" ColumnName="PlatformType" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfileSettings">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserProfileSetting">
+        <MappingFragment StoreEntitySet="UserProfileSettings">
+          <ScalarProperty Name="ProfileOrder" ColumnName="ProfileOrder" />
+          <ScalarProperty Name="ProfileTitle" ColumnName="ProfileTitle" />
+          <ScalarProperty Name="ProfileSettingID" ColumnName="ProfileSettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfileSettingsInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserProfileSettingsInfo">
+        <MappingFragment StoreEntitySet="UserProfileSettingsInfo">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="ProfileTitle" ColumnName="ProfileTitle" />
+          <ScalarProperty Name="ProfileSettignOrgId" ColumnName="ProfileSettignOrgId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfileSettingsOrgs">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserProfileSettingsOrg">
+        <MappingFragment StoreEntitySet="UserProfileSettingsOrg">
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="ProfileType" ColumnName="ProfileType" />
+          <ScalarProperty Name="MaxLength" ColumnName="MaxLength" />
+          <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
+          <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="ProfileSettingID" ColumnName="ProfileSettingID" />
+          <ScalarProperty Name="ProfileSettignOrgId" ColumnName="ProfileSettignOrgId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfileSettingsOrgValues">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserProfileSettingsOrgValue">
+        <MappingFragment StoreEntitySet="UserProfileSettingsOrgValues">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="ProfileValuesTitle" ColumnName="ProfileValuesTitle" />
+          <ScalarProperty Name="ProfileSettignOrgId" ColumnName="ProfileSettignOrgId" />
+          <ScalarProperty Name="UserProfileSettingsOrgValuesId" ColumnName="UserProfileSettingsOrgValuesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Email">
+        <MappingFragment StoreEntitySet="Email">
+          <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="MailCode" ColumnName="MailCode" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="IsOn" ColumnName="IsOn" />
+          <ScalarProperty Name="Mailtype" ColumnName="Mailtype" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserCourseArchiveReport" FunctionName="LeopinkLMSDBModel.Store.GetUserCourseArchiveReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserCourseArchiveReport_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="Completiondate" ColumnName="Completiondate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrganisationUserReport" FunctionName="LeopinkLMSDBModel.Store.GetOrganisationUserReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetOrganisationUserReport_Result">
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="GRPEmailAddress" ColumnName="GRPEmailAddress" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserCourse" FunctionName="LeopinkLMSDBModel.Store.GetUserCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserCourse_Result">
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="LastAccessDate" ColumnName="LastAccessDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseFile" ColumnName="CourseFile" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+          <ScalarProperty Name="PassMarks" ColumnName="PassMarks" />
+          <ScalarProperty Name="IsMobile" ColumnName="IsMobile" />
+          <ScalarProperty Name="CourseDurationMin" ColumnName="CourseDurationMin" />
+          <ScalarProperty Name="Mandaotry" ColumnName="Mandaotry" />
+          <ScalarProperty Name="LaunchFileName" ColumnName="LaunchFileName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="course_state">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.course_state">
+        <MappingFragment StoreEntitySet="course_state">
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="course_state_comment" ColumnName="course_state_comment" />
+          <ScalarProperty Name="course_state1" ColumnName="course_state" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="course_state_id" ColumnName="course_state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedAdminID" ColumnName="ModifiedAdminID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedAdminID" ColumnName="CreatedAdminID" />
+          <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+          <ScalarProperty Name="QuestionBankID" ColumnName="QuestionBankID" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionTypes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.QuestionType">
+        <MappingFragment StoreEntitySet="QuestionType">
+          <ScalarProperty Name="QuestionType1" ColumnName="QuestionType" />
+          <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionBanks">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.QuestionBank">
+        <MappingFragment StoreEntitySet="QuestionBank">
+          <ScalarProperty Name="ModifiedAdminID" ColumnName="ModifiedAdminID" />
+          <ScalarProperty Name="CreatedAdminID" ColumnName="CreatedAdminID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="QuestionBankName" ColumnName="QuestionBankName" />
+          <ScalarProperty Name="QuestionBankID" ColumnName="QuestionBankID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElearningStatus">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ElearningStatu">
+        <MappingFragment StoreEntitySet="ElearningStatus">
+          <ScalarProperty Name="IsQuiz" ColumnName="IsQuiz" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="MinScore" ColumnName="MinScore" />
+          <ScalarProperty Name="MaxScore" ColumnName="MaxScore" />
+          <ScalarProperty Name="PassPercent" ColumnName="PassPercent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LogoutDate" ColumnName="LogoutDate" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="TotalHits" ColumnName="TotalHits" />
+          <ScalarProperty Name="TimeInCourse" ColumnName="TimeInCourse" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="ElearningStatusID" ColumnName="ElearningStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElearningStatusArchives">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ElearningStatusArchive">
+        <MappingFragment StoreEntitySet="ElearningStatusArchive">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="MinScore" ColumnName="MinScore" />
+          <ScalarProperty Name="MaxScore" ColumnName="MaxScore" />
+          <ScalarProperty Name="PassPercent" ColumnName="PassPercent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LogoutDate" ColumnName="LogoutDate" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="TotalHits" ColumnName="TotalHits" />
+          <ScalarProperty Name="TimeInCourse" ColumnName="TimeInCourse" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="ElearningStatusArchiveID" ColumnName="ElearningStatusArchiveID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupQuizs">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.GroupQuiz">
+        <MappingFragment StoreEntitySet="GroupQuiz">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+          <ScalarProperty Name="GroupQuizID" ColumnName="GroupQuizID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserQuizs">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserQuiz">
+        <MappingFragment StoreEntitySet="UserQuiz">
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+          <ScalarProperty Name="UserQuizID" ColumnName="UserQuizID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedQuizGroup" FunctionName="LeopinkLMSDBModel.Store.GetAssignedQuizGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedQuizGroup_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="MaxUsers" ColumnName="MaxUsers" />
+          <ScalarProperty Name="AssignedUsers" ColumnName="AssignedUsers" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="GroupManager" ColumnName="GroupManager" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAssignedQuizsToUser" FunctionName="LeopinkLMSDBModel.Store.GetAssignedQuizsToUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetAssignedQuizsToUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SupportInfoes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.SupportInfo">
+        <MappingFragment StoreEntitySet="SupportInfo">
+          <ScalarProperty Name="isPublished" ColumnName="isPublished" />
+          <ScalarProperty Name="Replydate" ColumnName="Replydate" />
+          <ScalarProperty Name="Replyby" ColumnName="Replyby" />
+          <ScalarProperty Name="Reply" ColumnName="Reply" />
+          <ScalarProperty Name="SupportDate" ColumnName="SupportDate" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SupportInfoID" ColumnName="SupportInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Scheduler_UserArchive" FunctionName="LeopinkLMSDBModel.Store.Scheduler_UserArchive" />
+    <FunctionImportMapping FunctionImportName="Scheduler_UserCourseArchive" FunctionName="LeopinkLMSDBModel.Store.Scheduler_UserCourseArchive" />
+    <FunctionImportMapping FunctionImportName="GetUserCoursePassPercentageMonthwise" FunctionName="LeopinkLMSDBModel.Store.GetUserCoursePassPercentageMonthwise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserCoursePassPercentageMonthwise_Result">
+          <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
+          <ScalarProperty Name="TotalUserCoursePassPercentage" ColumnName="TotalUserCoursePassPercentage" />
+          <ScalarProperty Name="TotalRegisteredUsers" ColumnName="TotalRegisteredUsers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserQuizReport" FunctionName="LeopinkLMSDBModel.Store.GetUserQuizReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserQuizReport_Result">
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuizName" ColumnName="QuizName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="UserAnswers" ColumnName="UserAnswers" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CourseFeedbacks">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CourseFeedback">
+        <MappingFragment StoreEntitySet="CourseFeedback">
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseFeedbackID" ColumnName="CourseFeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseUnits">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CourseUnit">
+        <MappingFragment StoreEntitySet="CourseUnit">
+          <ScalarProperty Name="audio_delay" ColumnName="audio_delay" />
+          <ScalarProperty Name="assessment_id" ColumnName="assessment_id" />
+          <ScalarProperty Name="sub_type" ColumnName="sub_type" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="unit_path_url" ColumnName="unit_path_url" />
+          <ScalarProperty Name="unit_content" ColumnName="unit_content" />
+          <ScalarProperty Name="unit_order" ColumnName="unit_order" />
+          <ScalarProperty Name="unit_type" ColumnName="unit_type" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCourseRequests">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserCourseRequest">
+        <MappingFragment StoreEntitySet="UserCourseRequest">
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserQuizScores">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserQuizScore">
+        <MappingFragment StoreEntitySet="UserQuizScore">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="DurationSeconds" ColumnName="DurationSeconds" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="CorrectQuestions" ColumnName="CorrectQuestions" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PassPercent" ColumnName="PassPercent" />
+          <ScalarProperty Name="QuizDate" ColumnName="QuizDate" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+          <ScalarProperty Name="QuizScoreID" ColumnName="QuizScoreID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+          <ScalarProperty Name="CourseFees" ColumnName="CourseFees" />
+          <ScalarProperty Name="CourseDurationMin" ColumnName="CourseDurationMin" />
+          <ScalarProperty Name="Mandaotry" ColumnName="Mandaotry" />
+          <ScalarProperty Name="IsMobile" ColumnName="IsMobile" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsUserDefined" ColumnName="IsUserDefined" />
+          <ScalarProperty Name="PassMarks" ColumnName="PassMarks" />
+          <ScalarProperty Name="TopContent" ColumnName="TopContent" />
+          <ScalarProperty Name="LeftNavigation" ColumnName="LeftNavigation" />
+          <ScalarProperty Name="BottomNavigation" ColumnName="BottomNavigation" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="IsFinalized" ColumnName="IsFinalized" />
+          <ScalarProperty Name="ScoLabel" ColumnName="ScoLabel" />
+          <ScalarProperty Name="FileSizeInKB" ColumnName="FileSizeInKB" />
+          <ScalarProperty Name="LaunchFileName" ColumnName="LaunchFileName" />
+          <ScalarProperty Name="FolderLocation" ColumnName="FolderLocation" />
+          <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentManagers">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.DocumentManager">
+        <MappingFragment StoreEntitySet="DocumentManager">
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DocSizeInKB" ColumnName="DocSizeInKB" />
+          <ScalarProperty Name="DocUploadPath" ColumnName="DocUploadPath" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DocumentDisplayName" ColumnName="DocumentDisplayName" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserAllDocuments" FunctionName="LeopinkLMSDBModel.Store.GetUserAllDocuments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserAllDocuments_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="LastAccessDate" ColumnName="LastAccessDate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CourseFile" ColumnName="CourseFile" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseInfoId" ColumnName="CourseInfoId" />
+          <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="UserScheduledEvents">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserScheduledEvent">
+        <MappingFragment StoreEntitySet="UserScheduledEvents">
+          <ScalarProperty Name="ScheduledEvents" ColumnName="ScheduledEvents" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCatalogue" FunctionName="LeopinkLMSDBModel.Store.GetCatalogue">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetCatalogue_Result">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="IsAssigned" ColumnName="IsAssigned" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModifiedById" ColumnName="LastModifiedById" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TopicDescription" ColumnName="TopicDescription" />
+          <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopicUnits">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.TopicUnit">
+        <MappingFragment StoreEntitySet="TopicUnit">
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="unit_order" ColumnName="unit_order" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="topicId" ColumnName="topicId" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseUnitStatus">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CourseUnitStatu">
+        <MappingFragment StoreEntitySet="CourseUnitStatus">
+          <ScalarProperty Name="Video_Time" ColumnName="Video_Time" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Bookmark" ColumnName="Bookmark" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="DateLastAccessed" ColumnName="DateLastAccessed" />
+          <ScalarProperty Name="UnitStatus" ColumnName="UnitStatus" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="CourseUnitStatusID" ColumnName="CourseUnitStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserAllCourses" FunctionName="LeopinkLMSDBModel.Store.GetUserAllCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserAllCourses_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="LastAccessDate" ColumnName="LastAccessDate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CourseFile" ColumnName="CourseFile" />
+          <ScalarProperty Name="WindowHeight" ColumnName="WindowHeight" />
+          <ScalarProperty Name="WindowWidth" ColumnName="WindowWidth" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseInfoId" ColumnName="CourseInfoId" />
+          <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+          <ScalarProperty Name="PassMarks" ColumnName="PassMarks" />
+          <ScalarProperty Name="IsMobile" ColumnName="IsMobile" />
+          <ScalarProperty Name="CourseDurationMin" ColumnName="CourseDurationMin" />
+          <ScalarProperty Name="Mandaotry" ColumnName="Mandaotry" />
+          <ScalarProperty Name="LaunchFileName" ColumnName="LaunchFileName" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+          <ScalarProperty Name="unit_order" ColumnName="unit_order" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Answer">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="MatchIDs" ColumnName="MatchIDs" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedAdminID" ColumnName="ModifiedAdminID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedAdminID" ColumnName="CreatedAdminID" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quizes">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.Quize">
+        <MappingFragment StoreEntitySet="Quizes">
+          <ScalarProperty Name="QuizDuration" ColumnName="QuizDuration" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="IsSurvey" ColumnName="IsSurvey" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedAdminID" ColumnName="ModifiedAdminID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedAdminID" ColumnName="CreatedAdminID" />
+          <ScalarProperty Name="QuestionIDs" ColumnName="QuestionIDs" />
+          <ScalarProperty Name="PassPercent" ColumnName="PassPercent" />
+          <ScalarProperty Name="QuizName" ColumnName="QuizName" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserQuizRecords">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserQuizRecord">
+        <MappingFragment StoreEntitySet="UserQuizRecords">
+          <ScalarProperty Name="QuizScoreID" ColumnName="QuizScoreID" />
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+          <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserQuizRecordID" ColumnName="UserQuizRecordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseFAQs">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.CourseFAQ">
+        <MappingFragment StoreEntitySet="CourseFAQ">
+          <ScalarProperty Name="CourseUnitID" ColumnName="CourseUnitID" />
+          <ScalarProperty Name="IsShowInList" ColumnName="IsShowInList" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ReplyUserId" ColumnName="ReplyUserId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseQuestionID" ColumnName="CourseQuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistrictBlocks">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.DistrictBlock">
+        <MappingFragment StoreEntitySet="DistrictBlock">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="BlockName" ColumnName="BlockName" />
+          <ScalarProperty Name="BlockId" ColumnName="BlockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistrictSchools">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.DistrictSchool">
+        <MappingFragment StoreEntitySet="DistrictSchools">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="PrincipalMobile" ColumnName="PrincipalMobile" />
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="Udise" ColumnName="Udise" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Scode" ColumnName="Scode" />
+          <ScalarProperty Name="BlockId" ColumnName="BlockId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParentStudents">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ParentStudent">
+        <MappingFragment StoreEntitySet="ParentStudent">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="AssignedStatus" ColumnName="AssignedStatus" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ParentStudentId" ColumnName="ParentStudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DeleteInformation" ColumnName="DeleteInformation" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="IsRegisterMailSend" ColumnName="IsRegisterMailSend" />
+          <ScalarProperty Name="IsPasswordChanged" ColumnName="IsPasswordChanged" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SelfRegistrations">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.SelfRegistration">
+        <MappingFragment StoreEntitySet="SelfRegistration">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="UserIDs" ColumnName="UserIDs" />
+          <ScalarProperty Name="GroupIDs" ColumnName="GroupIDs" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SelfRegistrationId" ColumnName="SelfRegistrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PTMSummaryReport" FunctionName="LeopinkLMSDBModel.Store.PTMSummaryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.PTMSummaryReport_Result">
+          <ScalarProperty Name="TotalAssignedCourses" ColumnName="TotalAssignedCourses" />
+          <ScalarProperty Name="TotalCompletedcourse" ColumnName="TotalCompletedcourse" />
+          <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+          <ScalarProperty Name="TotalTimeSpent" ColumnName="TotalTimeSpent" />
+          <ScalarProperty Name="TotalAttempted" ColumnName="TotalAttempted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ChatRooms">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ChatRoom">
+        <MappingFragment StoreEntitySet="ChatRoom">
+          <ScalarProperty Name="session_end_minutes" ColumnName="session_end_minutes" />
+          <ScalarProperty Name="session_end_hour" ColumnName="session_end_hour" />
+          <ScalarProperty Name="session_end_year" ColumnName="session_end_year" />
+          <ScalarProperty Name="session_end_month" ColumnName="session_end_month" />
+          <ScalarProperty Name="session_end_day" ColumnName="session_end_day" />
+          <ScalarProperty Name="End_date" ColumnName="End_date" />
+          <ScalarProperty Name="session_minutes" ColumnName="session_minutes" />
+          <ScalarProperty Name="session_hour" ColumnName="session_hour" />
+          <ScalarProperty Name="session_year" ColumnName="session_year" />
+          <ScalarProperty Name="session_month" ColumnName="session_month" />
+          <ScalarProperty Name="session_day" ColumnName="session_day" />
+          <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified_by" />
+          <ScalarProperty Name="Modified_date" ColumnName="Modified_date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="RoomOwner" ColumnName="RoomOwner" />
+          <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+          <ScalarProperty Name="ChatRoomID" ColumnName="ChatRoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SSOLoginDetails">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.SSOLoginDetail">
+        <MappingFragment StoreEntitySet="SSOLoginDetails">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+          <ScalarProperty Name="AttemptDate" ColumnName="AttemptDate" />
+          <ScalarProperty Name="StaffNo" ColumnName="StaffNo" />
+          <ScalarProperty Name="SsoID" ColumnName="SsoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ssothits">
+      <EntityTypeMapping TypeName="LeopinkLMSDBModel.ssothit">
+        <MappingFragment StoreEntitySet="ssothits">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="userLinkId" ColumnName="userLinkId" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ssothitsid" ColumnName="ssothitsid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetGroupUserCourse" FunctionName="LeopinkLMSDBModel.Store.GetGroupUserCourse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetGroupUserCourse_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="Courses" ColumnName="Courses" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserCourseReport" FunctionName="LeopinkLMSDBModel.Store.GetUserCourseReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LeopinkLMSDBModel.GetUserCourseReport_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Completiondate" ColumnName="Completiondate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IsQuiz" ColumnName="IsQuiz" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

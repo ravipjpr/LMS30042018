@@ -1,0 +1,12 @@
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\CLSLms.dll.config
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\CLSLms.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\CLSLms.pdb
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\EntityFramework.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\EntityFramework.SqlServer.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\LMSResourse.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\LMSResourse.pdb
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\EntityFramework.xml
+E:\ProjectsOthers\LeopinkLMS\CLSLms\bin\Release\EntityFramework.SqlServer.xml
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Release\CLSLms.csprojResolveAssemblyReference.cache
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Release\CLSLms.dll
+E:\ProjectsOthers\LeopinkLMS\CLSLms\obj\Release\CLSLms.pdb

@@ -1,0 +1,1967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LeopinkLMSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACLActions">
+    <Key>
+      <PropertyRef Name="ACLActionID" />
+    </Key>
+    <Property Name="ACLActionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionFQN" Type="varchar" MaxLength="100" />
+    <Property Name="LastModifiedByID" Type="int" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ACLMatrix">
+    <Key>
+      <PropertyRef Name="ACLMatrixID" />
+    </Key>
+    <Property Name="ACLMatrixID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACLActionID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsAccess" Type="bit" Nullable="false" />
+    <Property Name="LastModifiedBYID" Type="int" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppConstant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConstantID" Type="int" />
+    <Property Name="ConstantName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConstantDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConstantNameID" Type="int" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CategoryDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CategoryInfo">
+    <Key>
+      <PropertyRef Name="CategoryInfoId" />
+    </Key>
+    <Property Name="CategoryInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CategoryDescription" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Certificate">
+    <Key>
+      <PropertyRef Name="CertificateId" />
+    </Key>
+    <Property Name="CertificateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertificateName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CertificateDescription" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CertificateFileUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CertificateFileName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CertificateInfo">
+    <Key>
+      <PropertyRef Name="CertificateInfoId" />
+    </Key>
+    <Property Name="CertificateInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertificateId" Type="int" Nullable="false" />
+    <Property Name="CertificateName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CertificateDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CertificateFileUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CertificateFileName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CloudRoomCartItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="bigint" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BrowserSessionID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="CourseDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="CertificateId" Type="int" />
+    <Property Name="FolderLocation" Type="nvarchar(max)" />
+    <Property Name="LaunchFileName" Type="nvarchar" MaxLength="400" />
+    <Property Name="FileSizeInKB" Type="bigint" />
+    <Property Name="ScoLabel" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsFinalized" Type="bit" />
+    <Property Name="WindowWidth" Type="int" />
+    <Property Name="WindowHeight" Type="int" />
+    <Property Name="BottomNavigation" Type="bit" Nullable="false" />
+    <Property Name="LeftNavigation" Type="bit" Nullable="false" />
+    <Property Name="TopContent" Type="bit" Nullable="false" />
+    <Property Name="PassMarks" Type="int" />
+    <Property Name="IsUserDefined" Type="bit" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CourseInfo">
+    <Key>
+      <PropertyRef Name="CourseInfoId" />
+    </Key>
+    <Property Name="CourseInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CourseDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="FolderLocation" Type="nvarchar(max)" />
+    <Property Name="LaunchFileName" Type="nvarchar" MaxLength="400" />
+    <Property Name="FileSizeInKB" Type="bigint" />
+    <Property Name="ScoLabel" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsFinalized" Type="bit" />
+    <Property Name="WindowWidth" Type="int" />
+    <Property Name="WindowHeight" Type="int" />
+    <Property Name="PassMarks" Type="int" />
+    <Property Name="IsUserDefined" Type="bit" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentManager">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DocumentDisplayName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="DocUploadPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DocSizeInKB" Type="nvarchar" MaxLength="15" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CreatedByID" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ElearningStatus">
+    <Key>
+      <PropertyRef Name="ElearningStatusID" />
+    </Key>
+    <Property Name="ElearningStatusID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="TimeInCourse" Type="int" />
+    <Property Name="TotalHits" Type="int" />
+    <Property Name="LoginDate" Type="datetime" />
+    <Property Name="LogoutDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="PassPercent" Type="int" />
+    <Property Name="MaxScore" Type="int" />
+    <Property Name="MinScore" Type="int" />
+    <Property Name="Score" Type="int" />
+  </EntityType>
+  <EntityType Name="ElearningStatusArchive">
+    <Key>
+      <PropertyRef Name="ElearningStatusArchiveID" />
+    </Key>
+    <Property Name="ElearningStatusArchiveID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="TimeInCourse" Type="int" />
+    <Property Name="TotalHits" Type="int" />
+    <Property Name="LoginDate" Type="datetime" />
+    <Property Name="LogoutDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="PassPercent" Type="int" />
+    <Property Name="MaxScore" Type="int" />
+    <Property Name="MinScore" Type="int" />
+    <Property Name="Score" Type="int" />
+    <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElearningStatusHistory">
+    <Key>
+      <PropertyRef Name="ElearningStatusHistoryID" />
+    </Key>
+    <Property Name="ElearningStatusHistoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ElearningStatusID" Type="bigint" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="TimeInCourse" Type="int" />
+    <Property Name="TotalHits" Type="int" />
+    <Property Name="LoginDate" Type="datetime" />
+    <Property Name="LogoutDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="PassPercent" Type="int" />
+    <Property Name="MaxScore" Type="int" />
+    <Property Name="MinScore" Type="int" />
+    <Property Name="Score" Type="int" />
+    <Property Name="ResetDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ELMAH_Error">
+    <Key>
+      <PropertyRef Name="ErrorId" />
+    </Key>
+    <Property Name="ErrorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Application" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Host" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Source" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StatusCode" Type="int" Nullable="false" />
+    <Property Name="TimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="Sequence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AllXml" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mailtype" Type="varchar" MaxLength="2" />
+    <Property Name="IsOn" Type="bit" Nullable="false" />
+    <Property Name="OrganisationID" Type="int" />
+    <Property Name="MailCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="FromEmail" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="EmailLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailID" Type="int" />
+    <Property Name="EmailFrom" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailToUser" Type="bigint" />
+    <Property Name="DateSent" Type="datetime" />
+    <Property Name="EmailToSelfRegUser" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GroupDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="GroupManager" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="OrganisationID" Type="int" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+    <Property Name="MaxUsers" Type="bigint" Nullable="false" />
+    <Property Name="AssignedUsers" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GroupCourse">
+    <Key>
+      <PropertyRef Name="GroupCourseId" />
+    </Key>
+    <Property Name="GroupCourseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="AssignedStatus" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GroupDocument">
+    <Key>
+      <PropertyRef Name="GroupDocumentId" />
+    </Key>
+    <Property Name="GroupDocumentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentId" Type="bigint" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="AssignedStatus" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GroupHomepage">
+    <Key>
+      <PropertyRef Name="GroupHomepageID" />
+    </Key>
+    <Property Name="GroupHomepageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageLocation" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GroupHomepageInfo">
+    <Key>
+      <PropertyRef Name="GroupHomepageInfoID" />
+    </Key>
+    <Property Name="GroupHomepageInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupHomepageID" Type="int" Nullable="false" />
+    <Property Name="HomePageContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedById" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GroupInfo">
+    <Key>
+      <PropertyRef Name="GroupInfoId" />
+    </Key>
+    <Property Name="GroupInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GroupDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="GroupManager" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HelpContent">
+    <Key>
+      <PropertyRef Name="HelpModuleID" />
+    </Key>
+    <Property Name="HelpModuleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleTitle" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ModuleParentID" Type="bigint" />
+    <Property Name="ModuleSectionURL" Type="nvarchar" MaxLength="500" />
+    <Property Name="ModuleContent" Type="ntext" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InstanceInfo">
+    <Key>
+      <PropertyRef Name="InstanceID" />
+    </Key>
+    <Property Name="InstanceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationAuthToken" Type="nvarchar" MaxLength="500" />
+    <Property Name="InstanceTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="SmtpIPv4" Type="varchar" MaxLength="15" />
+    <Property Name="HostEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="SupportEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="DefaultLanguage" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" />
+    <Property Name="GroupAdminId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsSelfRegistrationOn" Type="bit" Nullable="false" />
+    <Property Name="IsHelpOn" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="ActiveForAdmin" Type="bit" Nullable="false" />
+    <Property Name="ActiveForLearner" Type="bit" Nullable="false" />
+    <Property Name="LastModifiedById" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="LicenseID" />
+    </Key>
+    <Property Name="LicenseID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganisationID" Type="int" Nullable="false" />
+    <Property Name="MaxUsers" Type="bigint" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CartID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrowserSessionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="emailAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HasPaymentDone" Type="bit" Nullable="false" />
+    <Property Name="PaymentMode" Type="nvarchar" MaxLength="250" />
+    <Property Name="TransactionID" Type="nvarchar" MaxLength="150" />
+    <Property Name="StripeChargeID" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderCreationDatetime" Type="datetime" Nullable="false" />
+    <Property Name="OrderCloseDatetime" Type="datetime" />
+    <Property Name="DiscountInPerscent" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardBrandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardCountry" Type="nvarchar" MaxLength="100" />
+    <Property Name="CardExpirationMonth" Type="nvarchar" MaxLength="10" />
+    <Property Name="CardExpirationYear" Type="nvarchar" MaxLength="10" />
+    <Property Name="CardType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardLast4Digits" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Organisation">
+    <Key>
+      <PropertyRef Name="OrganisationID" />
+    </Key>
+    <Property Name="OrganisationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganisationName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrganisationUID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="150" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+    <Property Name="OrganisationLogo" Type="nvarchar(max)" />
+    <Property Name="OrganisationBanner" Type="nvarchar(max)" />
+    <Property Name="AddressLine3" Type="nvarchar" MaxLength="150" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaxUsers" Type="bigint" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="IsUserAssignment" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrganisationInfo">
+    <Key>
+      <PropertyRef Name="OrganisationInfoId" />
+    </Key>
+    <Property Name="OrganisationInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganisationID" Type="int" Nullable="false" />
+    <Property Name="OrganisationUID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrganisationName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="150" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="150" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="OrganisationLogo" Type="nvarchar(max)" />
+    <Property Name="OrganisationBanner" Type="nvarchar(max)" />
+    <Property Name="AddressLine3" Type="nvarchar" MaxLength="150" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="s_cmi">
+    <Key>
+      <PropertyRef Name="idCmi" />
+    </Key>
+    <Property Name="idCmi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentid" Type="int" />
+    <Property Name="courseid" Type="int" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="learner_name" Type="varchar" MaxLength="250" />
+    <Property Name="total_time" Type="varchar" MaxLength="50" />
+    <Property Name="isSuspended" Type="bit" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="itemid" Type="int" />
+  </EntityType>
+  <EntityType Name="s_cmiTree">
+    <Key>
+      <PropertyRef Name="cmiTreeId" />
+    </Key>
+    <Property Name="cmiTreeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCmi" Type="int" />
+    <Property Name="ItemId" Type="varchar" MaxLength="255" />
+    <Property Name="Hits" Type="int" />
+  </EntityType>
+  <EntityType Name="s_commentsFromLearner">
+    <Key>
+      <PropertyRef Name="idCommentsFromLearner" />
+    </Key>
+    <Property Name="idCommentsFromLearner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_CFL" Type="int" Nullable="false" />
+    <Property Name="studentid_CFL" Type="int" />
+    <Property Name="courseid_CFL" Type="int" />
+    <Property Name="comment_CFL" Type="varchar" MaxLength="4000" />
+    <Property Name="location_CFL" Type="varchar" MaxLength="250" />
+    <Property Name="timeStamp_CFL" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="s_commentsFromLMS">
+    <Key>
+      <PropertyRef Name="idCommentsFromLMS" />
+    </Key>
+    <Property Name="idCommentsFromLMS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_CFLM" Type="int" Nullable="false" />
+    <Property Name="studentid_CFLM" Type="int" />
+    <Property Name="courseid_CFLM" Type="int" />
+    <Property Name="comment_CFLM" Type="varchar" MaxLength="4000" />
+    <Property Name="location_CFLM" Type="varchar" MaxLength="250" />
+    <Property Name="timeStamp_CFLM" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="s_communication">
+    <Key>
+      <PropertyRef Name="idCommunication" />
+    </Key>
+    <Property Name="idCommunication" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCmi" Type="int" />
+    <Property Name="itemid" Type="int" />
+    <Property Name="studentid" Type="int" />
+    <Property Name="completion_status" Type="char" MaxLength="50" />
+    <Property Name="credit" Type="char" MaxLength="10" />
+    <Property Name="entry" Type="char" MaxLength="10" />
+    <Property Name="exit" Type="char" MaxLength="10" />
+    <Property Name="location" Type="varchar" MaxLength="1000" />
+    <Property Name="mode" Type="char" MaxLength="10" />
+    <Property Name="progress_measure" Type="real" />
+    <Property Name="session_time" Type="varchar" MaxLength="50" />
+    <Property Name="success_status" Type="char" MaxLength="10" />
+    <Property Name="suspend_data" Type="text" />
+    <Property Name="time_limit_action" Type="varchar" MaxLength="50" />
+    <Property Name="comments" Type="text" />
+  </EntityType>
+  <EntityType Name="s_correctResponse">
+    <Key>
+      <PropertyRef Name="idCorrectResponse" />
+    </Key>
+    <Property Name="idCorrectResponse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n" Type="int" />
+    <Property Name="nInteraction" Type="int" />
+    <Property Name="patternCorrectResponse" Type="varchar" MaxLength="4000" />
+    <Property Name="idCommunication" Type="int" />
+  </EntityType>
+  <EntityType Name="s_courseInfo">
+    <Key>
+      <PropertyRef Name="courseid" />
+    </Key>
+    <Property Name="courseid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="scormCourseID" Type="varchar" MaxLength="50" />
+    <Property Name="courseTitle" Type="varchar" MaxLength="100" />
+    <Property Name="importDateTime" Type="datetime" />
+    <Property Name="courseRelationalPath" Type="varchar" MaxLength="1000" />
+    <Property Name="masterCourseId" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="version" Type="char" MaxLength="20" />
+    <Property Name="navigationtype" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="s_interaction">
+    <Key>
+      <PropertyRef Name="idInteraction" />
+    </Key>
+    <Property Name="idInteraction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCommunication" Type="int" />
+    <Property Name="id" Type="varchar" MaxLength="900" />
+    <Property Name="n" Type="int" />
+    <Property Name="type" Type="char" MaxLength="20" />
+    <Property Name="time_stamp" Type="varchar" MaxLength="50" />
+    <Property Name="weighting" Type="real" />
+    <Property Name="learner_response" Type="varchar" MaxLength="4000" />
+    <Property Name="result" Type="char" MaxLength="20" />
+    <Property Name="latency" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="250" />
+    <Property Name="Session_id" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="s_interactionObjectives">
+    <Key>
+      <PropertyRef Name="idInteractionObjectives" />
+    </Key>
+    <Property Name="idInteractionObjectives" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n" Type="int" />
+    <Property Name="nInteraction" Type="int" />
+    <Property Name="idObjective" Type="varchar" MaxLength="900" />
+    <Property Name="idCommunication" Type="int" />
+  </EntityType>
+  <EntityType Name="s_itemInfo">
+    <Key>
+      <PropertyRef Name="itemid" />
+    </Key>
+    <Property Name="itemid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseid" Type="int" />
+    <Property Name="identifierOrg" Type="nvarchar" MaxLength="255" />
+    <Property Name="identifierItem" Type="nvarchar" MaxLength="255" />
+    <Property Name="identifierRes" Type="nvarchar" MaxLength="255" />
+    <Property Name="launch" Type="ntext" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar" MaxLength="255" />
+    <Property Name="parameterString" Type="ntext" />
+    <Property Name="persistState" Type="nvarchar" MaxLength="255" />
+    <Property Name="dataFromLMS" Type="nvarchar" MaxLength="255" />
+    <Property Name="minNormalizedMeasure" Type="nvarchar" MaxLength="50" />
+    <Property Name="attemptAbsoluteDurationLimit" Type="nvarchar" MaxLength="255" />
+    <Property Name="timeLimitAction" Type="nvarchar" MaxLength="255" />
+    <Property Name="completionThreshold" Type="nvarchar" MaxLength="255" />
+    <Property Name="prerequisites" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="s_objective">
+    <Key>
+      <PropertyRef Name="idObjective" />
+    </Key>
+    <Property Name="idObjective" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCommunication" Type="int" />
+    <Property Name="id" Type="varchar" MaxLength="900" />
+    <Property Name="counter" Type="int" Nullable="false" />
+    <Property Name="score_scaled" Type="real" />
+    <Property Name="score_raw" Type="real" />
+    <Property Name="score_min" Type="real" />
+    <Property Name="score_max" Type="real" />
+    <Property Name="success_status" Type="char" MaxLength="10" />
+    <Property Name="completion_status" Type="char" MaxLength="15" />
+    <Property Name="progress_measure" Type="real" />
+    <Property Name="description" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="s_objectivesInfo">
+    <Key>
+      <PropertyRef Name="rowId" />
+    </Key>
+    <Property Name="rowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseid" Type="int" />
+    <Property Name="itemIdentifier" Type="varchar" MaxLength="255" />
+    <Property Name="objectiveId" Type="varchar" MaxLength="255" />
+    <Property Name="minNormalizedMeasure" Type="char" MaxLength="10" />
+    <Property Name="satisfiedByMeasure" Type="bit" />
+    <Property Name="targetObjectiveID" Type="varchar" MaxLength="255" />
+    <Property Name="readSatisfiedStatus" Type="bit" />
+    <Property Name="readNormalizedMeasure" Type="bit" />
+    <Property Name="writeSatisfiedStatus" Type="bit" />
+    <Property Name="writeNormalizedMeasure" Type="bit" />
+  </EntityType>
+  <EntityType Name="s_relationship">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseid" Type="int" />
+    <Property Name="itemIdentifier" Type="varchar" MaxLength="50" />
+    <Property Name="parentItemIdentifier" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="s_scoComments">
+    <Key>
+      <PropertyRef Name="courseid" />
+    </Key>
+    <Property Name="courseid" Type="int" Nullable="false" />
+    <Property Name="activityid" Type="int" Nullable="false" />
+    <Property Name="commentid" Type="int" Nullable="false" />
+    <Property Name="comment" Type="ntext" />
+    <Property Name="commentDateTime" Type="smalldatetime" />
+    <Property Name="commentLocation" Type="ntext" />
+  </EntityType>
+  <EntityType Name="s_score">
+    <Key>
+      <PropertyRef Name="idScore" />
+    </Key>
+    <Property Name="idScore" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCommunication" Type="int" />
+    <Property Name="score_scaled" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="score_max" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="score_min" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="score_raw" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="s_scormWizard">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sessionid" Type="varchar" MaxLength="50" />
+    <Property Name="courseid" Type="varchar" MaxLength="100" />
+    <Property Name="courseurl" Type="varchar" MaxLength="500" />
+    <Property Name="updateflag" Type="char" MaxLength="1" />
+    <Property Name="version" Type="char" MaxLength="20" />
+    <Property Name="coursetitle" Type="varchar" MaxLength="200" />
+    <Property Name="navigationtype" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="s_studentHistory">
+    <Key>
+      <PropertyRef Name="idStudentHistory" />
+    </Key>
+    <Property Name="idStudentHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentid" Type="int" />
+    <Property Name="courseid" Type="int" />
+    <Property Name="testcount" Type="int" />
+    <Property Name="score_scaled" Type="real" />
+    <Property Name="score_raw" Type="real" />
+    <Property Name="score_min" Type="real" />
+    <Property Name="score_max" Type="real" />
+    <Property Name="p_audio_level" Type="real" />
+    <Property Name="p_language" Type="varchar" MaxLength="256" />
+    <Property Name="p_delivery_speed" Type="real" />
+    <Property Name="p_audio_captioning" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="SelfRegistration">
+    <Key>
+      <PropertyRef Name="SelfRegistrationId" />
+    </Key>
+    <Property Name="SelfRegistrationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="IsApprove" Type="smallint" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupportInfo">
+    <Key>
+      <PropertyRef Name="SupportInfoID" />
+    </Key>
+    <Property Name="SupportInfoID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="Summary" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="500" />
+    <Property Name="SupportDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCourse">
+    <Key>
+      <PropertyRef Name="UserCourseId" />
+    </Key>
+    <Property Name="UserCourseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="AssignedStatus" Type="bit" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserDocument">
+    <Key>
+      <PropertyRef Name="UserDocumentId" />
+    </Key>
+    <Property Name="UserDocumentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="AssignedStatus" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedById" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserDocumentHits">
+    <Key>
+      <PropertyRef Name="UserDocumentHitsID" />
+    </Key>
+    <Property Name="UserDocumentHitsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="DocumentId" Type="bigint" Nullable="false" />
+    <Property Name="AccessDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="UserLoginID" />
+    </Key>
+    <Property Name="UserLoginID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PlatformType" Type="varchar" MaxLength="20" />
+    <Property Name="OSVersion" Type="varchar" MaxLength="20" />
+    <Property Name="BrowserName" Type="varchar" MaxLength="20" />
+    <Property Name="BrowserVersion" Type="varchar" MaxLength="20" />
+    <Property Name="IP" Type="varchar" MaxLength="40" />
+    <Property Name="LoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LogoutDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManagerName" Type="nvarchar" MaxLength="256" />
+    <Property Name="OrganisationID" Type="int" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Option1" Type="nvarchar(max)" />
+    <Property Name="Option2" Type="nvarchar(max)" />
+    <Property Name="LastModifiedByID" Type="bigint" />
+    <Property Name="DateLastModified" Type="datetime" Nullable="false" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="IsPasswordChanged" Type="bit" Nullable="false" />
+    <Property Name="IsRegisterMailSend" Type="bit" Nullable="false" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="DeleteInformation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserProfileSettings">
+    <Key>
+      <PropertyRef Name="ProfileSettingID" />
+    </Key>
+    <Property Name="ProfileSettingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfileTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfileOrder" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="UserProfileSettingsInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfileSettignOrgId" Type="int" Nullable="false" />
+    <Property Name="ProfileTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="LanguageID" Type="int" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserProfileSettingsOrg">
+    <Key>
+      <PropertyRef Name="ProfileSettignOrgId" />
+    </Key>
+    <Property Name="ProfileSettignOrgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfileSettingID" Type="int" Nullable="false" />
+    <Property Name="OrganisationID" Type="int" Nullable="false" />
+    <Property Name="IsDisplay" Type="bit" />
+    <Property Name="IsMandatory" Type="bit" />
+    <Property Name="MaxLength" Type="smallint" Nullable="false" />
+    <Property Name="ProfileType" Type="int" />
+    <Property Name="LastModifiedByID" Type="bigint" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfileSettingsOrgValues">
+    <Key>
+      <PropertyRef Name="UserProfileSettingsOrgValuesId" />
+    </Key>
+    <Property Name="UserProfileSettingsOrgValuesId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfileSettignOrgId" Type="int" Nullable="false" />
+    <Property Name="ProfileValuesTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ACLActions_ACLActionID">
+    <End Role="ACLActions" Type="Self.ACLActions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ACLMatrix" Type="Self.ACLMatrix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACLActions">
+        <PropertyRef Name="ACLActionID" />
+      </Principal>
+      <Dependent Role="ACLMatrix">
+        <PropertyRef Name="ACLActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryInfo_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="CategoryInfo" Type="Self.CategoryInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="CategoryInfo">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="CategoryInfo" Type="Self.CategoryInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="CategoryInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CertificateInfo_Certificate">
+    <End Role="Certificate" Type="Self.Certificate" Multiplicity="1" />
+    <End Role="CertificateInfo" Type="Self.CertificateInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificate">
+        <PropertyRef Name="CertificateId" />
+      </Principal>
+      <Dependent Role="CertificateInfo">
+        <PropertyRef Name="CertificateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CertificateInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="CertificateInfo" Type="Self.CertificateInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="CertificateInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CloudRoomCartItems_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="CloudRoomCartItems" Type="Self.CloudRoomCartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="CloudRoomCartItems">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Certificate">
+    <End Role="Certificate" Type="Self.Certificate" Multiplicity="0..1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificate">
+        <PropertyRef Name="CertificateId" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CertificateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseInfo_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CourseInfo" Type="Self.CourseInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="CourseInfo">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CourseInfo" Type="Self.CourseInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="CourseInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="DocumentManager" Type="Self.DocumentManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="DocumentManager">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailLog_Users">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmailLog" Type="Self.EmailLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="EmailLog">
+        <PropertyRef Name="EmailToUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupCourse_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="GroupCourse" Type="Self.GroupCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="GroupCourse">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupCourse_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupCourse" Type="Self.GroupCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="GroupCourse">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupDocument_DocumentManager">
+    <End Role="DocumentManager" Type="Self.DocumentManager" Multiplicity="1" />
+    <End Role="GroupDocument" Type="Self.GroupDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentManager">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="GroupDocument">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupDocument_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupDocument" Type="Self.GroupDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="GroupDocument">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupHomepage_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupHomepage" Type="Self.GroupHomepage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="GroupHomepage">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupHomepageInfo_GroupHomepage">
+    <End Role="GroupHomepage" Type="Self.GroupHomepage" Multiplicity="1" />
+    <End Role="GroupHomepageInfo" Type="Self.GroupHomepageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupHomepage">
+        <PropertyRef Name="GroupHomepageID" />
+      </Principal>
+      <Dependent Role="GroupHomepageInfo">
+        <PropertyRef Name="GroupHomepageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupHomepageInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="GroupHomepageInfo" Type="Self.GroupHomepageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="GroupHomepageInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupInfo_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="GroupInfo">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="GroupInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Organisation">
+    <End Role="Organisation" Type="Self.Organisation" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Group" Type="Self.Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisation">
+        <PropertyRef Name="OrganisationID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="OrganisationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstanceInfo_AspNetRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+    <End Role="InstanceInfo" Type="Self.InstanceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InstanceInfo">
+        <PropertyRef Name="GroupAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstanceInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="InstanceInfo" Type="Self.InstanceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="InstanceInfo">
+        <PropertyRef Name="DefaultLanguage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_License_Organisation">
+    <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+    <End Role="License" Type="Self.License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisation">
+        <PropertyRef Name="OrganisationID" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="OrganisationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganisationInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="OrganisationInfo" Type="Self.OrganisationInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="OrganisationInfo">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganisationInfo_Organisation">
+    <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+    <End Role="OrganisationInfo" Type="Self.OrganisationInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisation">
+        <PropertyRef Name="OrganisationID" />
+      </Principal>
+      <Dependent Role="OrganisationInfo">
+        <PropertyRef Name="OrganisationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportInfo_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="SupportInfo" Type="Self.SupportInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SupportInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCourse_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="UserCourse">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCourse_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="UserCourse" Type="Self.UserCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserCourse">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocument_DocumentManager">
+    <End Role="DocumentManager" Type="Self.DocumentManager" Multiplicity="1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentManager">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocument_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocumentHits_DocumentManager">
+    <End Role="DocumentManager" Type="Self.DocumentManager" Multiplicity="1" />
+    <End Role="UserDocumentHits" Type="Self.UserDocumentHits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentManager">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="UserDocumentHits">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocumentHits_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="UserDocumentHits" Type="Self.UserDocumentHits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDocumentHits">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="UserGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_Users">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Organisation">
+    <End Role="Organisation" Type="Self.Organisation" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisation">
+        <PropertyRef Name="OrganisationID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="OrganisationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfileSettingsInfo_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="UserProfileSettingsInfo" Type="Self.UserProfileSettingsInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="UserProfileSettingsInfo">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfileSettingsInfo_UserProfileSettingsOrg">
+    <End Role="UserProfileSettingsOrg" Type="Self.UserProfileSettingsOrg" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserProfileSettingsInfo" Type="Self.UserProfileSettingsInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfileSettingsOrg">
+        <PropertyRef Name="ProfileSettignOrgId" />
+      </Principal>
+      <Dependent Role="UserProfileSettingsInfo">
+        <PropertyRef Name="ProfileSettignOrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfileSettingsOrg_Organisation">
+    <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+    <End Role="UserProfileSettingsOrg" Type="Self.UserProfileSettingsOrg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisation">
+        <PropertyRef Name="OrganisationID" />
+      </Principal>
+      <Dependent Role="UserProfileSettingsOrg">
+        <PropertyRef Name="OrganisationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfileSettingsOrg_UserProfileSettings">
+    <End Role="UserProfileSettings" Type="Self.UserProfileSettings" Multiplicity="1" />
+    <End Role="UserProfileSettingsOrg" Type="Self.UserProfileSettingsOrg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfileSettings">
+        <PropertyRef Name="ProfileSettingID" />
+      </Principal>
+      <Dependent Role="UserProfileSettingsOrg">
+        <PropertyRef Name="ProfileSettingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfileSettingsOrgValues_UserProfileSettingsOrgValues">
+    <End Role="UserProfileSettingsOrg" Type="Self.UserProfileSettingsOrg" Multiplicity="1" />
+    <End Role="UserProfileSettingsOrgValues" Type="Self.UserProfileSettingsOrgValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfileSettingsOrg">
+        <PropertyRef Name="ProfileSettignOrgId" />
+      </Principal>
+      <Dependent Role="UserProfileSettingsOrgValues">
+        <PropertyRef Name="ProfileSettignOrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddUpdateELStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="bigint" Mode="In" />
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+    <Parameter Name="ElStatusID" Type="bigint" Mode="In" />
+    <Parameter Name="SessionID" Type="varchar" Mode="In" />
+    <Parameter Name="ElsID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ELMAH_GetErrorsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ELMAH_GetErrorXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="ErrorId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="ELMAH_LogError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ErrorId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="Host" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Source" Type="nvarchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar" Mode="In" />
+    <Parameter Name="User" Type="nvarchar" Mode="In" />
+    <Parameter Name="AllXml" Type="ntext" Mode="In" />
+    <Parameter Name="StatusCode" Type="int" Mode="In" />
+    <Parameter Name="TimeUtc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedAndCompletedCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TotalAssignments" Type="int" />
+          <Property Name="Completedcourse" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GetAssignedCourseGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseId" Type="bigint" Mode="In" />
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedCoursesToUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="CourseId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedDocumentGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedDocumentsToUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedGroupCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupId" Type="bigint" Mode="In" />
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAssignedUserCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="LoginUserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="getAssignmentsBycouseId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="Courseid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCertificateDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="CourseId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCourseReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <Parameter Name="CourseId" Type="int" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetHomePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrganizationLicenseReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <Parameter Name="CourseId" Type="int" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProfileSettingValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getTotalAssignments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetUserAllCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserAllDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserCourseArchiveReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <Parameter Name="CourseId" Type="int" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="SelectUserId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserCourseReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrganisationId" Type="int" Mode="In" />
+    <Parameter Name="CourseId" Type="int" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="IncludeExpiry" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="GetUserDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="bigint" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ResetCourseStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Userid" Type="bigint" Mode="In" />
+    <Parameter Name="resetCourseIds" Type="varchar" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="SuccessID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="Rp_SummaryReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Rp_UserGroupReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Rp_UserReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Rp_UserReportChart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ScormRetrieveS_CmiValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="intStudentId" Type="int" Mode="In" />
+    <Parameter Name="intCourseId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sInputList" Type="varchar" Mode="In" />
+    <Parameter Name="sDelimiter" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="item" Type="varchar" MaxLength="8000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="LeopinkLMSDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACLActions" EntityType="Self.ACLActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACLMatrix" EntityType="Self.ACLMatrix" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppConstant" EntityType="Self.AppConstant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryInfo" EntityType="Self.CategoryInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificate" EntityType="Self.Certificate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertificateInfo" EntityType="Self.CertificateInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CloudRoomCartItems" EntityType="Self.CloudRoomCartItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseInfo" EntityType="Self.CourseInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentManager" EntityType="Self.DocumentManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElearningStatus" EntityType="Self.ElearningStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElearningStatusArchive" EntityType="Self.ElearningStatusArchive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElearningStatusHistory" EntityType="Self.ElearningStatusHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ELMAH_Error" EntityType="Self.ELMAH_Error" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailLog" EntityType="Self.EmailLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupCourse" EntityType="Self.GroupCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupDocument" EntityType="Self.GroupDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupHomepage" EntityType="Self.GroupHomepage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupHomepageInfo" EntityType="Self.GroupHomepageInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HelpContent" EntityType="Self.HelpContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InstanceInfo" EntityType="Self.InstanceInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="License" EntityType="Self.License" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organisation" EntityType="Self.Organisation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrganisationInfo" EntityType="Self.OrganisationInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_cmi" EntityType="Self.s_cmi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_cmiTree" EntityType="Self.s_cmiTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_commentsFromLearner" EntityType="Self.s_commentsFromLearner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_commentsFromLMS" EntityType="Self.s_commentsFromLMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_communication" EntityType="Self.s_communication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_correctResponse" EntityType="Self.s_correctResponse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_courseInfo" EntityType="Self.s_courseInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_interaction" EntityType="Self.s_interaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_interactionObjectives" EntityType="Self.s_interactionObjectives" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_itemInfo" EntityType="Self.s_itemInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_objective" EntityType="Self.s_objective" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_objectivesInfo" EntityType="Self.s_objectivesInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_relationship" EntityType="Self.s_relationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_scoComments" EntityType="Self.s_scoComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_score" EntityType="Self.s_score" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_scormWizard" EntityType="Self.s_scormWizard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_studentHistory" EntityType="Self.s_studentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SelfRegistration" EntityType="Self.SelfRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupportInfo" EntityType="Self.SupportInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCourse" EntityType="Self.UserCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDocument" EntityType="Self.UserDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDocumentHits" EntityType="Self.UserDocumentHits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfileSettings" EntityType="Self.UserProfileSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfileSettingsInfo" EntityType="Self.UserProfileSettingsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfileSettingsOrg" EntityType="Self.UserProfileSettingsOrg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfileSettingsOrgValues" EntityType="Self.UserProfileSettingsOrgValues" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ACLActions_ACLActionID" Association="Self.FK_ACLActions_ACLActionID">
+      <End Role="ACLActions" EntitySet="ACLActions" />
+      <End Role="ACLMatrix" EntitySet="ACLMatrix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryInfo_Category" Association="Self.FK_CategoryInfo_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryInfo" EntitySet="CategoryInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryInfo_Language" Association="Self.FK_CategoryInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="CategoryInfo" EntitySet="CategoryInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CertificateInfo_Certificate" Association="Self.FK_CertificateInfo_Certificate">
+      <End Role="Certificate" EntitySet="Certificate" />
+      <End Role="CertificateInfo" EntitySet="CertificateInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CertificateInfo_Language" Association="Self.FK_CertificateInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="CertificateInfo" EntitySet="CertificateInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CloudRoomCartItems_Order" Association="Self.FK_CloudRoomCartItems_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="CloudRoomCartItems" EntitySet="CloudRoomCartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Category" Association="Self.FK_Course_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Certificate" Association="Self.FK_Course_Certificate">
+      <End Role="Certificate" EntitySet="Certificate" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseInfo_Course" Association="Self.FK_CourseInfo_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="CourseInfo" EntitySet="CourseInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseInfo_Language" Association="Self.FK_CourseInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="CourseInfo" EntitySet="CourseInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Category" Association="Self.FK_Documents_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="DocumentManager" EntitySet="DocumentManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailLog_Users" Association="Self.FK_EmailLog_Users">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="EmailLog" EntitySet="EmailLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupCourse_Course" Association="Self.FK_GroupCourse_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="GroupCourse" EntitySet="GroupCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupCourse_Group" Association="Self.FK_GroupCourse_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupCourse" EntitySet="GroupCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupDocument_DocumentManager" Association="Self.FK_GroupDocument_DocumentManager">
+      <End Role="DocumentManager" EntitySet="DocumentManager" />
+      <End Role="GroupDocument" EntitySet="GroupDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupDocument_Group" Association="Self.FK_GroupDocument_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupDocument" EntitySet="GroupDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupHomepage_Group" Association="Self.FK_GroupHomepage_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupHomepage" EntitySet="GroupHomepage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupHomepageInfo_GroupHomepage" Association="Self.FK_GroupHomepageInfo_GroupHomepage">
+      <End Role="GroupHomepage" EntitySet="GroupHomepage" />
+      <End Role="GroupHomepageInfo" EntitySet="GroupHomepageInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupHomepageInfo_Language" Association="Self.FK_GroupHomepageInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="GroupHomepageInfo" EntitySet="GroupHomepageInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInfo_Group" Association="Self.FK_GroupInfo_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupInfo" EntitySet="GroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInfo_Language" Association="Self.FK_GroupInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="GroupInfo" EntitySet="GroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Organisation" Association="Self.FK_Groups_Organisation">
+      <End Role="Organisation" EntitySet="Organisation" />
+      <End Role="Group" EntitySet="Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstanceInfo_AspNetRoles" Association="Self.FK_InstanceInfo_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="InstanceInfo" EntitySet="InstanceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstanceInfo_Language" Association="Self.FK_InstanceInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="InstanceInfo" EntitySet="InstanceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_License_Organisation" Association="Self.fk_License_Organisation">
+      <End Role="Organisation" EntitySet="Organisation" />
+      <End Role="License" EntitySet="License" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganisationInfo_Language" Association="Self.FK_OrganisationInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="OrganisationInfo" EntitySet="OrganisationInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganisationInfo_Organisation" Association="Self.FK_OrganisationInfo_Organisation">
+      <End Role="Organisation" EntitySet="Organisation" />
+      <End Role="OrganisationInfo" EntitySet="OrganisationInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportInfo_UserProfile" Association="Self.FK_SupportInfo_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="SupportInfo" EntitySet="SupportInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCourse_Course" Association="Self.FK_UserCourse_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="UserCourse" EntitySet="UserCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCourse_UserProfile" Association="Self.FK_UserCourse_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserCourse" EntitySet="UserCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocument_DocumentManager" Association="Self.FK_UserDocument_DocumentManager">
+      <End Role="DocumentManager" EntitySet="DocumentManager" />
+      <End Role="UserDocument" EntitySet="UserDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocument_UserProfile" Association="Self.FK_UserDocument_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserDocument" EntitySet="UserDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocumentHits_DocumentManager" Association="Self.FK_UserDocumentHits_DocumentManager">
+      <End Role="DocumentManager" EntitySet="DocumentManager" />
+      <End Role="UserDocumentHits" EntitySet="UserDocumentHits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocumentHits_UserProfile" Association="Self.FK_UserDocumentHits_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserDocumentHits" EntitySet="UserDocumentHits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Group" Association="Self.FK_UserGroup_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="UserGroup" EntitySet="UserGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_UserProfile" Association="Self.FK_UserGroup_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserGroup" EntitySet="UserGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_Users" Association="Self.FK_UserLogin_Users">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_AspNetUsers" Association="Self.FK_UserProfile_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Organisation" Association="Self.FK_UserProfile_Organisation">
+      <End Role="Organisation" EntitySet="Organisation" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfileSettingsInfo_Language" Association="Self.FK_UserProfileSettingsInfo_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="UserProfileSettingsInfo" EntitySet="UserProfileSettingsInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfileSettingsInfo_UserProfileSettingsOrg" Association="Self.FK_UserProfileSettingsInfo_UserProfileSettingsOrg">
+      <End Role="UserProfileSettingsOrg" EntitySet="UserProfileSettingsOrg" />
+      <End Role="UserProfileSettingsInfo" EntitySet="UserProfileSettingsInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfileSettingsOrg_Organisation" Association="Self.FK_UserProfileSettingsOrg_Organisation">
+      <End Role="Organisation" EntitySet="Organisation" />
+      <End Role="UserProfileSettingsOrg" EntitySet="UserProfileSettingsOrg" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfileSettingsOrg_UserProfileSettings" Association="Self.FK_UserProfileSettingsOrg_UserProfileSettings">
+      <End Role="UserProfileSettings" EntitySet="UserProfileSettings" />
+      <End Role="UserProfileSettingsOrg" EntitySet="UserProfileSettingsOrg" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfileSettingsOrgValues_UserProfileSettingsOrgValues" Association="Self.FK_UserProfileSettingsOrgValues_UserProfileSettingsOrgValues">
+      <End Role="UserProfileSettingsOrg" EntitySet="UserProfileSettingsOrg" />
+      <End Role="UserProfileSettingsOrgValues" EntitySet="UserProfileSettingsOrgValues" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
