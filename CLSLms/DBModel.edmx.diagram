@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eab16978ddc44d88862fec9a6271bb83" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ACLAction" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ACLMatrix" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AppConstant" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="19.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AspNetUserClaim" Width="1.5" PointX="9" PointY="37.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AspNetUserLogin" Width="1.5" PointX="9" PointY="24.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AspNetUserRole" Width="1.5" PointX="17" PointY="25.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.AspNetUser" Width="1.5" PointX="6.75" PointY="25.125" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Category" Width="1.5" PointX="9.75" PointY="20" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CategoryInfo" Width="1.5" PointX="17" PointY="21.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Certificate" Width="1.5" PointX="9.75" PointY="15.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CertificateInfo" Width="1.5" PointX="15" PointY="14.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CloudRoomCartItem" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CourseInfo" Width="1.5" PointX="14.25" PointY="19" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ElearningStatusHistory" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ELMAH_Error" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.EmailLog" Width="1.5" PointX="11.25" PointY="43.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Group" Width="1.5" PointX="3" PointY="49.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupCourse" Width="1.5" PointX="8.25" PointY="50.375" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupDocument" Width="1.5" PointX="8.25" PointY="46.375" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupHomepage" Width="1.5" PointX="5.25" PointY="65.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupHomepageInfo" Width="1.5" PointX="7.5" PointY="65.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupInfo" Width="1.5" PointX="5.25" PointY="50" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.HelpContent" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.InstanceInfo" Width="1.5" PointX="3" PointY="20.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Language" Width="1.5" PointX="0.75" PointY="22.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.License" Width="1.5" PointX="3" PointY="45.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Order" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Organisation" Width="1.5" PointX="0.75" PointY="27.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.OrganisationInfo" Width="1.5" PointX="3" PointY="28.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_cmi" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_cmiTree" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_commentsFromLearner" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_commentsFromLMS" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_communication" Width="1.5" PointX="13.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_correctResponse" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_courseInfo" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_interaction" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_interactionObjectives" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_itemInfo" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_objective" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_objectivesInfo" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_relationship" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_scoComments" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_score" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_scormWizard" Width="1.5" PointX="5.75" PointY="17.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.s_studentHistory" Width="1.5" PointX="17.75" PointY="13.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserCourse" Width="1.5" PointX="14.25" PointY="25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserDocument" Width="1.5" PointX="14.25" PointY="33" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserDocumentHit" Width="1.5" PointX="14.25" PointY="29.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserGroup" Width="1.5" PointX="11.25" PointY="39.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserLogin" Width="1.5" PointX="11.25" PointY="28.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserProfileSetting" Width="1.5" PointX="3.75" PointY="25.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserProfileSettingsInfo" Width="1.5" PointX="11.25" PointY="25.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserProfileSettingsOrg" Width="1.5" PointX="6" PointY="28.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserProfileSettingsOrgValue" Width="1.5" PointX="8.25" PointY="34.75" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_ACLActions_ACLActionID" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_InstanceInfo_AspNetRoles" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CategoryInfo_Category" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CategoryInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CertificateInfo_Certificate" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CertificateInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CloudRoomCartItems_Order" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CourseInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupCourse_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupDocument_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupHomepage_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupInfo_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Groups_Organisation" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserGroup_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupHomepageInfo_GroupHomepage" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupHomepageInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_InstanceInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_OrganisationInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfileSettingsInfo_Language" />
+        <AssociationConnector Association="LeopinkLMSDBModel.fk_License_Organisation" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_OrganisationInfo_Organisation" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfileSettingsOrg_Organisation" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfileSettingsOrg_UserProfileSettings" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfileSettingsInfo_UserProfileSettingsOrg" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfileSettingsOrgValues_UserProfileSettingsOrgValues" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Email" Width="1.5" PointX="19.375" PointY="18.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.course_state" Width="1.5" PointX="14.25" PointY="37" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Question" Width="1.5" PointX="22.625" PointY="1" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.QuestionType" Width="1.5" PointX="20.375" PointY="4.625" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Questions_QuestionType" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.QuestionBank" Width="1.5" PointX="21.375" PointY="8" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Questions_QuestionBank" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ElearningStatu" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ElearningStatusArchive" Width="1.5" PointX="21.375" PointY="15.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.GroupQuiz" Width="1.5" PointX="17.25" PointY="46" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserQuiz" Width="1.5" PointX="20.25" PointY="34" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupQuiz_Group" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.SupportInfo" Width="1.5" PointX="11.25" PointY="47.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CourseFeedback" Width="1.5" PointX="21.375" PointY="20.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CourseUnit" Width="1.5" PointX="14.25" PointY="45.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserCourseRequest" Width="1.5" PointX="17.25" PointY="29.25" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserQuizScore" Width="1.5" PointX="14.25" PointY="40.875" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Course" Width="1.5" PointX="12" PointY="10.375" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.DocumentManager" Width="1.5" PointX="12" PointY="19.875" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Course_Category" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Documents_Category" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Course_Certificate" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_course_state_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_course_unit_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CourseInfo_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupCourse_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserCourse_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserCourseRequest_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupDocument_DocumentManager" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserDocument_DocumentManager" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserDocumentHits_DocumentManager" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserScheduledEvent" Width="1.5" PointX="11.25" PointY="33.125" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Topic" Width="1.5" PointX="17" PointY="35.5" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.TopicUnit" Width="1.5" PointX="19.25" PointY="24.375" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Topic_Category" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Topic_unit_Course" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Topic_Group" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Topic_unit_Topic" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CourseUnitStatu" Width="1.5" PointX="16.5" PointY="50" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_CourseUnitStatus_CourseUnit" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Answer" Width="1.5" PointX="23.375" PointY="4.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.Quize" Width="1.5" PointX="12" PointY="51.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserQuizRecord" Width="1.5" PointX="17.25" PointY="40.25" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_Quizes_Category" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_GroupQuiz_Quiz" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuiz_Quiz" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuizRecords_Quizes" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuizScore_Quizes" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.CourseFAQ" Width="1.5" PointX="20.375" PointY="11.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.District" Width="1.5" PointX="23.375" PointY="9.625" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.DistrictBlock" Width="1.5" PointX="25.625" PointY="9.375" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.DistrictSchool" Width="1.5" PointX="27.875" PointY="9" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_DistrictBlock_District" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_DistrictSchools_DistrictBlock" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ParentStudent" Width="1.5" PointX="24.25" PointY="27" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.UserProfile" Width="1.5" PointX="22" PointY="24.25" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfile_AspNetUsers" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_EmailLog_Users" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserProfile_Organisation" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_ParentStudent_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_SupportInfo_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserCourse_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserCourseRequest_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserDocument_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserDocumentHits_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserGroup_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserLogin_Users" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuiz_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuizRecords_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserQuizScore_UserProfile" />
+        <AssociationConnector Association="LeopinkLMSDBModel.FK_UserScheduledEvents_UserProfile" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.SelfRegistration" Width="1.5" PointX="23.375" PointY="13.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ChatRoom" Width="1.5" PointX="24.375" PointY="18.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.SSOLoginDetail" Width="1.5" PointX="16.375" PointY="18.75" />
+        <EntityTypeShape EntityType="LeopinkLMSDBModel.ssothit" Width="1.5" PointX="5.375" PointY="21.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
