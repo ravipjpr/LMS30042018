@@ -1,0 +1,328 @@
+﻿@model LMS.Models.SelfRegistrationModel
+@using MvcCheckBoxList.Model
+@{
+    Layout = null;
+    //var appTitle = System.Configuration.ConfigurationManager.AppSettings["ApplicationTitle"].ToString();
+    ViewBag.Title = "Create Self Registration User";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Custom Theme files -->
+    @*<link href="style.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Include/startbootstrap-sb-admin/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Include/startbootstrap-sb-admin/vendor/bootstrap/css/sb-admin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Scripts/sol.css">
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    @*<script src="js/jquery-2.2.3.min.js"></script>*@
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Include/startbootstrap-sb-admin/vendor/popper/popper.min.js"></script>
+    <script src="~/Include/startbootstrap-sb-admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/commonfunction.js"></script>
+    <script src="@Url.Content("~/Scripts/common-functions-util.js")"></script>
+    <!-- //js -->
+</head>
+<body style="background-color:#ffffff">
+    @using (Html.BeginForm("CreateSelfRegUser", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @id = "myform1" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container-fluid">
+            <div class="row" style="border-bottom: 1px solid #e9ecef;">
+                <div class="col-md-2">
+                    <img src="/ICTLMS/images/compu_lms_logo.png" alt="Logo" style="width: 150px; height: 34px;">
+                </div>
+            </div>
+            <div class="row" style="padding: 10px 10px 0 10px;">
+                <div class="col-md-12 alert-group" id="dv_message">
+                    <div class="col-md-12 alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="btn_message">×</button>
+                        <span id="sp_message"><strong>Well done!</strong> You successfully read this important alert message.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="modal-header" style="margin-bottom: 15px;">
+                            <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.User.Login.login.lblSelfRegistration</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-outline-primary active">
+                                    @Html.RadioButtonFor(m => m.RoleId, "1", new { id = "courseType1", name = "courseType", @class = "courseTypeL" }) Student
+                                </label>
+                                <label class="btn btn-outline-primary">
+                                    @Html.RadioButtonFor(m => m.RoleId, "2", new { id = "courseType2", name = "courseType", @class = "courseTypeL" }) Parent
+                                </label>
+                                <label class="btn btn-outline-primary">
+                                    @Html.RadioButtonFor(m => m.RoleId, "3", new { id = "courseType3", name = "courseType", @class = "courseTypeL" }) Teacher
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.FirstName, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.TextBoxFor(model => model.FirstName, new { @maxlength = "150", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.LastName, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.TextBoxFor(model => model.LastName, new { @maxlength = "150", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.EmailAddress, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.TextBoxFor(model => model.EmailAddress, new { @maxlength = "150", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.ContactNo, new { style = "color:#0867BE" })
+                                    @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ContactNo, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.DistrictID, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.DropDownList("DistrictID", (IEnumerable<SelectListItem>)ViewBag.DistrictList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DistrictID, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="@LMSResourse.Common.Common.btnSubmit" class="btn btn-primary" id="create" />
+                                    <button type="button" class="btn btn-secondary" onclick="window.location.href = 'Login';" id="btncancel">@LMSResourse.Common.Common.btnCancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.BlockID, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.DropDownList("BlockID", (IEnumerable<SelectListItem>)ViewBag.BlockList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BlockID, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.SchoolID, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.DropDownList("SchoolID", (IEnumerable<SelectListItem>)ViewBag.SchoolList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SchoolID, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row dvteacher">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.GroupID, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.CheckBoxListFor(
+                                model => model.UserGroupList.PostedGroups.UserGroupsLocalIds,
+                                model => model.UserGroupList.AvailableGroups,
+                                model => model.GroupId,
+                                model => model.GroupName,
+                                model => Model.UserGroupList.SelectedGroups.Select(a => a.GroupName).Contains(model.GroupName),
+                                new HtmlListInfo(HtmlTag.table, 1, new { @class = "required", @style = "width:100%; padding-left:10px;", @id = "groupListCheckBox" })
+                                )
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row dvparent">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.UserIDs, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    <select id="userListCheckBox" name="character" multiple="multiple"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row dvstudent">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.GroupID, new { style = "color:#0867BE" })<span class="req" style="color: #FFC107;">*</span>
+                                    @Html.DropDownList("GroupID", (IEnumerable<SelectListItem>)ViewBag.GroupList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.GroupID, "", new { @style = "color:red" })
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/sol.js"></script>
+        <script type="text/javascript">
+            var port = window.location.port;
+            var appname = window.location.pathname.split("/", 2).toString().replace(",", "");
+            var pathname1 = "";
+            if (port == "")
+                pathname1 = window.location.protocol + "//" + window.location.hostname + "/" + appname;
+
+            $(document).ready(function () {
+                $('#groupListCheckBox').find('input[type=checkbox]').each(function (e) {
+                    $(this).attr("style", "margin-right: 10px; margin-top: 6px;");
+                });
+                $('#groupListCheckBox').find('label').each(function (e) {
+                    $(this).attr("style", "width: 88%;");
+                });
+
+                var courseTypeVal = "1";
+
+                $("#btn_message").click();
+
+                $("#selfregistration").click(function () {
+                    $("#dv_message").html("");
+                });
+
+                $("#create").click(function (e) {
+                    e.preventDefault();
+                    var result = $('#myform1').valid();
+
+                    @*if (result == true) {
+                        checkUniqueSelfRegEmailAddress("@LMSResourse.Admin.ProfileSettings.msgSelfRegEmailExists", "@LMSResourse.Admin.Login.msgForgotPasswordError", courseTypeVal)
+                    }
+                    else {
+                        return false;
+                    }*@
+
+                    if (result == true) {
+                        if (courseTypeVal == "2" || courseTypeVal == "3") {
+                            var isCheck = false;
+                            $('#groupListCheckBox').find('input[type=checkbox]:checked').each(function (e) {
+                                isCheck = true;
+                            });
+                            if (isCheck == false) {
+                                showMessageSelfReg("@LMSResourse.Admin.ProfileSettings.msgSelectGroupName", 10000, 0);
+                                return false;
+                            }
+                            if (isCheck == true && courseTypeVal == "2") {
+                                isCheck = false;
+                                $('.sol-selection').find('input[type=checkbox]:checked').each(function (e) {
+                                    isCheck = true;
+                                });
+                                if (isCheck == false) {
+                                    showMessageSelfReg("@LMSResourse.Admin.ProfileSettings.msgSelectUserName", 10000, 0);
+                                    return false;
+                                }
+                            }
+                        }
+
+                        checkUniqueSelfRegEmailAddress("@LMSResourse.Admin.ProfileSettings.msgSelfRegEmailExists", "@LMSResourse.Admin.Login.msgForgotPasswordError", courseTypeVal)
+                    }
+                    @*var result = $('#myform1').valid();
+
+                    if (result == true) {
+                        checkUniqueSelfRegEmailAddress("@LMSResourse.Admin.ProfileSettings.msgSelfRegEmailExists", "@LMSResourse.Admin.Login.msgForgotPasswordError", courseTypeVal)
+                    }*@
+
+                    return false;
+                });
+
+                $(".dvteacher").hide();
+                $(".dvparent").hide();
+                $(".dvstudent").show();
+
+                $(".courseTypeL").change(function () {
+                    if ($(this).is(':checked')) {
+                        $("#myform1").trigger("reset");
+                        fillBlocks($("#DistrictID").val(), 0, 0, "");
+                        fillUsers(0, "", "0");
+
+                        $(this).parent().addClass("focus");
+                        courseTypeVal = $(this).attr("value");
+                        if (courseTypeVal == "1") {
+                            $(".dvteacher").hide();
+                            $(".dvparent").hide();
+                            $(".dvstudent").show();
+                        }
+                        else if (courseTypeVal == "2") {
+                            $(".dvteacher").show();
+                            $(".dvparent").show();
+                            $(".dvstudent").hide();
+                        }
+                        else {
+                            $(".dvteacher").show();
+                            $(".dvparent").hide();
+                            $(".dvstudent").hide();
+                        }
+                    }
+                });
+
+                $('#groupListCheckBox').find('input[type="checkbox"]').each(function () {
+                    $(this).click(function () {
+                        if (courseTypeVal == 2) {
+                            var groupIds = "";
+
+                            $('#groupListCheckBox').find('input[type="checkbox"]:checked').each(function () {
+                                groupIds = (groupIds == "" ? $(this).attr("value") : groupIds + "," + $(this).attr("value"));
+                            });
+                            fillUsers(groupIds, "", $("#SchoolID").val());
+                        }
+                    });
+                });
+
+                fillBlocks($("#DistrictID").val(), 0, 0);
+
+                $("#DistrictID").change(function () {
+                    fillBlocks($(this).val(), 0, 0, "");
+                });
+
+                $("#BlockID").change(function () {
+                    fillSchools($(this).val(), 0, "");
+                });
+
+                $("#SchoolID").change(function () {
+                    fillUsersCheckbox("", $(this).val());
+                });
+
+                $("#selfregistration").click(function () {
+                    $("#myform1").trigger("reset");
+
+                    fillBlocks($("#DistrictID").val(), 0, 0, "");
+                });
+            });
+        </script>
+    }
+</body>
+</html>
