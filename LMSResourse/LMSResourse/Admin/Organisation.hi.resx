@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>संगठन हटाएं</value>
+  </data>
+  <data name="dropOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="dropSelectOrg" xml:space="preserve">
+    <value>- चयन संगठन -</value>
+  </data>
+  <data name="fldAvailableGroupList" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="fldLicExpDate" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="fldLicMaxUsers" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या</value>
+  </data>
+  <data name="fldLicOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="fldOrganisationAddress1" xml:space="preserve">
+    <value>पता 1</value>
+  </data>
+  <data name="fldOrganisationAddress2" xml:space="preserve">
+    <value>पता 2</value>
+  </data>
+  <data name="fldOrganisationAddress3" xml:space="preserve">
+    <value>पता 3</value>
+  </data>
+  <data name="fldOrganisationbanner" xml:space="preserve">
+    <value>बैनर चुनें</value>
+  </data>
+  <data name="fldOrganisationCountry" xml:space="preserve">
+    <value>देश</value>
+  </data>
+  <data name="fldOrganisationID" xml:space="preserve">
+    <value>संगठन आईडी</value>
+  </data>
+  <data name="fldOrganisationlogo" xml:space="preserve">
+    <value>लोगो का चयन करें</value>
+  </data>
+  <data name="fldOrganisationName" xml:space="preserve">
+    <value>संगठन का नाम</value>
+  </data>
+  <data name="fldOrganisationPostalCode" xml:space="preserve">
+    <value>डाक कोड</value>
+  </data>
+  <data name="fldOrganisationStatus" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="lblAllowIndividualAssignment" xml:space="preserve">
+    <value>व्यक्तिगत असाइनमेंट को अनुमति दें</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>संगठन हटाएं?</value>
+  </data>
+  <data name="lblGroupAssignment" xml:space="preserve">
+    <value>समूह कार्य</value>
+  </data>
+  <data name="lblIndividualAssignment" xml:space="preserve">
+    <value>व्यक्तिगत असाइनमेंट</value>
+  </data>
+  <data name="lblInvalidImageFile" xml:space="preserve">
+    <value>वैध छवि फ़ाइल चुनें</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>क्या आप वाकई चयनित संगठन को हटाना चाहते हैं?</value>
+  </data>
+  <data name="msgDeleteOrganisation" xml:space="preserve">
+    <value>चयनित संगठन के साथ जुड़े डेटा हैं [{0}] हटाया नहीं जा सकता</value>
+  </data>
+  <data name="msgDupOrganisationID" xml:space="preserve">
+    <value>संगठन आईडी पहले से मौजूद है</value>
+  </data>
+  <data name="msgDupOrganisationName" xml:space="preserve">
+    <value>संगठन का नाम पहले से मौजूद है</value>
+  </data>
+  <data name="msgDupOrgLicence" xml:space="preserve">
+    <value>संगठन लाइसेंस पहले से ही मौजूद है</value>
+  </data>
+  <data name="msgErrOrganizationMaxUserIsLessthan" xml:space="preserve">
+    <value>संगठन अधिकतम उपयोगकर्ता इस संगठन के समूह को निर्दिष्ट उपयोगकर्ता से कम नहीं हो सकता</value>
+  </data>
+  <data name="msgInvalidOrganisation" xml:space="preserve">
+    <value>अमान्य संगठन</value>
+  </data>
+  <data name="msgLicNoOfUserAlert" xml:space="preserve">
+    <value>इस संगठन के लिए बनाए गए उपयोगकर्ताओं की संख्या प्रदान की गई उपयोगकर्ताओं की संख्या से अधिक है</value>
+  </data>
+  <data name="msgLicStrMaxUsersGtZero" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या 0 से अधिक होनी चाहिए</value>
+  </data>
+  <data name="msgLicStrUsersWholeNumber" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या पूरी संख्या होना चाहिए</value>
+  </data>
+  <data name="msgMxlOrganisationAddress1" xml:space="preserve">
+    <value>संगठन का पता 1 लंबाई 150 char से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgMxlOrganisationAddress2" xml:space="preserve">
+    <value>संगठन का पता 2 लंबाई 150 वर्णों से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgMxlOrganisationAddress3" xml:space="preserve">
+    <value>संगठन का पता 3 लंबाई 150 char से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgMxlOrganisationID" xml:space="preserve">
+    <value>संगठन आईडी लंबाई 50 अक्षरों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlOrganisationName" xml:space="preserve">
+    <value>संगठन का नाम 100 वर्णों से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgMxlOrganisationPostalCode" xml:space="preserve">
+    <value>संगठन डाक कोड लंबाई 10 अक्षरों से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgReqAtleastSelectOneGroup" xml:space="preserve">
+    <value>संगठन रिक्त हो सकता है क्योंकि यह संगठन को सौंपा गया अंतिम समूह है।</value>
+  </data>
+  <data name="msgReqLicExpDate" xml:space="preserve">
+    <value>कृपया समाप्ति तिथि दर्ज करें</value>
+  </data>
+  <data name="msgReqLicMaxUsers" xml:space="preserve">
+    <value>कृपया कोई नहीं दर्ज करें उपयोगकर्ताओं की</value>
+  </data>
+  <data name="msgReqLicOrganisation" xml:space="preserve">
+    <value>संगठन का चयन करें</value>
+  </data>
+  <data name="msgReqOrganisationbanner" xml:space="preserve">
+    <value>कृपया संगठन बैनर चुनें</value>
+  </data>
+  <data name="msgReqOrganisationCountry" xml:space="preserve">
+    <value>संगठन देश की लंबाई 50 वर्णों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgReqOrganisationGroup" xml:space="preserve">
+    <value>कृपया कम से कम एक समूह का चयन करें</value>
+  </data>
+  <data name="msgReqOrganisationID" xml:space="preserve">
+    <value>कृपया संगठन आईडी दर्ज करें</value>
+  </data>
+  <data name="msgReqOrganisationlogo" xml:space="preserve">
+    <value>कृपया संगठन लोगो चुनें</value>
+  </data>
+  <data name="msgReqOrganisationName" xml:space="preserve">
+    <value>कृपया संगठन नाम दर्ज करें</value>
+  </data>
+  <data name="msgStrMaxUsersNumeric" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या केवल संख्याएं ही होने चाहिए।</value>
+  </data>
+  <data name="thCreatedDate" xml:space="preserve">
+    <value>रचना तिथि</value>
+  </data>
+  <data name="thExpiryDate" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="thGroups" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="thNoOfUsers" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या</value>
+  </data>
+  <data name="thOrganisationAddress1" xml:space="preserve">
+    <value>पता 1</value>
+  </data>
+  <data name="thOrganisationAddress2" xml:space="preserve">
+    <value>पता 2</value>
+  </data>
+  <data name="thOrganisationCountry" xml:space="preserve">
+    <value>देश</value>
+  </data>
+  <data name="thOrganisationID" xml:space="preserve">
+    <value>संगठन आईडी</value>
+  </data>
+  <data name="thOrganisationName" xml:space="preserve">
+    <value>संगठन का नाम</value>
+  </data>
+</root>
