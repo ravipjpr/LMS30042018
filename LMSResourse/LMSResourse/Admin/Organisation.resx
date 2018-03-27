@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>Delete organisation</value>
+  </data>
+  <data name="dropOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="dropSelectOrg" xml:space="preserve">
+    <value>--Select organisation--</value>
+  </data>
+  <data name="fldAvailableGroupList" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="fldOrganisationAddress1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="fldOrganisationAddress2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="fldOrganisationbanner" xml:space="preserve">
+    <value>Select banner</value>
+  </data>
+  <data name="fldOrganisationID" xml:space="preserve">
+    <value>Organisation id</value>
+  </data>
+  <data name="fldOrganisationCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="fldOrganisationlogo" xml:space="preserve">
+    <value>Select logo</value>
+  </data>
+  <data name="fldOrganisationName" xml:space="preserve">
+    <value>Organisation name</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>Delete organisation?</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete selected organisation?</value>
+  </data>
+  <data name="msgDeleteOrganisation" xml:space="preserve">
+    <value>There are data associated with selected organisation. [{0}] can't be deleted.</value>
+  </data>
+  <data name="msgDupOrganisationID" xml:space="preserve">
+    <value>Organisation id already exist</value>
+  </data>
+  <data name="msgDupOrganisationName" xml:space="preserve">
+    <value>Organisation name already exist</value>
+  </data>
+  <data name="msgInvalidOrganisation" xml:space="preserve">
+    <value>Invalid organisation.</value>
+  </data>
+  <data name="msgMxlOrganisationAddress1" xml:space="preserve">
+    <value>Organisation address 1 length cannot exceed 150 char.</value>
+  </data>
+  <data name="msgMxlOrganisationAddress2" xml:space="preserve">
+    <value>Organisation address 2 length cannot exceed 150 char.</value>
+  </data>
+  <data name="msgMxlOrganisationID" xml:space="preserve">
+    <value>Organisation id length cannot exceed 50 char.</value>
+  </data>
+  <data name="msgReqOrganisationCountry" xml:space="preserve">
+    <value>Organisation country length cannot exceed 50 char.</value>
+  </data>
+  <data name="msgMxlOrganisationName" xml:space="preserve">
+    <value>Organisation name length cannot exceed 100 char.</value>
+  </data>
+  <data name="msgReqOrganisationGroup" xml:space="preserve">
+    <value>Please select at least one group</value>
+  </data>
+  <data name="msgReqOrganisationID" xml:space="preserve">
+    <value>Please enter organisation id</value>
+  </data>
+  <data name="msgReqOrganisationName" xml:space="preserve">
+    <value>Please enter organisation name</value>
+  </data>
+  <data name="thGroups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="thOrganisationAddress1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="thOrganisationAddress2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="thOrganisationID" xml:space="preserve">
+    <value>Organisation id</value>
+  </data>
+  <data name="thOrganisationCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="thOrganisationName" xml:space="preserve">
+    <value>Organisation name</value>
+  </data>
+  <data name="msgReqOrganisationbanner" xml:space="preserve">
+    <value>Please select organisation banner</value>
+  </data>
+  <data name="msgReqOrganisationlogo" xml:space="preserve">
+    <value>Please select organisation logo</value>
+  </data>
+  <data name="lblInvalidImageFile" xml:space="preserve">
+    <value>Please select valid image file</value>
+  </data>
+  <data name="thCreatedDate" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="thExpiryDate" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="thNoOfUsers" xml:space="preserve">
+    <value>No. of users</value>
+  </data>
+  <data name="fldLicMaxUsers" xml:space="preserve">
+    <value>No. of users</value>
+  </data>
+  <data name="msgStrMaxUsersNumeric" xml:space="preserve">
+    <value>No. of users must be numbers only.</value>
+  </data>
+  <data name="fldLicExpDate" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="fldLicOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="msgReqLicExpDate" xml:space="preserve">
+    <value>Please enter expiry date</value>
+  </data>
+  <data name="msgReqLicMaxUsers" xml:space="preserve">
+    <value>Please enter no. of users</value>
+  </data>
+  <data name="msgReqLicOrganisation" xml:space="preserve">
+    <value>Please select organisation</value>
+  </data>
+  <data name="msgDupOrgLicence" xml:space="preserve">
+    <value>Organisation licence already exists</value>
+  </data>
+  <data name="msgLicStrMaxUsersGtZero" xml:space="preserve">
+    <value>No. of users must be greater than 0</value>
+  </data>
+  <data name="msgLicStrUsersWholeNumber" xml:space="preserve">
+    <value>No. of users should be a whole number</value>
+  </data>
+  <data name="msgLicNoOfUserAlert" xml:space="preserve">
+    <value>The number of users created for this organisation are greater than the number of users provided</value>
+  </data>
+  <data name="fldOrganisationAddress3" xml:space="preserve">
+    <value>Address 3</value>
+  </data>
+  <data name="fldOrganisationPostalCode" xml:space="preserve">
+    <value>Postal code</value>
+  </data>
+  <data name="msgMxlOrganisationAddress3" xml:space="preserve">
+    <value>Organisation address 3 length cannot exceed 150 char.</value>
+  </data>
+  <data name="msgMxlOrganisationPostalCode" xml:space="preserve">
+    <value>Organisation postal code length cannot exceed 10 char.</value>
+  </data>
+  <data name="fldOrganisationStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="lblAllowIndividualAssignment" xml:space="preserve">
+    <value>Allow individual assignment</value>
+  </data>
+  <data name="msgReqAtleastSelectOneGroup" xml:space="preserve">
+    <value>Organisation can be null. as this is the last group assigned to the organisation.</value>
+  </data>
+  <data name="lblGroupAssignment" xml:space="preserve">
+    <value>Group assignment</value>
+  </data>
+  <data name="lblIndividualAssignment" xml:space="preserve">
+    <value>Individual assignment</value>
+  </data>
+  <data name="msgErrOrganizationMaxUserIsLessthan" xml:space="preserve">
+    <value>Organization max user can not less than no of user assigned to group of this organization</value>
+  </data>
+</root>

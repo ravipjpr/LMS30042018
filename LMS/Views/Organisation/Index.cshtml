@@ -1,0 +1,262 @@
+﻿@model IEnumerable<CLSLms.Organisation>
+@{
+    ViewBag.Title = "Index";
+    @Styles.Render("~/Content/jquery.dataTables.min.css");
+}
+
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.lblOrganisations</li>
+        </ol>
+    </nav>
+    <div style="align-items:center;text-align:center;vertical-align:middle;">
+        <div id="errormessage" style="display:none;" class="alert alert-danger" role="alert"></div>
+    </div>
+    <input type="hidden" id="SelectedId" value="0" />
+    <div class="breadcrumb" style="background-color:transparent">
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateOrganisation" class="btn btn-outline-primary" href="~/Organisation/CreateOrganisation"><i class="fa fa-plus"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary disabled" title="@LMSResourse.Common.ApplicationMenu.tooltipEditOrganisation" id="btnEdit" href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary disabled" title="@LMSResourse.Common.ApplicationMenu.tooltipDeleteOrganisation" id="btnDelete" href="#" data-target="#exampleModal"><i class="fa fa-trash-o"></i></a>&nbsp;
+        </nav>
+    </div>
+    <div class="table-responsive margin-top-20">
+        <table border="0" class="table table-bordered dataTable table-hover" id="myDataTable">
+            <thead>
+                <tr>
+                    <th class="border-left-top-bottom">
+                        @LMSResourse.Admin.Organisation.thOrganisationID
+                    </th>
+
+                    <th>
+                        @LMSResourse.Admin.Organisation.thOrganisationName
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Organisation.thOrganisationAddress1
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Organisation.thOrganisationAddress2
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Organisation.thOrganisationCountry
+                    </th>
+                    <th>
+                        @LMSResourse.Common.Common.thStatus
+                    </th>
+                    <th class="border-right-top-bottom">
+                        @LMSResourse.Admin.Organisation.thGroups
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.Admin.Organisation.lblConfirmDeleteHeading</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @LMSResourse.Admin.Organisation.msgConfirmDelete
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@LMSResourse.Common.Common.btnCancel</button>
+                <button type="button" class="btn btn-primary" id="btn_deleteOk">@LMSResourse.Admin.Organisation.btnConfirmDelete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+@Scripts.Render("~/bundles/datatable-js")
+    <script type="text/javascript">
+        jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function (oSettings, iDelay) {
+            var _that = this;
+
+            if (iDelay === undefined) {
+                iDelay = 250;
+            }
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var
+                    $this = this,
+                    oTimerId = null,
+                    sPreviousSearch = null,
+                    anControl = $('input', _that.fnSettings().aanFeatures.f);
+
+                anControl.unbind('keyup search input').bind('keyup search input', function () {
+                    var $$this = $this;
+
+                    if (sPreviousSearch === null || sPreviousSearch != anControl.val()) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = anControl.val();
+                        oTimerId = window.setTimeout(function () {
+                            $.fn.dataTableExt.iApiIndex = i;
+                            _that.fnFilter(anControl.val());
+                        }, iDelay);
+                    }
+                });
+
+                return this;
+            });
+            return this;
+        };
+    </script>
+    <script type="text/javascript">
+
+        function ShowHideAction() {
+            if ($("#SelectedId").val() == "0") {
+                $("#btnEdit").addClass("disabled").click(function () { return false; });
+                $("#btnDelete").addClass("disabled").click(function () { return false; });
+            }
+            else {
+                $("#btnEdit").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Organisation/EditOrganisation/' + $("#SelectedId").val(); } else { return false; } });
+                $("#btnDelete").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { return true; } else { return false; } });
+            }
+        }
+
+        function htmlEncode(value) {
+            //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+            //then grab the encoded contents back out.  The div never exists on the page.
+            return $('<div/>').text(value).html();
+        }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function fillGrid() {
+
+            var fileUrl = "Include/datatablefiles/";
+            var filename = "en-us.txt";
+            if (filename == '')
+                fileUrl = fileUrl + "en-us.txt";
+            else
+                fileUrl = fileUrl + filename;
+            //var Display = parseInt('@Session["ListiDisplayLength"]');
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "Organisation/AjaxHandlerOrganisation",
+                "bProcessing": true,
+                "bStateSave": false,
+                "bDestroy": true,
+                "sPaginationType": "full_numbers",
+                "sDom": '<"top"lfip>rt<"bottom"ip<"clear">',
+                "aLengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
+                "oLanguage": { "sUrl": fileUrl },
+                "fnServerParams": function (aoData) {
+                    // aoData.push({ "name": "fCol1", "value": $('#userstatus').val() })
+                },
+                "aoColumns": [
+
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[0].toString()));
+
+                                }
+                            },
+                            {
+
+
+                            },
+                             {
+
+
+                             },
+                            {
+
+                            },
+                            {
+
+
+                            },
+                            {
+
+
+                            },
+
+                            {
+                                "bSortable": false,
+                                "fnRender": function (oObj) {
+                                    return (oObj.aData[6].toString() + '<input type="hidden" id="OrgId" value="' + oObj.aData[7].toString() + '" />');
+
+                                }
+
+                            }
+
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $("#SelectedId").val("0");
+                    ShowHideAction();
+                }
+            });
+            setTimeout(function () { oTable.fnSetFilteringDelay(600); }, 500);
+        }
+
+        $(document).ready(function () {
+            fillGrid();
+            $('#myDataTable > tbody').on('click', 'tr', function () {
+
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                    $("#SelectedId").val(0);
+                }
+                else {
+                    $('#myDataTable > tbody tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    $("#SelectedId").val($(this).find('#OrgId').val());
+                }
+
+                ShowHideAction();
+            });
+
+            $("#btnDelete").click(function () {
+                if ($("#SelectedId").val() > 0)
+                    $('#exampleModal').modal('show');
+            });
+
+            $("#btn_deleteOk").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: "Organisation/DeleteOrganisation/" + $("#SelectedId").val(),
+                    contentType: "application/json; charset=utf-8",
+                    data: "",
+                    dataType: "json",
+                    sucess: function (data) {
+                    },
+                    complete: function (data, textStatus) {
+
+                        if (data.responseText != null && data.responseText != "") {
+                            $("#errormessage").html(data.responseText);
+                            $("#errormessage").show();
+                            $('#errormessage').delay(parseInt(((data.responseText.length * 0.2) + data.responseText.length) / 16) * 1000).fadeOut();
+                            $("#delete_popup").css("display", "none");
+
+                        }
+                        else if (data.responseText == "")
+                        { window.location.reload(true); }
+                        else { window.location.reload(true); }
+                    },
+                    async: false
+                });
+
+            });
+
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(2)").addClass("active");
+        });
+    </script>
+}
