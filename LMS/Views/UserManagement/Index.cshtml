@@ -1,0 +1,276 @@
+﻿@model IEnumerable<CLSLms.UserProfile>
+@{
+    @Styles.Render("~/Content/jquery.dataTables.min.css");
+}
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+        <li class="breadcrumb-item active">@LMSResourse.Common.ApplicationMenu.lblUsers</li>
+    </ol>
+    <div style="align-items:center;text-align:center;vertical-align:middle;">
+        <div id="errormessage" style="display:none;" class="alert alert-danger" role="alert"></div>
+    </div>
+    <input type="hidden" id="SelectedId" value="0" />
+    <input type="hidden" id="IsLearner" value="0" />
+    <input type="hidden" id="isindividual" value="False" />
+    <div class="breadcrumb" style="background-color:transparent">
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateUser" class="btn btn-outline-primary" href="~/UserManagement/CreateUser"><i class="fa fa-user-plus"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary disabled" title="@LMSResourse.Common.ApplicationMenu.tooltipEditUser" id="userEdit" href="#"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary" title="@LMSResourse.Common.ApplicationMenu.tooltipDeleteUser" id="userdelete" href="#" data-target="#exampleModal"><i class="fa fa-trash-o"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary" title="@LMSResourse.Common.ApplicationMenu.tooltipImportUser" href="~/UserManagement/ImportUser"><i class="fa fa-download"></i></a>&nbsp;
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-primary" title="@LMSResourse.Common.ApplicationMenu.tooltipAssignCourses" id="assignCourse" href="#"><i class="fa fa-random"></i></a>&nbsp;
+        </nav>
+    </div>
+
+    <div class="table-responsive margin-top-20">
+        <table border="0" class="table table-bordered dataTable table-hover " id="myDataTable">
+            <thead>
+                <tr>
+                    @*<th>
+                            <input type="checkbox" name="check_all" id="selectallboxes" />
+                        </th>*@
+                    <th class="border-left-top-bottom">@LMSResourse.Admin.User.thEmployeeId</th>
+                    <th style="width:100px">@LMSResourse.Admin.User.thFirstName</th>
+                    <th>@LMSResourse.Admin.User.thLastName</th>
+                    <th>@LMSResourse.Admin.User.thEmailAddress</th>
+                    <th style="width:100px;">@LMSResourse.Admin.User.thOrganisation</th>
+                    <th>@LMSResourse.Admin.User.thRoles</th>
+                    <th style="width:100px;">@LMSResourse.Admin.User.thGroups</th>
+                    <th class="border-right-top-bottom">@LMSResourse.Admin.User.thStatus</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.Admin.User.lblConfirmDeleteHeading</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @LMSResourse.Admin.User.msgConfirmDelete
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@LMSResourse.Common.Common.btnCancel</button>
+                <button type="button" class="btn btn-primary" id="btn_deleteOk">@LMSResourse.Admin.User.btnConfirmDelete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/datatable-js")
+    <script type="text/javascript">
+        jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function (oSettings, iDelay) {
+            var _that = this;
+
+            if (iDelay === undefined) {
+                iDelay = 250;
+            }
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var
+                    $this = this,
+                    oTimerId = null,
+                    sPreviousSearch = null,
+                    anControl = $('input', _that.fnSettings().aanFeatures.f);
+
+                anControl.unbind('keyup search input').bind('keyup search input', function () {
+                    var $$this = $this;
+
+                    if (sPreviousSearch === null || sPreviousSearch != anControl.val()) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = anControl.val();
+                        oTimerId = window.setTimeout(function () {
+                            $.fn.dataTableExt.iApiIndex = i;
+                            _that.fnFilter(anControl.val());
+                        }, iDelay);
+                    }
+                });
+
+                return this;
+            });
+            return this;
+        };
+    </script>
+
+    <script type="text/javascript">
+
+        function ShowHideAction() {
+            if ($("#SelectedId").val() == "0") {
+                $("#userEdit").addClass('disabled').click(function () { return false; });
+                $("#userdelete").addClass('disabled').click(function () { return false; });
+                $("#assignCourse").addClass('disabled').click(function () { return false; });
+            }
+            else {
+                $("#userEdit").removeClass('disabled').click(function () {
+                    if ($("#SelectedId").val() != "0") { window.location = 'UserManagement/EditUser/' + $("#SelectedId").val(); } else { return false; }
+                });
+                if (($("#SelectedId").val() != "1") && '@Session["UserID"].ToString()' != $("#SelectedId").val())
+                    $("#userdelete").removeClass('disabled').click(function () { if ($("#SelectedId").val() != "0") { return true; } else { return false; } });
+                else
+                    $("#userdelete").addClass('disabled').click(function () { return false; });
+
+                //if ($("#isindividual").val() == "True") {
+                if (($("#SelectedId").val() != "1") && ($("#IsLearner").val() != "0") && '@Session["UserID"].ToString()' != $("#SelectedId").val()) {
+                    $("#assignCourse").removeClass('disabled').click(function () { if ($("#SelectedId").val() != "0") { window.location = 'UserManagement/AssignCourse/' + $("#SelectedId").val(); } else { return false; } });
+                } else {
+                    $("#assignCourse").addClass('disabled').click(function () { return false; });
+                }
+            }
+        }
+
+        function htmlEncode(value) {
+            //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+            //then grab the encoded contents back out.  The div never exists on the page.
+            return $('<div/>').text(value).html();
+        }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function fillGrid() {
+
+            var fileUrl = "Include/datatablefiles/";
+            var filename = "en-us.txt";
+            if (filename == '')
+                fileUrl = fileUrl + "en-us.txt";
+            else
+                fileUrl = fileUrl + filename;
+            //var Display = parseInt('@Session["ListiDisplayLength"]');
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "UserManagement/AjaxHandlerUserListing",
+                "bProcessing": true,
+                "bStateSave": false,
+                "bDestroy": true,
+                "sPaginationType": "full_numbers",
+                "sDom": '<"top"lfip>rt<"bottom"ip<"clear">',
+                "aLengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
+                "oLanguage": { "sUrl": fileUrl },
+                "fnServerParams": function (aoData) {
+                    // aoData.push({ "name": "fCol1", "value": $('#userstatus').val() })
+                },
+                "aoColumns": [
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[0].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[1].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[2].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[3].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[4].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": false,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[5].toString()));
+                                }
+                            },
+                            {
+                                "bSortable": false,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[6].toString()));
+                                }
+                            }
+                            ,
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (oObj.aData[7].toString() + '<input type="hidden" id="userid" value="' + oObj.aData[8].toString() + '" /><input type="hidden" class="isindividual" value="' + oObj.aData[9].toString() + '" />');
+                                }
+                            }
+                ],
+            });
+            setTimeout(function () { oTable.fnSetFilteringDelay(600); }, 500);
+        }
+
+        $(document).ready(function () {
+            fillGrid();
+            ShowHideAction();
+            $('#myDataTable > tbody').on('click', 'tr', function () {
+
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                    $("#SelectedId").val(0);
+                    $("#IsLearner").val(0);
+                }
+                else {
+                    $('#myDataTable > tbody tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    $("#SelectedId").val($(this).find('#userid').val());
+                    $("#isindividual").val($(this).find('.isindividual').val());
+                    var role = $(this).find("td:nth-child(6)").text();
+                    if (role.indexOf("Learner") > -1)
+                        $("#IsLearner").val(1);
+                    else
+                        $("#IsLearner").val(0);
+                }
+
+                ShowHideAction();
+            });
+            $("#userdelete").click(function () {
+                if ($("#SelectedId").val() > 0)
+                    $('#exampleModal').modal('show')
+            });
+
+            $("#btn_deleteOk").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "UserManagement/DeleteUser/" + $("#SelectedId").val(),
+                    contentType: "application/json; charset=utf-8",
+                    data: "",
+                    dataType: "json",
+                    sucess: function (data) {
+                    },
+                    complete: function (data, textStatus) {
+                        if (data.responseText != null && data.responseText != "") {
+                            $("#errormessage").html(data.responseText);
+                            $("#errormessage").show();
+                            $('#errormessage').delay(parseInt(((data.responseText.length * 0.2) + data.responseText.length) / 16) * 1000).fadeOut();
+                            $("#delete_popup").css("display", "none");
+                        }
+                        else if (data.responseText == "")
+                        { window.location.reload(true); }
+                        else { window.location.reload(true); }
+                    },
+                    async: false
+                });
+
+            });
+        });
+    </script>
+}

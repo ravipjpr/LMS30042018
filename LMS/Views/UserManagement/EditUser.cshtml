@@ -1,0 +1,693 @@
+﻿@using MvcCheckBoxList.Model
+@using CLSLms
+@using LMS.Models
+@model LMS.Models.UserModel
+@{
+    ViewBag.Title = "Edit user";
+    var db = new LeopinkLMSDBEntities();
+    var currentuser = db.UserProfiles.Find(Convert.ToInt64(Session["UserID"])); // user logs in
+    var defaultRole = db.InstanceInfoes.Find(1).RoleName;
+    <link rel="stylesheet" href="~/Scripts/sol.css">
+}
+@using (Html.BeginForm("EditUser", "UserManagement", FormMethod.Post, new { @id = "myForm" }))
+{
+
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                <li class="breadcrumb-item"><a href="~/UserManagement">@LMSResourse.Common.ApplicationMenu.lblUsers</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipEditUser</li>
+            </ol>
+        </nav>
+        <div class="errormessage" role="alert" id="errorMessages">
+            <div>@Html.ValidationMessageFor(model => model.FirstName)</div>
+            <div>@Html.ValidationMessageFor(model => model.LastName)</div>
+            <div>@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationID)</div>
+            <div>@Html.ValidationMessageFor(model => model.UserGroupList.PostedGroups.UserGroupsLocalIds)</div>
+            <div>@Html.ValidationMessageFor(model => model.Option1)</div>
+            <div>@Html.ValidationMessageFor(model => model.Option2)</div>
+            <div id="servererrors"></div>
+            <div id="servererrorsGroup"></div>
+        </div>
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(e => e.EmailAddress)
+        @Html.HiddenFor(o => o.OrganisationID)
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.FirstName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="FirstName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.LastName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="LastName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.EmailAddress)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @type = "email", @disabled = "disable" })
+                        <span class="input-group-addon" id="EmailAddress_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.EmployeeID)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.EmployeeID, new { @class = "form-control", @readonly = "true", @onfocus = "this.removeAttribute('readonly')", autocomplete = "off" })
+                        <span class="input-group-addon" id="EmployeeID_feedback"></span>
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.EmployeeID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationID)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("OrganisationID", (IEnumerable<SelectListItem>)ViewBag.OrgList, @LMSResourse.Common.Common.dropSelect, new { @class = "form-control", @disabled = "disable" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.DistrictID)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("DistrictID", (IEnumerable<SelectListItem>)ViewBag.DistrictList, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.BlockID)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("BlockID", (IEnumerable<SelectListItem>)ViewBag.BlockList, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.SchoolID)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("SchoolID", (IEnumerable<SelectListItem>)ViewBag.SchoolList, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row" id="lastelement">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.UserRolesList)</div>
+                <div class="col-md-4" id="userroles">
+                    <div class="input-group" style="border: solid 1px #cccccc; padding: 5px 0 0 18px; height: 200px; overflow-y: scroll; overflow-x: hidden; ">
+                        @Html.CheckBoxListFor(
+                                model => model.UserRolesList.PostedRoles.UserRolesLocalIds,
+                                model => model.UserRolesList.AvailableRoles,
+                                model => model.RoleId,
+                                model => model.RoleName,
+                                model => Model.UserRolesList.SelectedRoles.Select(a => a.RoleName).Contains(model.RoleName),
+                                new HtmlListInfo(HtmlTag.vertical_columns, 1, new { @style = "padding-left:0px;" })
+                                )
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.UserRolesList)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.UserGroupList)</div>
+                <div class="col-md-4" id="groups">
+                    <div id="groupcheckboxes" class="form_textbox set_width1" style="border: solid 1px #cccccc; padding: 5px 0 0 18px; height: 200px; overflow-y: scroll; overflow-x: hidden; ">
+                        @Html.CheckBoxListFor(
+                                model => model.UserGroupList.PostedGroups.UserGroupsLocalIds,
+                                model => model.UserGroupList.AvailableGroups,
+                                model => model.GroupId,
+                                model => model.GroupName,
+                                model => Model.UserGroupList.SelectedGroups.Select(a => a.GroupName).Contains(model.GroupName),
+                                new HtmlListInfo(HtmlTag.table, 1, new { @class = "required", @style = "width:100%; padding-left:10px;", @id = "groupListCheckBox" })
+                                )
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group dvparent">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.UserIDs)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <select id="userListCheckBox" name="character" multiple="multiple" style="width: 325px;"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Password)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+                        <span class="input-group-addon" id="Password_feedback"></span>
+                        <button class="btn btn-secondary" type="button" id="btnGeneratePassword">@LMSResourse.Admin.User.btnGeneratePassword</button>
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.Password)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ContactNo)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control" })
+                        <span class="input-group-addon" id="ContactNo_feedback"></span>
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.EmployeeID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Designation)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Designation, new { @class = "form-control" })
+                        <span class="input-group-addon" id="Designation_feedback"></span>
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.Designation)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ManagerName)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.ManagerName, new { @class = "form-control" })
+                        <span class="input-group-addon" id="ManagerName_feedback"></span>
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.ManagerName)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Status)</div>
+                <div class="col-md-4">
+                    <div class="col-md-6">
+                        @Html.CheckBoxFor(model => model.Status)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary" id="create">@LMSResourse.Admin.User.btnSaveAssignment</button>&nbsp;
+                    <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "UserManagement")';" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.UserIDs)
+}
+@section Scripts {
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/sol.js"></script>
+    <script src="~/Scripts/commonfunction.js"></script>
+    <script src="@Url.Content("~/Scripts/common-functions-util.js")"></script>
+    <script type="text/javascript">
+        function validate(e) {
+            e.preventDefault();
+            // now trigger the form validation, result is 1 or 0
+            var result = $('form').valid();
+            if (result == false) {
+            }
+            else {
+                $('form')[0].submit();
+            }
+        }
+
+        $("#btnGeneratePassword").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "../../UserManagement/AjaxGeneratePassword",
+                success: function (data) {
+                    $("#Password").val(data);
+                },
+                //    ,
+                //complete: function (data) {
+                //    $("#Password").val(data);
+                //},
+                async: false,
+                cache: false
+            });
+        });
+
+        $("#create").click(function (e) {
+            $("#ActionType").val("0");
+            //validate(e);
+        });
+
+        $("#create_n_assigngroup").click(function (e) {
+            $("#ActionType").val("1");
+            //validate(e);
+        });
+
+        $("#create_n_addanother").click(function (e) {
+            $("#ActionType").val("2");
+            //validate(e);
+        });
+
+        $(document).ready(function () {
+            fieldLength($("#EmployeeID"), $("#EmployeeID_feedback"));
+            fieldLength($("#FirstName"), $("#FirstName_feedback"));
+            fieldLength($("#LastName"), $("#LastName_feedback"));
+            fieldLength($("#EmailAddress"), $("#EmailAddress_feedback"));
+            fieldLength($("#Password"), $("#Password_feedback"));
+            fieldLength($("#ContactNo"), $("#ContactNo_feedback"));
+            fieldLength($("#ManagerName"), $("#ManagerName_feedback"));
+            fieldLength($("#Designation"), $("#Designation_feedback"));
+            $("#FirstName").focus();
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(1)").addClass("active");
+            loadProfileValues();
+
+            $('#groupcheckboxes').find('input[type=checkbox]').each(function (e) {
+                $(this).attr("style", "float: left; margin-right: 10px; margin-top: 6px;");
+            });
+            $('#groupcheckboxes').find('label').each(function (e) {
+                $(this).attr("style", "width: 88%;");
+            });
+
+            $('#userroles').find('input[type=checkbox]').each(function (e) {
+                $(this).attr("style", "float: left; margin-right: 10px; margin-top: 6px;");
+            });
+
+            if ('@Model.IsGroupAdmin.ToString().ToLower()' == "true" && '@Model.UserId' == '@currentuser.UserId') {
+                $("#usRoles input[type='checkbox']").each(function () {
+                    $(this).attr("disabled", true);
+                });
+            }
+
+            var checkboid = $("input[type='checkbox'][value=" + '@Model.UserRolesList.AvailableRoles.Where(x => x.RoleName == defaultRole).Single().RoleId.ToString()' + "]").attr("id");
+            $("#" + checkboid).attr("disabled", true);
+
+            //$('#Password').keyup(function (e) {
+            //    //var message = ValidateStrongPassword($('#Password').val());
+            //    //if (message.length > 0) {
+            //    //    showPasswordSecurityPopup(e, message);//document.getElementById('textarea_feedback').style.display = 'inline';
+            //    //}
+            //});
+            //$('#Password').bind('blur', function () {
+            //    //$("#w_oPSPopup").hide();
+            //    //$("#servererrors").hide();
+            //});
+        });
+
+        function loadProfileValues() {
+            var currentOrganisation = '@Model.OrganisationID';
+            if (currentOrganisation != "") {
+                var param = {
+                    OrgId: currentOrganisation,
+                    LangaugeId: "@Model.UserLanguageId"
+                };
+                var x = [];
+                $.ajax({
+
+                    url: "../../UserManagement/GetUserProfiles",
+                    contentType: "application/x-www-form-urlencoded",
+                    type: "GET",
+                    datatype: "json",
+                    async: false,
+                    data: param,
+                    error: function (xmlHttpRequest, errorText, thrownError) {
+                        //alert(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+                        return false;
+                    },
+                    success: function (data) {
+                        if (data != null) {
+                            // window.location.reload();
+                            //alert(data);
+                        }
+                    },
+                    complete: function (data) {
+                        x = JSON.parse(data.responseText);
+
+                        $(document).find("[data-dyc='" + 1 + "']").remove();
+                        $("#Option1-error").html("");
+                        $("#Option2-error").html("");
+
+                        for (var i = 0; i < x.length; i++) {
+                            var controlValue = "";
+                            switch (x[i].profileSettingId) {
+                                case 1:
+                                    controlValue = '@Model.Option1';
+                                    break;
+                                case 2:
+                                    controlValue = '@Model.Option2';
+                                    break;
+                                default:
+                                    controlValue = '';
+                                    break;
+                            }
+
+                            if (x[i].IsDisplay == true) {
+                                var Objadd = "";
+                                if (x[i].ProfileType == 1) {
+                                    if (x[i].IsMandatory == true) {
+                                        Objadd = '<div class="row top_margin15"  data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                            '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label></div>' +
+                                        '<div class="col-md-6">' +
+                                        '<input class="form_textbox set_text_width" size = "40" data-val="true" required data-val-length-max="' + x[i].MaxLength + '" title="' + x[i].ReqValidationMessage_For_Text + '" data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" type="text" value="' + controlValue + '" ></input>' +
+                                        '<div id="Option' + x[i].profileSettingId + '_feedback"></div><div class="mandatory_mark">*</div></div></div>';
+                                        $("#lastelement").before(Objadd);
+                                        fieldLength($("#Option" + x[i].profileSettingId), $("#Option" + x[i].profileSettingId + "_feedback"));
+                                    }
+                                    else {
+                                        Objadd = Objadd = '<div class="row top_margin15"  data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                           '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label></div>' +
+                                       '<div class="col-md-6">' +
+                                       '<input class="form_textbox set_text_width" size = "40" data-val="true" data-val-length-max="' + x[i].MaxLength + '" title="' + x[i].ReqValidationMessage_For_Text + '" data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" type="text"  value="' + controlValue + '" ></input>' +
+                                       '<div id="Option' + x[i].profileSettingId + '_feedback"></div><div class="mandatory_mark"></div></div></div>';
+                                        $("#lastelement").before(Objadd);
+                                        fieldLength($("#Option" + x[i].profileSettingId), $("#Option" + x[i].profileSettingId + "_feedback"));
+                                    }
+                                }
+                                else if (x[i].ProfileType == 2) {
+                                    if (x[i].IsMandatory == true) {
+                                        Objadd = '<div class="row top_margin15" data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                           '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label>' +
+                                           '</div><div class="col-md-6">' +
+                                           '<select class="form_textbox form_selectlist" data-val="true" data-val-number="The field Organisation must be a number." data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" aria-required="true" aria-invalid="false" title="' + x[i].ReqValidationMessage_For_Dropdown + '">' +
+                                           '<option value="">-- Select --</option>';
+                                        for (var y = 0; y < x[i].DropdownValues.length; y++) {
+                                            if (controlValue == x[i].DropdownValues[y].ValueText)
+                                                Objadd = Objadd + '<option selected value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                            else
+                                                Objadd = Objadd + '<option value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                        }
+                                        Objadd = Objadd + '</select>' +
+                                            '<div class="mandatory_mark">*</div></div></div>';
+
+                                        $("#lastelement").before(Objadd);
+                                    }
+                                    else {
+                                        Objadd = '<div class="row top_margin15" data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                            '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label>' +
+                                            '</div><div class="col-md-6">' +
+                                            '<select class="form_textbox form_selectlist"  data-val="true" data-val-number="The field Organisation must be a number." data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" aria-required="true" aria-invalid="false" title="' + x[i].ReqValidationMessage_For_Dropdown + '">' +
+                                            '<option value="">-- Select --</option>';
+                                        for (var y = 0; y < x[i].DropdownValues.length; y++) {
+                                            if (controlValue == x[i].DropdownValues[y].ValueText)
+                                                Objadd = Objadd + '<option selected value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                            else
+                                                Objadd = Objadd + '<option value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                        }
+                                        Objadd = Objadd + '</select>' +
+                                            '<div class="mandatory_mark"></div></div></div>';
+                                        $("#lastelement").before(Objadd);
+                                    }
+                                }
+                            }
+                            $(document).find("[data-dyc='" + 1 + "']").addClass("form-group row")
+                        }
+                    }
+                });
+            }
+        }
+
+        function IsGroupChecked() {
+            // check the values selected and return an outcome
+            if (($("#OrganisationID :selected").text() != '@LMSResourse.Common.Common.dropSelect')) {
+                var checkedCount = $('#groupListCheckBox').find('input:checked').length; 
+                var valid = checkedCount > 0;
+                if (!valid) {
+                    $('#servererrorsGroup').html('@LMSResourse.Admin.User.msgReqUserGroup');
+
+                    // $('#servererrorsGroup').addClass('tooltip');
+                }
+                else {
+                    $('#servererrorsGroup').html('');
+                    //$('#servererrorsGroup').removeClass('tooltip');
+                }
+                return valid;
+            }
+            return false;
+
+        }
+
+        //function showPasswordSecurityPopup(e, message) {
+        //    $("#servererrors").html(message);
+        //    $("#servererrors").show();
+        //    //$("#w_oPSPopupDetails").html(message);
+        //    //$('#w_oPSPopup').show();
+        //    //$('#w_oPSPopup div').show();
+        //    //var _oPSPopup = $('#w_oPSPopup');
+        //    //var _oTarget = $('#' + e.currentTarget.id);
+        //    ////Sets position
+        //    //var _oTargetX = _oTarget.offset().left + _oTarget.width() + 19;
+        //    //var _oTargetY = _oTarget.offset().top - 30;
+        //    //_oPSPopup.css('top', _oTargetY);
+        //    //_oPSPopup.css('left', _oTargetX);
+        //    //_oPSPopup.show();
+        //    //$('#w_oPSPopup, #w_oPSPopup div').show();
+        //    //console.log('>>>>>>>>>>>>>> _oTargetX: ' + _oTargetX);
+        //};
+        var courseTypeVal = "1";
+        $(document).ready(function () {
+            var Selectedvalue = $("#OrganisationID").val();
+            var myStr = $(this).text();
+            $("#OrganisationID").tooltip(true);
+            //alert($("#OrganisationID option[value='" + Selectedvalue + "']").text() + " : " + $("#OrganisationID").attr("title"));
+            $("#OrganisationID").prop("title", $("#OrganisationID option[value='" + Selectedvalue + "']").text());
+            $("#OrganisationID").prop("title", "adfadfadfadfadfadf adfadf adf adf");
+
+            //
+            var groupIds = "";
+            fillBlocks($("#DistrictID").val(), "@ViewBag.blockId", "@ViewBag.schoolId", "@ViewBag.UserIds");
+
+            $("#DistrictID").change(function () {
+                fillBlocks($(this).val(), 0, 0, "@ViewBag.UserIds");
+            });
+
+            $("#BlockID").change(function () {
+                fillSchools($(this).val(), 0, "@ViewBag.UserIds");
+            });
+
+            $("#SchoolID").change(function () {
+                fillUsersCheckbox("@ViewBag.UserIds", $(this).val());
+            });
+
+            $(".dvparent").hide();
+           
+            //Manage Role seletion on page load
+            $('#userroles').find('input[type="checkbox"]:checked').each(function () {
+                var isChecked = $(this).is(':checked');
+                if ($(this).next().text() == "Administrator") {
+                    if (isChecked) {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Group Admin")
+                                $(this).attr("disabled", true);
+                        });
+                    }
+                }
+                else if ($(this).next().text() == "Group Admin") {
+                    if (isChecked) {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Administrator")
+                                $(this).attr("disabled", true);
+                        });
+                    }
+                }
+                else if ($(this).next().text() == "Parent" || $(this).next().text() == "Teacher") {
+                    if (isChecked) {
+                        $(this).siblings(":checkbox").attr("disabled", "disabled");
+                        $(this).siblings(":checkbox").prop("checked", false);
+                        if ($(this).next().text() == "Parent") {
+                            courseTypeVal = 2;
+                            $(".dvparent").show();
+                        }
+                    }
+
+                    $('#groupListCheckBox').find('input[type="checkbox"]').each(function () {
+                        if ($(this).attr("value").split("~")[0] == 1 && isChecked) {
+                            $(this).attr("disabled", "disabled");
+                            $(this).prop("checked", false);
+                        }
+                        else if ($(this).attr("value").split("~")[0] == 1) {
+                            $(this).prop('checked', false);
+                            $(this).removeAttr("disabled");
+                        }
+                    });
+                }
+
+            });
+
+            $('#groupListCheckBox').find('input[type="checkbox"]:checked').each(function () {
+                groupIds = (groupIds == "" ? $(this).attr("value").split("~")[0] : groupIds + "," + $(this).attr("value").split("~")[0]);
+            });
+            
+            fillUsers(groupIds, "@ViewBag.UserIds", "@ViewBag.schoolId");
+
+            $('#groupListCheckBox').find('input[type="checkbox"]').each(function () {
+                $(this).click(function () {
+                    if (courseTypeVal == 2) {
+                        groupIds = "";
+                        $('#groupListCheckBox').find('input[type="checkbox"]:checked').each(function () {
+                            groupIds = (groupIds == "" ? $(this).attr("value").split("~")[0] : groupIds + "," + $(this).attr("value").split("~")[0]);
+                        });
+                        fillUsers(groupIds, "@ViewBag.UserIds", $("#SchoolID").val());
+                    }
+                });
+            });
+
+            $("#create").click(function (e) {
+                var isCheck = false;
+
+                if (!$('#myForm').valid() || IsGroupChecked() == false) {
+                    return false;
+                }
+
+                if (courseTypeVal == "2") {
+                    $('.sol-selection').find('input[type=checkbox]:checked').each(function (e) {
+                        isCheck = true;
+                    });
+
+                    if (isCheck == false) {
+                        $('#servererrors').html('@LMSResourse.Admin.ProfileSettings.msgSelectUserName');
+                        return false;
+                    }
+                }
+
+                var userIds = "";
+                $('.sol-selection').find('input[type="checkbox"]:checked').each(function () {
+                    userIds = (userIds == "" ? $(this).attr("value") : userIds + "," + $(this).attr("value"));
+                });
+
+                $("#UserIDs").val(userIds);
+            });
+        });
+
+        //Manage Role seletion on checkbox check event
+        $('#userroles').find('input[type="checkbox"]').each(function () {
+            $(this).click(function () {
+                //fillBlocks($("#DistrictID").val(), 0, 0, "");
+                $('#groupListCheckBox').find('input[type="checkbox"]').each(function () {
+                    $(this).prop('checked', false);
+                    $(this).removeAttr("disabled");
+                });
+                if ($(this).next().text() == "Parent" || $(this).next().text() == "Teacher") {
+                    var $checkbox = $(this);
+                    var isChecked = $checkbox.is(':checked')
+                    var checkboid = $("input[type='checkbox'][value=" + '@Model.UserRolesList.AvailableRoles.Where(x => x.RoleName == defaultRole).Single().RoleId.ToString()' + "]").attr("id");
+                    //If no option is checked, the make all the options available to be selected
+                    //Otherwise, one option must be checked so lock out all other options
+
+                    if (isChecked) {
+                        $checkbox.siblings(":checkbox").attr("disabled", "disabled");
+                        $checkbox.siblings(":checkbox").prop("checked", false);
+                        if ($(this).next().text() == "Parent") {
+                            fillUsers(0, "", 0);
+                            courseTypeVal = 2;
+                            $(".dvparent").show();
+                        }
+
+                    }
+                    else {
+                        $checkbox.siblings(":checkbox").removeAttr("disabled");
+                        $("#" + checkboid).prop("checked", true);
+                        $("#" + checkboid).attr("disabled", true);
+                        $(".dvparent").hide();
+                        courseTypeVal = 1;
+                    }
+
+                    $('#groupListCheckBox').find('input[type="checkbox"]').each(function () {
+                        if ($(this).attr("value").split("~")[0] == 1 && isChecked) {
+                            $(this).attr("disabled", "disabled");
+                            $(this).prop("checked", false);
+                        }
+                        else if ($(this).attr("value").split("~")[0] == 1) {
+                            $(this).prop('checked', false);
+                            $(this).removeAttr("disabled");
+                        }
+                    });
+                }
+                else if ($(this).next().text() == "Administrator") {
+                    if ($(this).is(':checked')) {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Group Admin")
+                                $(this).attr("disabled", true);
+                        });
+                    }
+                    else {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Group Admin")
+                                $(this).attr("disabled", false);
+                        });
+                    }
+
+                }
+                else if ($(this).next().text() == "Group Admin") {
+                    if ($(this).is(':checked')) {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Administrator")
+                                $(this).attr("disabled", true);
+                        });
+                    }
+                    else {
+                        $(this).siblings(":checkbox").each(function () {
+                            if ($(this).next().text() == "Administrator")
+                                $(this).attr("disabled", false);
+                        });
+                    }
+
+                }
+            });
+        });
+    </script>
+}
