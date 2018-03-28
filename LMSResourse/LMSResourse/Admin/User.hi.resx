@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddUser" xml:space="preserve">
+    <value>उपयोगकर्ता जोड़ें</value>
+  </data>
+  <data name="btnAddUserOption1" xml:space="preserve">
+    <value>और एक और जोड़ें</value>
+  </data>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>उपयोगकर्ता हटाएं</value>
+  </data>
+  <data name="btnGeneratePassword" xml:space="preserve">
+    <value>उत्पन्न</value>
+  </data>
+  <data name="btnImportUser" xml:space="preserve">
+    <value>उपयोगकर्ता आयात करें</value>
+  </data>
+  <data name="btnSaveAssignment" xml:space="preserve">
+    <value>रिकॉर्ड सहेजें</value>
+  </data>
+  <data name="fldConfirmPassword" xml:space="preserve">
+    <value>पासवर्ड की पुष्टि कीजिये</value>
+  </data>
+  <data name="fldContactNo" xml:space="preserve">
+    <value>संपर्क नंबर</value>
+  </data>
+  <data name="fldDesignation" xml:space="preserve">
+    <value>पद</value>
+  </data>
+  <data name="fldEmailAddress" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="fldEmployeeId" xml:space="preserve">
+    <value>कर्मचारी आईडी</value>
+  </data>
+  <data name="fldExpiry" xml:space="preserve">
+    <value>अगले 30 दिनों के भीतर समाप्ति</value>
+  </data>
+  <data name="fldfile" xml:space="preserve">
+    <value>फ़ाइल का चयन करें</value>
+  </data>
+  <data name="fldFirstName" xml:space="preserve">
+    <value>प्रथम नाम</value>
+  </data>
+  <data name="fldGroups" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="fldLastName" xml:space="preserve">
+    <value>अंतिम नाम</value>
+  </data>
+  <data name="fldManagerName" xml:space="preserve">
+    <value>प्रबंधक का नाम</value>
+  </data>
+  <data name="fldOption1" xml:space="preserve">
+    <value>विकल्प 1</value>
+  </data>
+  <data name="fldOption2" xml:space="preserve">
+    <value>विकल्प 2</value>
+  </data>
+  <data name="fldOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="fldPassword" xml:space="preserve">
+    <value>पासवर्ड</value>
+  </data>
+  <data name="fldRoles" xml:space="preserve">
+    <value>भूमिकाएँ</value>
+  </data>
+  <data name="fldStatus" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="fldUserName" xml:space="preserve">
+    <value>उपयोगकर्ता</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>उपयोगकर्ता हटाएं?</value>
+  </data>
+  <data name="lblMeghaBite" xml:space="preserve">
+    <value>एमबी</value>
+  </data>
+  <data name="lblResetCourses" xml:space="preserve">
+    <value>रीसेट कोर्स</value>
+  </data>
+  <data name="Msg8Char" xml:space="preserve">
+    <value>कम से कम 8 अक्षरों का अवश्य होना चाहिये</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>क्या आप वाकई चुने हुए उपयोगकर्ता को हटाना चाहते हैं?</value>
+  </data>
+  <data name="msgDelete_User_NotValidRights" xml:space="preserve">
+    <value>आपके पास उपयोगकर्ता को हटाने के लिए पर्याप्त अधिकार नहीं हैं</value>
+  </data>
+  <data name="MsgDigit" xml:space="preserve">
+    <value>अंक</value>
+  </data>
+  <data name="msgDupEmailAddress" xml:space="preserve">
+    <value>ईमेल पता पहले से मौजूद है</value>
+  </data>
+  <data name="msgDupEmployeeid" xml:space="preserve">
+    <value>कर्मचारी आईडी पहले से मौजूद है</value>
+  </data>
+  <data name="msgDupUserName" xml:space="preserve">
+    <value>उपयोगकर्ता नाम पहले से मौजूद</value>
+  </data>
+  <data name="msgEmailNotExists" xml:space="preserve">
+    <value>ईमेल पता मौजूद नहीं है</value>
+  </data>
+  <data name="msgErrorCnfPassword" xml:space="preserve">
+    <value>पासवर्ड और पासवर्ड की पुष्टि करें मैच होना चाहिए</value>
+  </data>
+  <data name="msgErrorExcel" xml:space="preserve">
+    <value>कृपया .xls प्रकार की फ़ाइल अपलोड करें| </value>
+  </data>
+  <data name="msgErrorFileTooLarge" xml:space="preserve">
+    <value>आपकी फ़ाइल बहुत बड़ी है, अधिकतम अनुमत आकार है:</value>
+  </data>
+  <data name="msgErrorSelectdata" xml:space="preserve">
+    <value>कृपया दिनांक का चयन करें</value>
+  </data>
+  <data name="msgImpDupUserName" xml:space="preserve">
+    <value>डुप्लिकेट उपयोगकर्ता नाम</value>
+  </data>
+  <data name="msgImpFldMissing" xml:space="preserve">
+    <value>लापता।</value>
+  </data>
+  <data name="msgImpFmt" xml:space="preserve">
+    <value>गलत फ़ील्ड मान</value>
+  </data>
+  <data name="msgImpFmtFile" xml:space="preserve">
+    <value>फ़ाइल मान्य प्रारूप में नहीं है</value>
+  </data>
+  <data name="msgImpFmtFileExt" xml:space="preserve">
+    <value>वैध आयात फ़ाइल का चयन करें समर्थित प्रारूप .xls है</value>
+  </data>
+  <data name="msgImpGroup" xml:space="preserve">
+    <value>समूह गायब है</value>
+  </data>
+  <data name="msgImpInvalidGroup" xml:space="preserve">
+    <value>अमान्य समूह</value>
+  </data>
+  <data name="msgImpInvalidOrganisation" xml:space="preserve">
+    <value>अमान्य संगठन</value>
+  </data>
+  <data name="msgImpInvalidRole" xml:space="preserve">
+    <value>अमान्य भूमिका</value>
+  </data>
+  <data name="msgImpIsActive" xml:space="preserve">
+    <value>IsActive लापता है.</value>
+  </data>
+  <data name="msgImpOrganisation" xml:space="preserve">
+    <value>संगठन लापता है</value>
+  </data>
+  <data name="msgImpRecStatusCr" xml:space="preserve">
+    <value>रिकॉर्ड बना दिया</value>
+  </data>
+  <data name="msgImpRecStatusErr" xml:space="preserve">
+    <value>रिकॉर्ड में त्रुटि</value>
+  </data>
+  <data name="msgImpRecStatusUp" xml:space="preserve">
+    <value>रिकॉर्ड अपडेट किया गया</value>
+  </data>
+  <data name="msgImpReqCol" xml:space="preserve">
+    <value>कॉलम Excel फ़ाइल में मौजूद नहीं है</value>
+  </data>
+  <data name="msgImpReqEmail" xml:space="preserve">
+    <value>ईमेल लापता</value>
+  </data>
+  <data name="msgImpReqFirstName" xml:space="preserve">
+    <value>प्रथमनाम अनुपलब्ध</value>
+  </data>
+  <data name="msgImpReqLastName" xml:space="preserve">
+    <value>अंतिम नाम अनुपलब्ध</value>
+  </data>
+  <data name="msgImpRole" xml:space="preserve">
+    <value>भूमिका लापता है</value>
+  </data>
+  <data name="msgInvalidEmail" xml:space="preserve">
+    <value>अमान्य ईमेल पता</value>
+  </data>
+  <data name="msgInvalidSheetName" xml:space="preserve">
+    <value>अपलोड की गई आयात फ़ाइल में अमान्य शीट का नाम। शीट का नाम आयातक, निर्यातउत्पादक शीट या शीट 1 में होना चाहिए</value>
+  </data>
+  <data name="msgLbla" xml:space="preserve">
+    <value>a.	रिकार्ड सफलतापूर्वक संसाधित किए गए:</value>
+  </data>
+  <data name="msgLblb" xml:space="preserve">
+    <value>b.	रिकॉर्ड बनाया गया:</value>
+  </data>
+  <data name="msgLblc" xml:space="preserve">
+    <value>c.	अपडेट रिकॉर्ड:</value>
+  </data>
+  <data name="msgLbld" xml:space="preserve">
+    <value>d.	विफल रिकॉर्ड:</value>
+  </data>
+  <data name="msgLicenceUserExceed" xml:space="preserve">
+    <value>अधिक संगठन लाइसेंस या लाइसेंस समाप्त होने के कारण उपयोगकर्ता बनाने में असमर्थ</value>
+  </data>
+  <data name="msgLower" xml:space="preserve">
+    <value>छोटे अक्षर की लिपि</value>
+  </data>
+  <data name="msgMaxUserExceed" xml:space="preserve">
+    <value>चयनित समूह के अधिकतम उपयोगकर्ता के अधिक संख्या के कारण उपयोगकर्ता बनाने में असमर्थ</value>
+  </data>
+  <data name="msgMinCnfPassword" xml:space="preserve">
+    <value>पासवर्ड कम से कम 6 अक्षर लंबा होना चाहिए</value>
+  </data>
+  <data name="msgMinPassword" xml:space="preserve">
+    <value>पासवर्ड कम से कम 6 अक्षर लंबा होना चाहिए</value>
+  </data>
+  <data name="msgMxlEmail" xml:space="preserve">
+    <value>ईमेल लंबाई 250 वर्णों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlEmailAddress" xml:space="preserve">
+    <value>ईमेल पता लंबाई 255 अक्षरों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlEmployeeId" xml:space="preserve">
+    <value>कर्मचारी आईडी लंबाई 50 अक्षरों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlFirstName" xml:space="preserve">
+    <value>प्रथम नाम लंबाई 150 char से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlLastName" xml:space="preserve">
+    <value>अंतिम नाम लंबाई 150 char से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgReqEmailAddress" xml:space="preserve">
+    <value>कृपया ईमेल पता दर्ज करें</value>
+  </data>
+  <data name="msgReqEmployeeId" xml:space="preserve">
+    <value>कृपया कर्मचारी आईडी दर्ज करें</value>
+  </data>
+  <data name="msgReqfile" xml:space="preserve">
+    <value>कृपया फ़ाइल अपलोड करें</value>
+  </data>
+  <data name="msgReqFirstName" xml:space="preserve">
+    <value>कृपया प्रथम नाम दर्ज करें</value>
+  </data>
+  <data name="msgReqLastName" xml:space="preserve">
+    <value>कृपया अंतिम नाम दर्ज करें</value>
+  </data>
+  <data name="msgReqOption_n_dropdown" xml:space="preserve">
+    <value>कृपया चुने</value>
+  </data>
+  <data name="msgReqOption_n_text" xml:space="preserve">
+    <value>कृपया दर्ज करें</value>
+  </data>
+  <data name="msgReqOrganisation" xml:space="preserve">
+    <value>संगठन का चयन करें</value>
+  </data>
+  <data name="msgReqUserGroup" xml:space="preserve">
+    <value>कृपया कम से कम एक समूह का चयन करें</value>
+  </data>
+  <data name="msgReqUserRoles" xml:space="preserve">
+    <value>कृपया कम से कम एक उपयोगकर्ता भूमिका चुनें</value>
+  </data>
+  <data name="msgResetCourses" xml:space="preserve">
+    <value>क्या आप निश्चित हैं कि आप चयनित पाठ्यक्रम को रीसेट करना चाहते हैं?</value>
+  </data>
+  <data name="msgResetSuccess" xml:space="preserve">
+    <value>चयनित पाठ्यक्रम रीसेट कर दिए गए हैं</value>
+  </data>
+  <data name="msgSelfRegSelectUser" xml:space="preserve">
+    <value>कृपया कम से कम एक उपयोगकर्ता चुनें</value>
+  </data>
+  <data name="MsgSpecial" xml:space="preserve">
+    <value>गैर अक्षरांकीय अक्षर</value>
+  </data>
+  <data name="msgUpdateMaxUserExceed" xml:space="preserve">
+    <value>चयनित समूह के अधिकतम उपयोगकर्ता के अधिक संख्या के कारण उपयोगकर्ता को अपडेट करने में असमर्थ</value>
+  </data>
+  <data name="MsgUpper" xml:space="preserve">
+    <value>अपरकेस अक्षर</value>
+  </data>
+  <data name="msgValidEmailAddress" xml:space="preserve">
+    <value>कृपया एक वैध ई - मेल एड्रेस डालें</value>
+  </data>
+  <data name="thAssignedCourseAssignStatus" xml:space="preserve">
+    <value>सौंपना</value>
+  </data>
+  <data name="thAssignedCourseCategory" xml:space="preserve">
+    <value>विषय</value>
+  </data>
+  <data name="thAssignedCourseCertificate" xml:space="preserve">
+    <value>प्रमाणपत्र</value>
+  </data>
+  <data name="thAssignedCourseExpiryDate" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="thAssignedCourseName" xml:space="preserve">
+    <value>कोर्स</value>
+  </data>
+  <data name="thAssignedCourseReset" xml:space="preserve">
+    <value>रीसेट</value>
+  </data>
+  <data name="thEmailAddress" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="thEmployeeId" xml:space="preserve">
+    <value>कर्मचारी आयडी</value>
+  </data>
+  <data name="thFirstName" xml:space="preserve">
+    <value>प्रथम नाम</value>
+  </data>
+  <data name="thGroups" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="thLastName" xml:space="preserve">
+    <value>अंतिम नाम</value>
+  </data>
+  <data name="thLoginDate" xml:space="preserve">
+    <value>लॉगइन दिनांक</value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="thRegistrationDate" xml:space="preserve">
+    <value>पंजीकरण तिथि</value>
+  </data>
+  <data name="thRoles" xml:space="preserve">
+    <value>भूमिका</value>
+  </data>
+  <data name="thStatus" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+</root>

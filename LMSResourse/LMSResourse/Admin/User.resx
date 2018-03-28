@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddUser" xml:space="preserve">
+    <value>Add user</value>
+  </data>
+  <data name="fldConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="fldContactNo" xml:space="preserve">
+    <value>Contact number</value>
+  </data>
+  <data name="fldEmailAddress" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="fldEmployeeId" xml:space="preserve">
+    <value>Employee id</value>
+  </data>
+  <data name="fldFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="fldLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="fldManagerName" xml:space="preserve">
+    <value>Manager's name</value>
+  </data>
+  <data name="fldOption1" xml:space="preserve">
+    <value>Option1</value>
+  </data>
+  <data name="fldOption2" xml:space="preserve">
+    <value>Option2</value>
+  </data>
+  <data name="fldOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="fldPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="fldRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="fldStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Msg8Char" xml:space="preserve">
+    <value>Must be at least 8 characters long</value>
+  </data>
+  <data name="MsgDigit" xml:space="preserve">
+    <value>Digit</value>
+  </data>
+  <data name="msgDupEmailAddress" xml:space="preserve">
+    <value>Email address already exist</value>
+  </data>
+  <data name="msgDupEmployeeid" xml:space="preserve">
+    <value>Employee id already exist</value>
+  </data>
+  <data name="msgDupUserName" xml:space="preserve">
+    <value>User name already exist</value>
+  </data>
+  <data name="msgLower" xml:space="preserve">
+    <value>Lowercase character</value>
+  </data>
+  <data name="msgMxlEmailAddress" xml:space="preserve">
+    <value>Email address length cannot exceed 255 char</value>
+  </data>
+  <data name="msgMxlEmployeeId" xml:space="preserve">
+    <value>Employee id length cannot exceed 50 char</value>
+  </data>
+  <data name="msgMxlFirstName" xml:space="preserve">
+    <value>First name length cannot exceed 150 char</value>
+  </data>
+  <data name="msgMxlLastName" xml:space="preserve">
+    <value>Last name length cannot exceed 150 char</value>
+  </data>
+  <data name="msgReqEmailAddress" xml:space="preserve">
+    <value>Please enter email address</value>
+  </data>
+  <data name="msgReqEmployeeId" xml:space="preserve">
+    <value>Please enter employee id</value>
+  </data>
+  <data name="msgReqFirstName" xml:space="preserve">
+    <value>Please enter first name</value>
+  </data>
+  <data name="msgReqLastName" xml:space="preserve">
+    <value>Please enter last name</value>
+  </data>
+  <data name="msgReqOrganisation" xml:space="preserve">
+    <value>Please select organisation</value>
+  </data>
+  <data name="msgReqUserRoles" xml:space="preserve">
+    <value>Please select at least one user role</value>
+  </data>
+  <data name="MsgSpecial" xml:space="preserve">
+    <value>Non-alphanumeric character</value>
+  </data>
+  <data name="MsgUpper" xml:space="preserve">
+    <value>Uppercase character</value>
+  </data>
+  <data name="msgValidEmailAddress" xml:space="preserve">
+    <value>Please enter a valid email address</value>
+  </data>
+  <data name="thEmailAddress" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="thEmployeeId" xml:space="preserve">
+    <value>Employee id</value>
+  </data>
+  <data name="thFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="thLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="thRoles" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="thStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="btnGeneratePassword" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="fldGroups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="msgReqUserGroup" xml:space="preserve">
+    <value>Please select at least one group</value>
+  </data>
+  <data name="msgReqOption_n_dropdown" xml:space="preserve">
+    <value>Please select</value>
+  </data>
+  <data name="msgReqOption_n_text" xml:space="preserve">
+    <value>Please enter</value>
+  </data>
+  <data name="thAssignedCourseAssignStatus" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="thAssignedCourseCategory" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="thAssignedCourseCertificate" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
+  <data name="thAssignedCourseExpiryDate" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="thAssignedCourseName" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="fldfile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="lblMeghaBite" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="msgErrorExcel" xml:space="preserve">
+    <value>Please upload file of type: .xls</value>
+  </data>
+  <data name="msgErrorFileTooLarge" xml:space="preserve">
+    <value>Your file is too large, maximum allowed size is :</value>
+  </data>
+  <data name="msgImpFmtFile" xml:space="preserve">
+    <value>File is not in valid format</value>
+  </data>
+  <data name="msgImpReqCol" xml:space="preserve">
+    <value> columns not exist in excel file</value>
+  </data>
+  <data name="msgInvalidSheetName" xml:space="preserve">
+    <value>Invalid sheet name in uploaded import file. Sheet name should be among the ImportUsers, ExportUserSheet or Sheet1.</value>
+  </data>
+  <data name="msgReqfile" xml:space="preserve">
+    <value>Please upload file</value>
+  </data>
+  <data name="msgImpFmtFileExt" xml:space="preserve">
+    <value>Please select valid import file. Supported format is .xls</value>
+  </data>
+  <data name="thGroups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="msgImpDupUserName" xml:space="preserve">
+    <value> Duplicate UserName. </value>
+  </data>
+  <data name="msgImpFldMissing" xml:space="preserve">
+    <value>missing.</value>
+  </data>
+  <data name="msgImpGroup" xml:space="preserve">
+    <value>Group missing.</value>
+  </data>
+  <data name="msgImpIsActive" xml:space="preserve">
+    <value>IsActive missing.</value>
+  </data>
+  <data name="msgImpOrganisation" xml:space="preserve">
+    <value>Organisation missing.</value>
+  </data>
+  <data name="msgImpReqEmail" xml:space="preserve">
+    <value>Email missing. </value>
+  </data>
+  <data name="msgImpReqFirstName" xml:space="preserve">
+    <value>Firstname missing.</value>
+  </data>
+  <data name="msgImpReqLastName" xml:space="preserve">
+    <value>Lastname missing.</value>
+  </data>
+  <data name="msgImpRole" xml:space="preserve">
+    <value>Role missing.</value>
+  </data>
+  <data name="msgMxlEmail" xml:space="preserve">
+    <value>Email length cannot exceed 250 char</value>
+  </data>
+  <data name="msgImpFmt" xml:space="preserve">
+    <value>Incorrect field value. </value>
+  </data>
+  <data name="msgImpInvalidGroup" xml:space="preserve">
+    <value>Invalid Group</value>
+  </data>
+  <data name="msgImpInvalidOrganisation" xml:space="preserve">
+    <value>Invalid Organisation.</value>
+  </data>
+  <data name="msgImpInvalidRole" xml:space="preserve">
+    <value>Invalid role.</value>
+  </data>
+  <data name="msgImpRecStatusErr" xml:space="preserve">
+    <value>Error in record</value>
+  </data>
+  <data name="msgImpRecStatusUp" xml:space="preserve">
+    <value>Record Updated</value>
+  </data>
+  <data name="msgLbla" xml:space="preserve">
+    <value>a.	Record(s) successfully processed:</value>
+  </data>
+  <data name="msgLblb" xml:space="preserve">
+    <value>b.	Created record(s):</value>
+  </data>
+  <data name="msgLblc" xml:space="preserve">
+    <value>c.	Updated record(s):</value>
+  </data>
+  <data name="msgLbld" xml:space="preserve">
+    <value>d.	Failed record(s):</value>
+  </data>
+  <data name="msgImpRecStatusCr" xml:space="preserve">
+    <value>Record Created</value>
+  </data>
+  <data name="btnAddUserOption1" xml:space="preserve">
+    <value>and add another</value>
+  </data>
+  <data name="btnImportUser" xml:space="preserve">
+    <value>Import Users</value>
+  </data>
+  <data name="btnSaveAssignment" xml:space="preserve">
+    <value>Save record</value>
+  </data>
+  <data name="msgDelete_User_NotValidRights" xml:space="preserve">
+    <value>You do not have sufficient rights to delete the user.</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete selected user?</value>
+  </data>
+  <data name="msgMinPassword" xml:space="preserve">
+    <value>Password must be at least 6 characters long</value>
+  </data>
+  <data name="msgMinCnfPassword" xml:space="preserve">
+    <value>Password must be at least 6 characters long</value>
+  </data>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>Delete user</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>Delete user?</value>
+  </data>
+  <data name="msgErrorSelectdata" xml:space="preserve">
+    <value>Please select date for</value>
+  </data>
+  <data name="msgErrorCnfPassword" xml:space="preserve">
+    <value>Password and Confirm password should be match</value>
+  </data>
+  <data name="thLoginDate" xml:space="preserve">
+    <value>Login date</value>
+  </data>
+  <data name="thRegistrationDate" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="msgLicenceUserExceed" xml:space="preserve">
+    <value>Unable to create user due to exceeded organisation limit or organisation expired.</value>
+  </data>
+  <data name="msgSelfRegSelectUser" xml:space="preserve">
+    <value>Please select atleast one user</value>
+  </data>
+  <data name="thAssignedCourseReset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="lblResetCourses" xml:space="preserve">
+    <value>Reset Courses</value>
+  </data>
+  <data name="msgResetCourses" xml:space="preserve">
+    <value>Are you sure you want to reset selected course(s)?</value>
+  </data>
+  <data name="msgResetSuccess" xml:space="preserve">
+    <value>The selected course(s) have been reset</value>
+  </data>
+  <data name="msgMaxUserExceed" xml:space="preserve">
+    <value>Unable to create user due to exceeded no of max user of selected group.</value>
+  </data>
+  <data name="msgUpdateMaxUserExceed" xml:space="preserve">
+    <value>Unable to update user due to exceeded no of max user of selected group.</value>
+  </data>
+  <data name="msgInvalidEmail" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="fldUserName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="msgEmailNotExists" xml:space="preserve">
+    <value>Email address not exists</value>
+  </data>
+  <data name="fldExpiry" xml:space="preserve">
+    <value>Expiry within next 30 days</value>
+  </data>
+  <data name="fldDesignation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+</root>

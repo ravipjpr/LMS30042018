@@ -1,0 +1,255 @@
+﻿@model LMS.Models.ImportUser
+@{
+    ViewBag.Title = "ImportUser";
+}
+<div class="container-fluid" style="min-height:800px">
+    @using (Html.BeginForm("ImportUser", "UserManagement", FormMethod.Post, new { enctype = "multipart/form-data", @id = "myform" }))
+    {
+        <div class="container">
+            @Html.HiddenFor(model => model.ActionType)
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                    <li class="breadcrumb-item"><a href="~/UserManagement">@LMSResourse.Common.ApplicationMenu.lblUsers</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipImportUser</li>
+                </ol>
+            </nav>
+            <div class="errormessage" role="alert" id="errorMessages">
+                <div>@Html.ValidationMessageFor(model => model.OrganisationID)</div>
+                <div>@Html.ValidationMessageFor(model => model.file)</div>
+                <div id="servererrors"></div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.OrganisationID)*
+                        @Html.DropDownList("OrganisationID", (IEnumerable<SelectListItem>)ViewBag.OrgList, @LMSResourse.Common.Common.dropSelect, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.file)*
+                        <input type="file" id="file" name="file" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            @if (@Model.Recordsreturned.Rows.Count > 0)
+            {
+                <script type="text/javascript">$("#process").hide(1000);</script>
+
+                <div class="row top_margin25">
+
+                    <div class="col-md-5">
+                        <div class="message_wrapper">
+                            <span style="width:250px;">@LMSResourse.Admin.User.msgLbla&nbsp;</span>
+                            <span>&ndash;</span>
+                            <span>@ViewBag.TotalRecords</span>
+                        </div>
+                        <div class="message_wrapper">
+                            <span style="width:250px;">@LMSResourse.Admin.User.msgLblb&nbsp;</span>
+                            <span>&ndash;</span>
+                            <span>@Model.RecordInserted</span>
+                        </div>
+                        <div class="message_wrapper">
+                            <span style="width:250px;">@LMSResourse.Admin.User.msgLblc&nbsp;</span>
+                            <span>&ndash;</span>
+                            <span>@Model.RecordUpdated</span>
+                        </div>
+                        <div class="message_wrapper">
+                            <span style="width:250px;">@LMSResourse.Admin.User.msgLbld&nbsp;</span>
+                            <span>&ndash;</span>
+                            <span>@Model.RecordFailed</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7">&nbsp;</div>
+                </div>
+                <div class="row top_margin25">
+                    <div class="table-responsive margin-top-20">
+                        <table class="table table-hover" style="word-wrap: break-word;" id="myDataTable">
+                            <thead style="word-wrap: break-word; background: #808080; color: #ffffff;">
+
+                                <tr>
+                                    @{int i = 0;}
+                                    @foreach (System.Data.DataColumn col in Model.Recordsreturned.Columns)
+                                    {
+                                        string wid = i == 2 ? "160px" : i == 5 || i == 6 ? "200px" : "115px";
+                                        <th style="word-break: break-word; vertical-align:top; width: @wid;">@col.ColumnName</th>
+                                        i++;
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (System.Data.DataRow row in Model.Recordsreturned.Rows)
+                                {
+                                    if (Convert.ToString(row[Model.Recordsreturned.Columns.Count - 1]).Contains(@LMSResourse.Admin.User.msgImpRecStatusUp) || Convert.ToString(row[Model.Recordsreturned.Columns.Count - 1]).Contains("Record Created"))
+                                    {
+                                        <tr class=" success">
+                                            @foreach (System.Data.DataColumn col in Model.Recordsreturned.Columns)
+                                            {
+                                                <td style="word-break: normal; text-wrap: normal;">@row[col.ColumnName]</td>
+                                            }
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr class=" error">
+                                            @foreach (System.Data.DataColumn col in Model.Recordsreturned.Columns)
+                                            {
+                                                <td style="word-break: break-word; text-wrap: normal;">@row[col.ColumnName]</td>
+                                            }
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                                        }
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" id="create" value="@LMSResourse.Admin.User.btnSaveAssignment" />&nbsp;
+                        <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "UserManagement")';" />
+                        <input type="submit" class="btn btn-info" id="CreateUserTempleate" value="@LMSResourse.Common.Common.btnDowloadTemplate" />
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                                        }
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("select#OrganisationID option").eq(0).val("0");
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            } else $("#errorMessages").hide();
+
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(1)").addClass("active");
+            function getNameFromPath(strFilepath) {
+                var objRE = new RegExp(/([^\/\\]+)$/);
+                var strName = objRE.exec(strFilepath);
+
+                if (strName == null) {
+                    return null;
+                }
+                else {
+                    return strName[0];
+                }
+            }
+
+            $("#file").change(function () {
+
+                var flag = false;
+                var file = getNameFromPath($("#file").val());
+                if (file != null) {
+                    var extension = file.substr((file.lastIndexOf('.') + 1));
+                    if (extension.toString() === "XLS" || extension.toString() === "xls")
+                        flag = true;
+                    else
+                        flag = false;
+                    if (flag == false) {
+                        $("#servererrors").html("@LMSResourse.Admin.User.msgImpFmtFileExt");
+                        $("#errorMessages").show();
+                        return false;
+                    }
+                    else {
+                        $("#errorMessages").hide();
+
+                        return true;
+                    }
+                }
+            });
+
+            function checkFile() {
+                var flag = false;
+                var file = getNameFromPath($("#file").val());
+                if (file != null) {
+                    var extension = file.substr((file.lastIndexOf('.') + 1));
+                    if (extension.toString() === "XLS" || extension.toString() === "xls")
+                        flag = true;
+                    else
+                        flag = false;
+                    if (flag == false) {
+
+                        $("#servererrors").html("@LMSResourse.Admin.User.msgImpFmtFileExt");
+                        $("#errorMessages").show();
+                        return false;
+                    }
+                    else {
+                        $('#servererrors').removeClass('tooltip');
+                        $("#errorMessages").hide();
+                        flag = true;
+                    }
+
+                }
+                else {
+                    $("#servererrors").html("@LMSResourse.Admin.User.msgReqfile");
+                    $("#errorMessages").show();
+
+                }
+                return flag;
+            }
+
+            //$("#OrganisationID").change(function () { showerror(); });
+            $("#OrganisationID").blur(function () { showerror(); });
+
+
+
+            $("#icon_btn_import").click(function () {
+                $("#ActionType").val("2");
+                $("#CreateUserTempleate").trigger('Click');
+            });
+
+
+            $("#CreateUserTempleate").click(function () {
+
+                $("#ActionType").val("2");
+                $("#servererrors").html("");
+
+                if (!$('#myform').valid())
+                    $("#errorMessages").show();
+                else
+                    $("#errorMessages").hide();
+
+                showerror();
+
+            });
+            $("#create").click(function (e) {
+                var x = $('#myform').valid();
+                //alert(x);
+                //e.preventDefault();
+                //var result = $('form').valid();
+                //alert(result);
+                $("#ActionType").val("0");
+                return checkFile();
+
+                //if (checkFile() == true) {
+                //    $('form').submit();
+                //}
+                //else { return false;}
+            });
+
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            } else $("#errorMessages").hide();
+
+            function showerror() {
+                if ($('#errorMessages').text().trim().length > 0) {
+                    $("#errorMessages").show();
+                } else $("#errorMessages").hide();
+            }
+
+
+        });
+
+    </script>
+}
+
+
+

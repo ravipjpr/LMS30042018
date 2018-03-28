@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    @{
+        Session["IsAdminView"] = "true";
+        string orglogo = "";
+        string orgbanner = "";
+        string appTitle = "";
+
+        var db = new CLSLms.LeopinkLMSDBEntities();
+        var InstanceInfo = db.InstanceInfoes.Find(1);
+        appTitle = System.Configuration.ConfigurationManager.AppSettings["ApplicationTitle"].ToString();
+
+        var userid = string.IsNullOrWhiteSpace(Session["UserID"].ToString()) ? 0 : Convert.ToInt32(Session["UserID"].ToString());
+        var us = db.UserProfiles.Find(userid);
+        orglogo = string.IsNullOrWhiteSpace(us.Organisation.OrganisationLogo) ? "" : "/" + System.Configuration.ConfigurationManager.AppSettings["ApplicationName"].ToString() + us.Organisation.OrganisationLogo;
+        orgbanner = string.IsNullOrWhiteSpace(us.Organisation.OrganisationBanner) ? "" : "/" + System.Configuration.ConfigurationManager.AppSettings["ApplicationName"].ToString() + us.Organisation.OrganisationBanner;
+
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="~/favicon.ico" />
+    <title>@appTitle</title>
+    @Styles.Render("~/bundles/sb-admin-css")
+    @Styles.Render("~/Include/responsive.css")
+    @Scripts.Render("~/bundles/jqueryval2")
+    @Scripts.Render("~/bundles/sb-admin-script")
+    @Scripts.Render("~/bundles/admin-lms")
+</head>
+<body class="sticky-footer" id="page-top">
+    @Html.Partial("fragments/header")
+    <div class="lg-12" style="background:#0781df; height:58px;">&nbsp;</div>
+    <div class="content-wrapper">
+        @RenderBody()
+        @Html.Partial("fragments/footer")
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Select "Logout" below if you are ready
+                    to end your current session.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <a class="btn btn-primary" href="~/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var Isgroupadmin = ($.inArray('2', '@Session["UserRoles"]'.toLowerCase().split(',')) > -1);
+        if (Isgroupadmin.toString().toLowerCase() == 'true') {
+            $("#Organisation").hide();
+            $("#Category").hide();
+            $("#Certificate").hide();
+            $("#licence").hide();
+
+        }
+        if ('@Session["CourseMangerRole"].ToString()' == "CA" || '@Session["CourseMangerRole"].ToString()' == "CC" || '@Session["CourseMangerRole"].ToString()' == "CP" || '@Session["CourseMangerRole"].ToString()' == "CR") {
+            $("#Organisation").hide();
+            $("#Category").hide();
+            $("#Certificate").hide();
+            $("#UserManagement").hide();
+            $("#Groups").hide();
+            $("#licence").hide();
+            $("#UsersLftMn").hide();
+            $("#lftConfiguration").hide();
+            $("#ReportsLftMn").hide();
+            $("#Assessment").hide();
+            $("#Queries").hide();
+        }
+
+        if (~window.location.pathname.indexOf("Admin")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#Admin").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserManagement")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiUsers").addClass("show");
+            $("#collapseMultiUsersp").removeClass("collapsed");
+            $("#Users").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("OrganisationUserReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#OrganisationUserReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserCourseReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#UserCourseReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#UserReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserInfo")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#UserReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserQuizReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#UserQuizReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("CourseReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#CourseReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("CourseInfo")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#CourseReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("GroupReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#GroupReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("GroupInfo")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#GroupReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Groups")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiUsers").addClass("show");
+            $("#collapseMultiUsersp").removeClass("collapsed");
+            $("#Groups").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Organisation")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiUsers").addClass("show");
+            $("#collapseMultiUsersp").removeClass("collapsed");
+            $("#Organisation").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("CourseRequests")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiSettings").addClass("show");
+            $("#collapseMultiSettingsp").removeClass("collapsed");
+            $("#CourseRequests").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("SelfRegistration")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiSettings").addClass("show");
+            $("#collapseMultiSettingsp").removeClass("collapsed");
+            $("#SelfRegistration").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Topic")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#Topic").addClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+        }
+        else if (~window.location.pathname.indexOf("Course")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#Course").addClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+        }
+        else if (~window.location.pathname.indexOf("Category")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+            $("#Category").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Queries")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+            $("#Queries").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Quiz") || ~window.location.pathname.indexOf("Question")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+            $("#Assessment").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Certificate")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiCourses").addClass("show");
+            $("#collapseMultiCoursesp").removeClass("collapsed");
+            $("#Certificate").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserCourseArchiveReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#UserCourseArchiveReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("CourseReport")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMulti").addClass("show");
+            $("#collapseMultip").removeClass("collapsed");
+            $("#CourseReport").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("EmailConfiguration")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiSettings").addClass("show");
+            $("#collapseMultiSettingsp").removeClass("collapsed");
+            $("#email").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Licence")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#collapseMultiSettings").addClass("show");
+            $("#collapseMultiSettingsp").removeClass("collapsed");
+            $("#licence").addClass("active");
+        }
+        else{
+            $("#exampleAccordion li").removeClass("active");
+            $("#Admin").addClass("active");
+        }
+
+        $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({
+            template: '<div class="tooltip navbar-sidenav-tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        });
+
+        $("#sidenavToggler").click(function (e) {
+            e.preventDefault();
+            $("body").toggleClass("sidenav-toggled");
+            $(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
+            $(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
+        });
+
+        $("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll", function (a) {
+            var e = a.originalEvent;
+            t = e.wheelDelta || -e.detail;
+            var calcTop = $(this).scrollTop() + (30 * parseInt(t));
+            $(this).scrollTop(parseInt(calcTop));
+            a.preventDefault();
+        });
+
+        $(document).scroll(function () {
+            $(this).scrollTop() > 100 ? $(".scroll-to-top").fadeIn() : $(".scroll-to-top").fadeOut();
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $(document).on("click", "a.scroll-to-top", function (e) {
+            var t = $(this);
+            $("html, body").stop().animate({
+                scrollTop: $(t.attr("href")).offset().top
+            }
+				, 1e3, "easeInOutExpo"), e.preventDefault()
+        });
+    });
+</script>
+@RenderSection("scripts", required: false)
+</html>

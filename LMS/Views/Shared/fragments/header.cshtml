@@ -1,0 +1,139 @@
+@{
+    string orglogo = "";
+
+    var db = new CLSLms.LeopinkLMSDBEntities();
+    var userid = string.IsNullOrWhiteSpace(Session["UserID"].ToString()) ? 0 : Convert.ToInt32(Session["UserID"].ToString());
+    var us = db.UserProfiles.Find(userid);
+    orglogo = string.IsNullOrWhiteSpace(us.Organisation.OrganisationLogo) ? "" : "/" + System.Configuration.ConfigurationManager.AppSettings["ApplicationName"].ToString() + us.Organisation.OrganisationLogo;
+    //"~/images/compu_lms_logo.png"
+}
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top"
+     id="mainNav" th:fragment="header">
+    <a class="navbar-brand" href="#" style="padding-top: 0px;"><img src="@orglogo.Replace("\\", "/")" alt="Logo" style="width: 150px; height: 34px;"></a>
+    <button class="navbar-toggler navbar-toggler-right bg-dark" type="button"
+            data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav bg-dark" id="exampleAccordion">
+            <li id="Admin" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblHome">
+                <a class="nav-link"
+                   href="~/Admin">
+                    <i class="fa fa-fw fa-home"></i> <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblHome</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblUserManagement" id="UsersLftMn">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMultiUsers" data-parent="#exampleAccordion" id="collapseMultiUsersp">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblUserManagement</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMultiUsers">
+                    <li id="Users">
+                        <a href="~/UserManagement">@LMSResourse.Common.ApplicationMenu.lblUsers</a>
+                    </li>
+                    <li id="Organisation">
+                        <a href="~/Organisation">@LMSResourse.Common.ApplicationMenu.lblOrganisations</a>
+                    </li>
+                    <li id="Groups">
+                        <a href="~/Groups">@LMSResourse.Common.ApplicationMenu.lblGroups</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblContentManagement" id="CourseLftMn">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMultiCourses" data-parent="#exampleAccordion" id="collapseMultiCoursesp">
+                    <i class="fa fa-fw fa-laptop"></i>
+                    <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblContentManagement</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMultiCourses">
+                    <li id="Course">
+                        <a href="~/Course">@LMSResourse.Common.ApplicationMenu.lblCourses</a>
+                    </li>
+                    <li id="Topic">
+                        <a href="~/Topics">@LMSResourse.Admin.Topic.lblTopics</a>
+                    </li>
+                    <li id="Category">
+                        <a href="~/Category">@LMSResourse.Common.ApplicationMenu.lblCategories </a>
+                    </li>
+                    <li id="Certificate">
+                        <a href="~/Certificate">@LMSResourse.Common.ApplicationMenu.lblCertificates</a>
+                    </li>
+                    <li id="Assessment">
+                        <a href="~/Quiz">@LMSResourse.Admin.Quiz.lblquiz</a>
+                    </li>
+                    <li id="Queries">
+                        <a href="~/Queries">@LMSResourse.Admin.Queries.lblFAQ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblReports" id="ReportsLftMn">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion" id="collapseMultip" >
+                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                    <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblReports</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti">
+                    @*<li id="UserCourseReport">
+                        <a href="~/Reports/UserCourseReport">@LMSResourse.Common.ApplicationMenu.t.tooltipUserCourseReport</a>
+                    </li>*@
+                    <li id="UserReport">
+                        <a href="~/Reports/UserReport">User report</a>
+                    </li>
+                    <li id="CourseReport">
+                        <a href="~/Reports/CourseReport">@LMSResourse.Common.ApplicationMenu.tooltipCourseReport</a>
+                    </li>
+                    <li id="GroupReport">
+                        <a href="~/Reports/GroupReport">Group report</a>
+                    </li>
+                    <li id="OrganisationUserReport">
+                        <a href="~/Reports/OrganisationUserReport">Branch report</a>
+                    </li>
+                    @*<li id="UserQuizReport">
+                        <a href="~/Reports/UserQuizReport">@LMSResourse.Admin.Report.tooltipUserAssesmentReport</a>
+                    </li>*@
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblConfiguration" id="lftConfiguration">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMultiSettings" data-parent="#exampleAccordion" id="collapseMultiSettingsp">
+                    <i class="fa fa-fw fa-gears"></i>
+                    <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblConfiguration</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMultiSettings">
+                    <li id="email">
+                        <a href="~/EmailConfiguration">@LMSResourse.Admin.ProfileSettings.lblEmailManagement</a>
+                    </li>
+                    @*<li id="licence">
+                        <a href="~/Licence">@LMSResourse.Admin.ProfileSettings.lblLicenceManagement</a>
+                    </li>*@
+                    <li id="SelfRegistration">
+                    <a href="SelfRegistration/ApproveSelfRegUsers" id="link7_2" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Admin.ProfileSettings.lblApproveSelfReg">@LMSResourse.Admin.ProfileSettings.lblApproveSelfReg</a>
+                    </li>
+                     <li id="CourseRequests">
+                    <a href="~/UserCourseRequests" id="link10_1" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Admin.Course.lblApproveCourseRequest">@LMSResourse.Admin.Course.lblApproveCourseRequest</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center"
+                   id="sidenavToggler" style="color:#0781df;">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link"
+                   data-target="#exampleModal">
+
+                    @*Logout*@
+                </a>
+            </li>
+        </ul>
+        <div class="user_dropdown" style="float:right; vertical-align:text-top;height:100%;">@Html.Partial("_LoginPartial")</div>
+    </div>
+</nav>
