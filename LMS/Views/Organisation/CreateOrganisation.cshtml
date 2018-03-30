@@ -1,0 +1,416 @@
+﻿@using MvcCheckBoxList.Model
+@model LMS.Models.OrganisationCreate
+@{
+    ViewBag.Title = "Create organisation";
+
+}
+@Styles.Render("~/Content/jquery-ui.css")
+<style>
+    #btnOrganisationBannerfile:hover, #btnOrganisationlogofile:hover {
+        background: #DDDDDD !important;
+    }
+</style>
+@using (Html.BeginForm("CreateOrganisation", "Organisation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "myform" }))
+{
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                <li class="breadcrumb-item"><a href="~/Organisation">@LMSResourse.Common.ApplicationMenu.lblOrganisations</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipCreateOrganisation</li>
+            </ol>
+        </nav>
+        <div style="display:none;" class="errormessage" role="alert" id="errorMessages">
+            <div><input type="text" id="focusme" style="opacity:0; position: absolute;top :-10px" /></div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationUID)</div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationName)</div>
+            <div>@Html.ValidationMessageFor(model => model.AddressLine1)</div>
+            <div>@Html.ValidationMessageFor(model => model.AddressLine2)</div>
+            <div>@Html.ValidationMessageFor(model => model.AddressLine3)</div>
+            <div>@Html.ValidationMessageFor(model => model.PostalCode)</div>
+            <div>@Html.ValidationMessageFor(model => model.Country)</div>
+            <div>@Html.ValidationMessageFor(model => model.GroupListView)</div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationLogo)</div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationBanner)</div>
+            <div>@Html.ValidationMessageFor(model => model.ExpDate)</div>
+            <div>@Html.ValidationMessageFor(model => model.MaxUsers)</div>
+            <div id="servererrors"></div>
+        </div>
+        <div style="display:none;" class="errormessage" role="alert" id="errorMessagesNumeric">
+            <div id="servererrorsuser"></div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationUID)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.OrganisationUID, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="OrganisationUID_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.OrganisationName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="OrganisationName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationLogo)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="file" id="Organisationlogofile" name="Organisationlogofile" class="form-control" value="Choose File" style="display:none;" />
+                        <input type="button" value="Choose file" id="btnOrganisationlogofile" />&nbsp;<div id="lbl_logo" style="display:inline-block"></div>
+                        <br /><span style="font-size:11px;color:#e50278;">[<b>size:</b> 150 * 34 <b>, allowed types: </b>.png, .gif, .jpeg, .jpg]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="OrganisationBanner" value="NA" />
+        @*<div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationBanner)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="file" id="OrganisationBannerfile" name="OrganisationBannerfile" class="form-control" value="Choose File" style="display:none;" />
+                        <input type="button" value="Choose file" id="btnOrganisationBannerfile" />&nbsp;<div id="lbl_banner" style="display:inline-block"></div>
+                        <br /><span style="font-size:11px;color:#e50278;">[<b>size:</b> 1170 * 110 <b>, allowed types: </b>.png, .gif, .jpeg, .jpg]</span>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.MaxUsers)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.MaxUsers, new { maxlength = 6, @class = "form-control", @aria_describedby = "basic-addon2" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ExpDate)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.ExpDate, new { @class = "form-control datepicker", @readonly = true, @aria_describedby = "basic-addon2" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.AddressLine1)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.AddressLine1, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="AddressLine1_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.AddressLine2)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.AddressLine2, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="AddressLine2_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.AddressLine3)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.AddressLine3, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="AddressLine3_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.PostalCode)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="PostalCode_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Country)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Country, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="Country_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group" id="groups">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.GroupListView)*</div>
+                <div class="col-md-4">
+
+                    <div id="groupcheckboxes" style="border: solid 1px #cccccc; padding: 5px 0 0 18px;  height: 200px; overflow-y: scroll; overflow-x: hidden; ">
+                        @Html.CheckBoxListFor(
+                        model => model.GroupListView.PostedGroups.GroupLocalIds,
+                        model => model.GroupListView.AvailableGroups,
+                        model => model.ID,
+                        model => model.GroupName,
+                        model => model.IsSelected, Position.Vertical)
+                    </div>
+                </div>
+                <div class="col-md-1"><input type="button" value="" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateGroup" class="btn-common btn-modal-link" name="create_save" style="background: url(../images/create_icon.png) no-repeat;width: 30px;  height: 27px;display: block;float: left;margin: 0px 15px;" /></div>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@LMSResourse.Admin.Group.lblAssigned</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.IsUserAssignment, (IEnumerable<SelectListItem>)ViewBag.CourseAssignTypelist, htmlAttributes: new { id = "ddlAssigntype", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Status)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.CheckBoxFor(model => model.Status)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary" id="create">@LMSResourse.Common.Common.btnSave</button>&nbsp;
+                    <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "Organisation")';" />
+                </div>
+            </div>
+        </div>
+
+        @Html.HiddenFor(a => a.DateFormatForClientSide)
+    </div>
+
+
+    <div id="Group-modal-container" class="modal fade" tabindex="-1" role="dialog">
+        <div id="modal-content" class="modal-content"></div>
+    </div>
+}
+@section Scripts {
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/common-functions-util.js"></script>
+    <script src="@Url.Content("~/Scripts/organisation-groupcreate-modal-utilities.js")"></script>
+
+    <script type="text/javascript">
+
+        //$("#btnOrganisationBannerfile").click(function () {
+        //    $("#OrganisationBannerfile").click();
+        //    $('#lbl_banner').html("");
+        //});
+        //$("#OrganisationBannerfile").change(function () {
+        //    if ($(this).val() != null && $(this).val() != "") {
+        //        $('#lbl_banner').html($(this).val().replace("C:\\fakepath\\", ""));
+
+        //    }
+        //});
+        $("#btnOrganisationlogofile").click(function () {
+            $("#Organisationlogofile").click();
+            $('#lbl_logo').html("");
+        });
+        $("#Organisationlogofile").change(function () {
+            if ($(this).val() != null && $(this).val() != "") {
+                $('#lbl_logo').html($(this).val().replace("C:\\fakepath\\", ""));
+            }
+        });
+
+
+
+
+        function getNameFromPath(strFilepath) {
+            var objRE = new RegExp(/([^\/\\]+)$/);
+            var strName = objRE.exec(strFilepath);
+
+            if (strName == null) {
+                return null;
+            }
+            else {
+                return strName[0];
+            }
+        }
+        $(document).ready(function () {
+            fieldLength($("#OrganisationUID"), $("#OrganisationUID_feedback"));
+            fieldLength($("#OrganisationName"), $("#OrganisationName_feedback"));
+            fieldLength($("#AddressLine1"), $("#AddressLine1_feedback"));
+            fieldLength($("#AddressLine2"), $("#AddressLine2_feedback"));
+            fieldLength($("#AddressLine3"), $("#AddressLine3_feedback"));
+            fieldLength($("#PostalCode"), $("#PostalCode_feedback"));
+            fieldLength($("#Country"), $("#Country_feedback"));
+            $("#OrganisationID").focus();
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(2)").addClass("active");
+
+            //$('#groupcheckboxes').find('input[type=checkbox]').each(function (e) {
+            //    $(this).attr("style", "float: left; margin-right: 10px");
+            //});
+            //$('#groupcheckboxes').find('label').each(function (e) {
+            //    $(this).attr("style", "float: left; width: 88%;");
+            //});
+
+            var body = $("html, body");
+
+            $("#create").click(function (e) {
+
+                var result = ($('#myform').valid());
+                if (result == true) {
+
+
+                    var file1 = getNameFromPath($("#Organisationlogofile").val());
+                    var file2 = getNameFromPath($("#OrganisationBannerfile").val());
+                    AllowedFileExtensions = new Array(".png", ".gif", ".jpeg", ".jpg");
+
+                    if (file1 != null && file1 != "" && file1 != 'undefined' && file1 != 'null') {
+                        if ($.inArray(file1.substr((file1.lastIndexOf('.'))).toString().toLowerCase(), AllowedFileExtensions) <= -1) {
+                            $("#servererrors").html('@LMSResourse.Admin.Organisation.lblInvalidImageFile');
+                            $("#errorMessages").show();
+                            $("#focusme").focus();
+                            return false;
+                        }
+                        $("#servererrors").html('');
+                        $("#errorMessages").hide();
+
+                    }
+                    else {
+
+                        $('html, body').animate({ scrollTop: 0 }, 800);
+                        $("#servererrors").html('');
+                        $("#servererrors").html('@LMSResourse.Admin.Organisation.msgReqOrganisationlogo');
+                        $("#errorMessages").show();
+                        $("#focusme").focus();
+                        return false;
+                    }
+                    @*if (file2 != null && file2 != 'undefined' && file2 != 'null') {
+                        if ($.inArray(file2.substr((file2.lastIndexOf('.'))).toString().toLowerCase(), AllowedFileExtensions) <= -1) {
+                            $("#servererrors").html('@LMSResourse.Admin.Organisation.lblInvalidImageFile');
+                            $("#errorMessages").show();
+                            $("#focusme").focus();
+                            return false;
+                        }
+                        $("#servererrors").html('');
+                        $("#errorMessages").hide();
+                    }
+                    else {
+                        $("#servererrors").html('');
+                        $("#servererrors").html('@LMSResourse.Admin.Organisation.msgReqOrganisationbanner');
+                        $("#errorMessages").show();
+                        $("#focusme").focus();
+                        return false;
+                    }*@
+                    if ($("#MaxUsers").val().indexOf(".") > 0) {
+                        $("#servererrorsuser").html("@LMSResourse.Admin.Organisation.msgLicStrUsersWholeNumber");
+                        $("#errorMessagesNumeric").show();
+                        $("#focusme").focus();
+                        return false;
+                    }
+                    else {
+                        $("#servererrorsuser").html("");
+                        $("#errorMessagesNumeric").hide();
+                        $("#errorMessages").hide();
+                        // $('#myform').submit();
+                        // return true;
+                    }
+
+
+                    @*var checkedCount = $('#groups').find('input:checked').length;
+                    var valid = checkedCount > 0;
+                    if (!valid) {
+                        $('#servererrors').html('@LMSResourse.Admin.User.msgReqUserGroup');
+                        $("#errorMessages").show();
+                        $("#focusme").focus();
+                        return false;
+                        //$('#servererrors').addClass('tooltip');
+                    }
+                    else
+                        $("#errorMessages").hide();*@
+                }
+                else {
+                    $("#errorMessages").show();
+                }
+                return true;
+
+            });
+
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            } else $("#errorMessages").hide();
+
+            function showerror() {
+
+                if ($('#errorMessages').text().trim().length > 0) {
+                    $("#errorMessages").show();
+                } else $("#errorMessages").hide();
+            }
+
+            $("#OrganisationUID").keypress(function () { showerror(); });
+            $("#OrganisationName").keypress(function () { showerror(); });
+
+            $("#OrganisationUID").blur(function () { showerror(); });
+            $("#OrganisationName").blur(function () { showerror(); });
+
+            var dtExpDate = $("#ExpDate").val();
+            $("#ExpDate").datepicker({
+                minDate: 0,
+                numberOfMonths: 1,
+                //dateFormat: 'dd/mm/yy',
+                showOn: "button",
+                buttonImage: "../Images/calandar_icon.png",
+                buttonImageOnly: true,
+                buttonText: "@LMSResourse.Common.Common.toolTipSelectdate",
+                changeMonth: true,
+                changeYear: true
+
+            });
+            $("#ExpDate").datepicker("option", "dateFormat", "@Model.DateFormatForClientSide.ToString()");
+            $("#ExpDate").datepicker("setDate", dtExpDate);
+
+
+        });
+
+    </script>
+}
+
