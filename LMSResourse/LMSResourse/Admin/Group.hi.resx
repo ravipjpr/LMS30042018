@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddGroup" xml:space="preserve">
+    <value>समूह जोड़ें</value>
+  </data>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>समूह हटाएं</value>
+  </data>
+  <data name="btnH_pagePreview" xml:space="preserve">
+    <value>और पूर्वावलोकन</value>
+  </data>
+  <data name="errDupGroup" xml:space="preserve">
+    <value>समूह का नाम मौजूद है।</value>
+  </data>
+  <data name="fldGroupContactNo" xml:space="preserve">
+    <value>संपर्क नंबर।</value>
+  </data>
+  <data name="fldGroupEmailId" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="fldGroupHomePageContent" xml:space="preserve">
+    <value>HTML सामग्री</value>
+  </data>
+  <data name="fldGroupHomepageGroupName" xml:space="preserve">
+    <value>समूह का नाम</value>
+  </data>
+  <data name="fldGroupHomepageImgPosition" xml:space="preserve">
+    <value>छवि स्थिति</value>
+  </data>
+  <data name="fldGroupHomePageImgPositionOption1" xml:space="preserve">
+    <value>ऊपर</value>
+  </data>
+  <data name="fldGroupHomePageImgPositionOption2" xml:space="preserve">
+    <value>बाएं</value>
+  </data>
+  <data name="fldGroupHomePageImgPositionOption3" xml:space="preserve">
+    <value>दांए</value>
+  </data>
+  <data name="fldGroupHomepageNote" xml:space="preserve">
+    <value>कृपया ध्यान दें कि 'प्रगति में' या 'शुरू नहीं' की स्थिति वाले सभी सामान एचटीएमएल सामग्री के नीचे वर्णमाला क्रम में प्रदर्शित किए जाएंगे। कृपया होमपेज का पूर्वावलोकन करने के लिए पूर्वावलोकन बटन पर क्लिक करें और पाठ्यक्रमों की नमूना सूची देखें</value>
+  </data>
+  <data name="fldGroupHomepageOrgName" xml:space="preserve">
+    <value>संगठन का नाम</value>
+  </data>
+  <data name="fldGroupHomePageUploadImage" xml:space="preserve">
+    <value>तस्वीर डालिये</value>
+  </data>
+  <data name="fldGroupManagerName" xml:space="preserve">
+    <value>हेड / मैनेजर का नाम</value>
+  </data>
+  <data name="fldGroupName" xml:space="preserve">
+    <value>समूह का नाम</value>
+  </data>
+  <data name="fldOrganisationID" xml:space="preserve">
+    <value>संगठन का नाम</value>
+  </data>
+  <data name="fldStatus" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="flsGroupDesc" xml:space="preserve">
+    <value>समूह विवरण</value>
+  </data>
+  <data name="lblAssigned" xml:space="preserve">
+    <value>कोर्स असाइनमेंट आधार</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>समूह हटाएं?</value>
+  </data>
+  <data name="lblExpDate" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="lblMaxUsers" xml:space="preserve">
+    <value>अधिकतम उपयोगकर्ता</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>क्या आप वाकई चयनित समूह को हटाना चाहते हैं?</value>
+  </data>
+  <data name="msgDeleteGroup" xml:space="preserve">
+    <value>चयनित समूह से संबंधित डेटा मौजूद है [{0}] हटाया नहीं जा सकता</value>
+  </data>
+  <data name="msgErrorGreaterthan" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या, इससे अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgErrorIntegerOnly" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या केवल एक पूर्णांक संख्या होना चाहिए</value>
+  </data>
+  <data name="msgInvalidGroup" xml:space="preserve">
+    <value>अमान्य समूह</value>
+  </data>
+  <data name="msgMxlGroupContactNo" xml:space="preserve">
+    <value>ग्रुप संपर्क की कोई लंबाई 50 अक्षरों से अधिक नहीं हो सकती।</value>
+  </data>
+  <data name="msgMxlGroupDesc" xml:space="preserve">
+    <value>समूह विवरण लंबाई 400 वर्णों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlGroupEmailId" xml:space="preserve">
+    <value>समूह की ईमेल पता लंबाई 256 वर्णों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlGroupManager" xml:space="preserve">
+    <value>ग्रुप हेड / मैनेजर नाम की लंबाई 100 वर्णों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgMxlGroupName" xml:space="preserve">
+    <value>समूह का नाम 100 वर्णों से अधिक नहीं हो सकता</value>
+  </data>
+  <data name="msgMxlMaxUser" xml:space="preserve">
+    <value>उपयोगकर्ताओं की संख्या 6 अंकों से अधिक नहीं हो सकती।</value>
+  </data>
+  <data name="msgReqGroupDesc" xml:space="preserve">
+    <value>कृपया समूह वर्णन दर्ज करें</value>
+  </data>
+  <data name="msgReqGroupHomePageContent" xml:space="preserve">
+    <value>कृपया समूह होम पेज की सामग्री दर्ज करें</value>
+  </data>
+  <data name="msgReqGroupHomePageImgPosition" xml:space="preserve">
+    <value>कृपया समूह मुख पृष्ठ छवि स्थान का चयन करें</value>
+  </data>
+  <data name="msgReqGroupHomePageUploadImage" xml:space="preserve">
+    <value>कृपया छवि फ़ाइल अपलोड करें</value>
+  </data>
+  <data name="msgReqGroupName" xml:space="preserve">
+    <value>कृपया समूह नाम दर्ज करें</value>
+  </data>
+  <data name="msgReqMaxUser" xml:space="preserve">
+    <value>कृपया कोई नहीं दर्ज करें उपयोगकर्ताओं की</value>
+  </data>
+  <data name="msgValGroupHomePageUploadImage" xml:space="preserve">
+    <value>कृपया एक मान्य छवि फ़ाइल अपलोड करें</value>
+  </data>
+  <data name="thContactNo" xml:space="preserve">
+    <value>संपर्क नंबर</value>
+  </data>
+  <data name="thEmailAddress" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="thGroup" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="thManager" xml:space="preserve">
+    <value>हेड / मैनेजर का नाम</value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="thStatus" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+</root>

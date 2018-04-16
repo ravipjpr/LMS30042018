@@ -1,0 +1,234 @@
+﻿@model CLSLms._Group
+@{
+    ViewBag.Title = "Edit group";
+}
+@{
+     bool IsSuperAdmin = (Session["UserRoles"].ToString()).Split(',').Select(int.Parse).ToArray().Contains(1);
+     
+}
+
+@using (Html.BeginForm("EditGroup", "Groups", FormMethod.Post, new { @id = "myform" }))
+{
+    <input type="hidden" value="@IsSuperAdmin.ToString()" id="IsAdmin" />
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                    <li class="breadcrumb-item"><a href="~/Groups">@LMSResourse.Common.ApplicationMenu.lblGroups</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipEditGroup</li>
+                </ol>
+            </nav>
+            <div style="display:none;" class="errormessage" role="alert" id="errorMessages">
+                <div>@Html.ValidationMessageFor(model => model.GroupName)</div>
+                <div>@Html.ValidationMessageFor(model => model.OrganisationID)</div>
+                <div>@Html.ValidationMessageFor(model => model.GroupDescription)</div>
+                <div>@Html.ValidationMessageFor(model => model.GroupManager)</div>
+                <div>@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+                <div>@Html.ValidationMessageFor(model => model.ContactNo)</div>
+                <div>@Html.ValidationMessage("maxnoofuser")</div>
+                <div id="servererrors"></div>
+            </div>
+            <div style="display:none;" class="errormessage" role="alert" id="errorMessagesNumeric">
+                <div id="servererrorsuser"></div>
+            </div>
+            @Html.HiddenFor(Model => Model.GroupID)
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.GroupName)*</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.GroupName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                            <span class="input-group-addon" id="GroupName_feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.OrganisationID)*</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @if (ViewBag.IsOrgBlock == "0")
+                            {@Html.DropDownList("OrganisationID", (IEnumerable<SelectListItem>)ViewBag.OrgList, @LMSResourse.Common.Common.dropSelect, new { @class = "form-control" }) }
+                            else
+                            {@Html.DropDownList("OrganisationID", (IEnumerable<SelectListItem>)ViewBag.OrgList, @LMSResourse.Common.Common.dropSelect, new { @class = "form-control", @disabled = "disable" })
+                                @Html.HiddenFor(model => model.OrganisationID)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.GroupDescription)*</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextAreaFor(model => model.GroupDescription, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                            <span class="input-group-addon" id="GroupDescription_feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">  
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.GroupManager)*</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.GroupManager, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                            <span class="input-group-addon" id="GroupManager_feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.EmailAddress)</div>
+                    <div class="col-md-4">      
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                            <span class="input-group-addon" id="EmailAddress_feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.ContactNo)</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                            <span class="input-group-addon" id="ContactNo_feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.MaxUsers)</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.MaxUsers, new { maxlength = 6, @class = "form-control", @aria_describedby = "basic-addon2" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">@Html.LabelFor(model => model.Status)</div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.CheckBoxFor(model => model.Status, new { @aria_describedby = "basic-addon2" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary" id="create">@LMSResourse.Common.Common.btnSave</button>&nbsp;
+                        <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "Groups")';" />
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <input type="hidden" id="maxuserallowed" value="" />
+}
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            fieldLength($("#GroupName"), $("#GroupName_feedback"));
+            fieldLength($("#GroupDescription"), $("#GroupDescription_feedback"));
+            fieldLength($("#GroupManager"), $("#GroupManager_feedback"));
+            fieldLength($("#EmailAddress"), $("#EmailAddress_feedback"));
+            fieldLength($("#ContactNo"), $("#ContactNo_feedback"));
+            $("#GroupName").focus();
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(3)").addClass("active");
+
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            } else $("#errorMessages").hide();
+
+            $("#create").click(function (e) {
+                //e.preventDefault();
+
+                var result = ($('#myform').validate());
+                if (result == true) {
+                    if ($("#MaxUsers").val().indexOf(".") > 0) {
+                        $("#servererrorsuser").html("")
+                        $("#servererrorsuser").html("@LMSResourse.Admin.Organisation.msgLicStrUsersWholeNumber");
+                        $("#errorMessagesNumeric").show();
+                        return false;
+                    }
+                    else {
+                        $("#servererrorsuser").html("");
+                        $("#errorMessagesNumeric").hide();
+                        $("#errorMessages").hide();
+                        //$('#myform').submit();
+                        return true;
+                    }
+                    if (checkFileType() == false) {
+                        return false;
+                    }
+                    else {
+                        $("#errorMessages").hide();
+                    }
+                }
+                else {
+                    $("#errorMessages").show();
+                    if ($("#MaxUsers").val() == null || $("#MaxUsers").val() == "") {
+                        $("#servererrorsuser").html("@LMSResourse.Admin.Group.msgReqMaxUser");
+                        $("#errorMessagesNumeric").show();
+                    }
+                    else {
+                        if (!$.isNumeric($("#MaxUsers").val())) {
+                            $("#servererrorsuser").html("")
+                            $("#servererrorsuser").html("@LMSResourse.Admin.Group.msgErrorIntegerOnly");
+                            $("#errorMessagesNumeric").show();
+                        }
+                    }
+                }
+
+            });
+
+            function showerror() {
+
+                if ($('#errorMessages').text().trim().length > 0) {
+                    $("#errorMessages").show();
+                } else $("#errorMessages").hide();
+            }
+
+            $("#GroupName").keypress(function () { showerror(); });
+            $("#GroupDescription").keypress(function () { showerror(); });
+            $("#GroupManager").keypress(function () { showerror(); });
+            $("#EmailAddress").keypress(function () { showerror(); });
+            $("#ContactNo").keypress(function () { showerror(); });
+
+            $("#GroupName").blur(function () { showerror(); });
+            $("#GroupDescription").blur(function () { showerror(); });
+            $("#GroupManager").blur(function () { showerror(); });
+            $("#EmailAddress").blur(function () { showerror(); });
+            $("#ContactNo").blur(function () { showerror(); });
+           
+            if ($("#IsAdmin").val() == "False") {
+                $("#MaxUsers").attr("readonly","redaonly");
+            }
+
+        });
+
+
+    </script>
+}

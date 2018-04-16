@@ -1,0 +1,278 @@
+﻿@model IEnumerable<CLSLms.Group>
+@{
+    ViewBag.Title = "Group list";
+    @Styles.Render("~/Content/jquery.dataTables.min.css");
+    var IsGroupAdmin = false;
+    if (Session["IsGroupAdmin"] != null) { IsGroupAdmin = Convert.ToBoolean(Session["IsGroupAdmin"].ToString()); }
+    <style type="text/css">
+        .hover {
+            background-color: lightyellow;
+        }
+    </style>
+
+}
+
+
+<div class="container-fluid">
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+            <li class="breadcrumb-item active">@LMSResourse.Common.ApplicationMenu.lblGroups</li>
+        </ol>
+    </nav>
+    <div style="align-items:center;text-align:center;vertical-align:middle;">
+        <div id="errormessage" style="display:none;" class="alert alert-danger" role="alert"></div>
+    </div>
+    <input type="hidden" id="SelectedId" value="0" />
+    <input type="hidden" id="isindividual" value="False" />
+    <div class="breadcrumb" style="background-color:transparent">
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            @{if (IsGroupAdmin == false)
+                {<a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateGroup" class="btn btn-outline-primary" href="~/Groups/CreateGroup"><i class="fa fa-plus" aria-hidden="true"></i></a>}}
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipEditGroup" class="btn btn-outline-primary disabled" id="btnEdit" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
+            @{if (IsGroupAdmin == false)
+                {<a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipDeleteGroup" class="btn btn-outline-primary disabled" id="btnDelete" href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>}}
+            <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipAssignCourses" class="btn btn-outline-primary" id="btnAssignCourse" href=""><i class="fa fa-random"></i></a>&nbsp;
+            @*<a style="margin-right:20px;" title="@LMSResourse.Common.ApplicationMenu.tooltipCreate_EditGroupHomepage" class="btn btn-outline-primary disabled" id="btnHomepage" href=""><i class="fa fa-pencil-square-o"></i></a>*@
+        </nav>
+    </div>
+    <div class="table-responsive margin-top-20">
+        <table border="0" class="table table-bordered dataTable table-hover " id="myDataTable">
+            <thead>
+                <tr>
+                    <th class="border-left-top-bottom" style="width:200px;">@LMSResourse.Admin.Group.thGroup</th>
+                    <th style="width:250px;">@LMSResourse.Admin.Group.thOrganisation</th>
+                    <th style="width:90px;">@LMSResourse.Admin.Course.thMaxUserAllwoed</th>
+                    <th style="width:100px;">@LMSResourse.Admin.Course.thNoOfUserAssigned</th>
+                    <th style="width:100px;">@LMSResourse.Admin.Group.thContactNo</th>
+                    <th class="border-right-top-bottom" style="width:40px;">@LMSResourse.Common.Common.thStatus</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.Admin.Group.lblConfirmDeleteHeading</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @LMSResourse.Admin.Group.msgConfirmDelete
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@LMSResourse.Common.Common.btnCancel</button>
+                <button type="button" class="btn btn-primary" id="btn_deleteOk">@LMSResourse.Admin.Group.btnConfirmDelete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+@Scripts.Render("~/bundles/datatable-js")
+    <script type="text/javascript">
+        jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function (oSettings, iDelay) {
+            var _that = this;
+
+            if (iDelay === undefined) {
+                iDelay = 250;
+            }
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var
+                    $this = this,
+                    oTimerId = null,
+                    sPreviousSearch = null,
+                    anControl = $('input', _that.fnSettings().aanFeatures.f);
+
+                anControl.unbind('keyup search input').bind('keyup search input', function () {
+                    var $$this = $this;
+
+                    if (sPreviousSearch === null || sPreviousSearch != anControl.val()) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = anControl.val();
+                        oTimerId = window.setTimeout(function () {
+                            $.fn.dataTableExt.iApiIndex = i;
+                            _that.fnFilter(anControl.val());
+                        }, iDelay);
+                    }
+                });
+
+                return this;
+            });
+            return this;
+        };
+    </script>
+    <script type="text/javascript">
+        function ShowHideAction() {
+            if ($("#SelectedId").val() == "0") {
+                $("#btnEdit").addClass("disabled").click(function () { return false; });
+                $("#btnDelete").addClass("disabled").click(function () { return false; });
+                $("#btnHomepage").addClass("disabled").click(function () { return false; });
+                //if ($("#isindividual").val() == "True") {
+                $("#btnAssignCourse").addClass("disabled").click(function () { return false; });
+                //}
+            }
+            else {
+                $("#btnEdit").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Groups/Editgroup/' + $("#SelectedId").val(); } else { return false; } });
+                $("#btnDelete").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { return true; } else { return false; } });
+                $("#btnHomepage").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Groups/GroupHomePage/' + $("#SelectedId").val(); } else { return false; } });
+                if ($("#isindividual").val() == "False") {
+                    $("#btnAssignCourse").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Groups/AssignedCourse/' + $("#SelectedId").val(); } else { return false; } });
+                }
+                else {
+                    $("#btnAssignCourse").removeClass("disabled").click(function () { return false; });
+
+                }
+            }
+        }
+
+
+
+
+        function htmlEncode(value) {
+            //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+            //then grab the encoded contents back out.  The div never exists on the page.
+            return $('<div/>').text(value).html();
+        }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function fillGrid() {
+
+            var fileUrl = "Include/datatablefiles/";
+            var filename = "en-us.txt";
+            if (filename == '')
+                fileUrl = fileUrl + "en-us.txt";
+            else
+                fileUrl = fileUrl + filename;
+            //var Display = parseInt('@Session["ListiDisplayLength"]');
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "Groups/AjaxHandlerGroups",
+                "bProcessing": true,
+                "bStateSave": false,
+                "bDestroy": true,
+                "sPaginationType": "full_numbers",
+                "sDom": '<"top"lfip>rt<"bottom"ip<"clear">',
+                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, '@LMSResourse.Common.Common.GridAll']],
+                "oLanguage": { "sUrl": fileUrl },
+                "fnServerParams": function (aoData) {
+                    // aoData.push({ "name": "fCol1", "value": $('#userstatus').val() })
+                },
+                "aoColumns": [
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[0].toString()));
+
+                                }
+                            },
+                            {
+
+
+                            },
+                            {
+
+                            },
+                            {
+
+
+                            },
+                            {
+
+
+                            },
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return (oObj.aData[5].toString() + '<input type="hidden" id="GroupId" value="' + oObj.aData[6].toString() + '" /><input type="hidden" class="isindividual" value="' + oObj.aData[7].toString() + '" />');
+
+                                }
+
+                            }
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $("#SelectedId").val("0");
+                    ShowHideAction();
+                }
+            });
+            setTimeout(function () { oTable.fnSetFilteringDelay(600); }, 500);
+
+
+        }
+
+        $(document).ready(function () {
+            fillGrid();
+
+            $('#myDataTable > tbody').on('click', 'tr', function () {
+
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                    $("#SelectedId").val(0);
+                }
+                else {
+                    $('#myDataTable > tbody tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    $("#SelectedId").val($(this).find('#GroupId').val());
+                    $("#isindividual").val($(this).find('.isindividual').val());
+                }
+
+                ShowHideAction();
+            });
+            var Isgroupadmin = ($.inArray('2', '@Session["UserRoles"]'.toLowerCase().split(',')) > -1);
+            if (Isgroupadmin > 0) {
+                $("#groupActions li:eq(0)").hide();
+                $("#groupActions li:eq(2)").hide();
+
+            }
+
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(3)").addClass("active");
+
+            $("#btnDelete").click(function () {
+                if ($("#SelectedId").val() > 0)
+                    $('#exampleModal').modal('show')
+            });
+
+
+            $("#btn_deleteOk").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: "Groups/DeleteGroup/" + $("#SelectedId").val(),
+                    contentType: "application/json; charset=utf-8",
+                    data: "",
+                    dataType: "json",
+                    sucess: function (data) {
+                    },
+                    complete: function (data, textStatus) {
+                        if (data.responseText != null && data.responseText != "") {
+                            $("#errormessage").html(data.responseText);
+                            $("#errormessage").show();
+                            $('#errormessage').delay(parseInt(((data.responseText.length * 0.2) + data.responseText.length) / 16) * 1000).fadeOut();
+                            $("#delete_popup").css("display", "none");
+                        }
+                        else if (data.responseText == "")
+                        { window.location.reload(true); }
+                        else { window.location.reload(true); }
+                    },
+                    async: false
+                });
+
+            });
+
+        });
+
+    </script>
+}
