@@ -1,0 +1,180 @@
+﻿@model CLSLms.Category
+@{
+    ViewBag.Title = "Edit Category";
+
+}
+
+@using (Html.BeginForm("EditCategory", "Category", FormMethod.Post, new { @id = "myform" }))
+{
+
+    <div class="container-fluid" style="min-height:260px; border: 0px;">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                <li class="breadcrumb-item"><a href="~/Category">@LMSResourse.Common.ApplicationMenu.lblCategories</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipEditCategory</li>
+            </ol>
+        </nav>
+        <div style="display:none;" class="errormessage" role="alert" id="errorMessages">
+            <div>@Html.ValidationMessageFor(model => model.CategoryName)</div>
+            <div>@Html.ValidationMessageFor(model => model.CategoryDescription)</div>
+            <div id="servererrors"></div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CategoryName)* @Html.HiddenFor(model => model.CategoryId)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="CategoryName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CategoryDescription)* </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextAreaFor(model => model.CategoryDescription, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="CategoryDescription_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Status)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.CheckBoxFor(model => model.Status)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-5"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary" id="create">@LMSResourse.Common.Common.btnSave</button>&nbsp;
+                    <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "Category")';" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        @*<div class="panel panel-primary">
+                <div class="panel-heading">Edit Category</div>
+
+                <div class="panel-body">
+                    <div class="panel">
+
+                        <div>@Html.ValidationMessageFor(model => model.CategoryName)</div>
+                        <div>@Html.ValidationMessageFor(model => model.CategoryDescription)</div>
+                        <div id="servererrors"></div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="dvrequired">
+                            <div class="form-group row">
+                                @Html.HiddenFor(model => model.CategoryId)
+                                @Html.LabelFor(model => model.CategoryName, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    <div class="input-group col-sm-4">
+                                        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control" })
+                                        <span id="CategoryName_feedback" class="input-group"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.CategoryDescription, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    <div class="input-group col-sm-4">
+                                        @Html.TextAreaFor(model => model.CategoryDescription, new { @class = "form-control" })
+                                        <span id="CategoryDescription_feedback" class="input-group"></span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="dvoptional">
+
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Status, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    <div class="input-group col-sm-4">
+                                        @Html.CheckBoxFor(model => model.Status)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="well">
+                            <input type="submit" value="@LMSResourse.Common.Common.btnSave" class="btn btn-primary" id="create" />
+                            <button type="submit" id="create" class="btn btn-primary">@LMSResourse.Common.Common.btnSave</button>
+                            @Html.ActionLink(LMSResourse.Common.btnCancel, "index", "Category", htmlAttributes: new { @class = "btn", @id = "Cancel" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+}
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fieldLength($("#CategoryName"), $("#CategoryName_feedback"));
+            fieldLength($("#CategoryDescription"), $("#CategoryDescription_feedback"));
+            $("#CategoryName").focus();
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(6)").addClass("active");
+
+            //fieldLength($("#CategoryName"), $("#CategoryName_feedback"));
+            //fieldLength($("#CategoryDescription"), $("#CategoryDescription_feedback"));
+            //$("#CategoryName").focus();
+
+            $("#create").click(function () {
+                var x = $('#myform').valid();
+                if ($('#myform').valid()) {
+                    $("#errorMessages").hide();
+                }
+                else {
+                    $("#errorMessages").show();
+                }
+            });
+
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            }else $("#errorMessages").hide();
+
+            function showerror() {
+                if ($('#errorMessages').text().trim().length > 0) {
+                    $("#errorMessages").show();
+                } else $("#errorMessages").hide();
+            }
+
+            $("#CategoryName").keypress(function () { showerror(); });
+            $("#CategoryDescription").keypress(function () { showerror(); });
+
+            $("#CategoryName").blur(function(){showerror();});
+            $("#CategoryDescription").blur(function(){showerror();});
+        });
+    </script>
+}
+
+
+
+
+
+
