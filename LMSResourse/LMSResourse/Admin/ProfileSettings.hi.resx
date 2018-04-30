@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="fldDisplay" xml:space="preserve">
+    <value>प्रदर्शन</value>
+  </data>
+  <data name="fldEmailBody" xml:space="preserve">
+    <value>सामग्री</value>
+  </data>
+  <data name="fldEmailIsOn" xml:space="preserve">
+    <value>चालू</value>
+  </data>
+  <data name="fldFromEmail" xml:space="preserve">
+    <value>ई - मेल से</value>
+  </data>
+  <data name="fldHelpModuleContent" xml:space="preserve">
+    <value>सहायता सामग्री</value>
+  </data>
+  <data name="FldisDisplayHelp" xml:space="preserve">
+    <value>सहायता</value>
+  </data>
+  <data name="FldisDisplaySelfReg" xml:space="preserve">
+    <value>पंजीकरण करें</value>
+  </data>
+  <data name="fldMandatory" xml:space="preserve">
+    <value>अनिवार्य</value>
+  </data>
+  <data name="fldMaxLength" xml:space="preserve">
+    <value>अधिकतम लंबाई</value>
+  </data>
+  <data name="fldProfileTitle" xml:space="preserve">
+    <value>प्रोफ़ाइल शीर्षक</value>
+  </data>
+  <data name="fldProfileValuesTitle" xml:space="preserve">
+    <value>प्रोफ़ाइल मान</value>
+  </data>
+  <data name="fldSelfRegEmailAddress" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="fldSelfRegFirstName" xml:space="preserve">
+    <value>प्रथम नाम</value>
+  </data>
+  <data name="fldSelfRegLastName" xml:space="preserve">
+    <value>अंतिम नाम</value>
+  </data>
+  <data name="fldType" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="lblApproveSelfReg" xml:space="preserve">
+    <value>पंजीकरण स्वीकार करें</value>
+  </data>
+  <data name="lblDenySelfRegUsers" xml:space="preserve">
+    <value>अस्वीकार उपयोगकर्ता</value>
+  </data>
+  <data name="lblEmailManagement" xml:space="preserve">
+    <value>ईमेल प्रबंधन</value>
+  </data>
+  <data name="lblHelpConfig" xml:space="preserve">
+    <value>मदद कॉन्फ़िगरेशन</value>
+  </data>
+  <data name="lblHelpManagement" xml:space="preserve">
+    <value>सहायता प्रबंधन</value>
+  </data>
+  <data name="lblHelpSetting" xml:space="preserve">
+    <value>सहायता सेटिंग</value>
+  </data>
+  <data name="lblLicenceManagement" xml:space="preserve">
+    <value>लाइसेंस प्रबंधन</value>
+  </data>
+  <data name="lblProfileValues" xml:space="preserve">
+    <value>प्रोफ़ाइल मान देखें</value>
+  </data>
+  <data name="lblSelfRegEmailConfig" xml:space="preserve">
+    <value>ईमेल कॉन्फ़िगरेशन</value>
+  </data>
+  <data name="lblSelfRegSetting" xml:space="preserve">
+    <value>स्वयं पंजीकरण सेटिंग</value>
+  </data>
+  <data name="lblSettings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="lblviewProfileValues" xml:space="preserve">
+    <value>प्रोफाइल मान</value>
+  </data>
+  <data name="msgDeleteProfileSettingsValues" xml:space="preserve">
+    <value>चयनित मूल्य से संबंधित आंकड़े मौजूद हैं। [{0}] हटाया नहीं जा सकता</value>
+  </data>
+  <data name="msgDenySelfRegUsers" xml:space="preserve">
+    <value>क्या आप सुनिश्चित हैं कि आप चयनित उपयोगकर्ता (इन) को अस्वीकार करना चाहते हैं?</value>
+  </data>
+  <data name="msgDupProfileValues" xml:space="preserve">
+    <value>प्रोफ़ाइल मान पहले से मौजूद हैं</value>
+  </data>
+  <data name="msgErrorProfileSettings" xml:space="preserve">
+    <value>कृपया फ़ॉर्म पर सभी मान दर्ज करें</value>
+  </data>
+  <data name="msgErrorProfileSettingsNumeric" xml:space="preserve">
+    <value>मैक्सलेन्थ्म संख्यात्मक होना चाहिए</value>
+  </data>
+  <data name="msgErrorProfileSettingsRange" xml:space="preserve">
+    <value>अधिकतम लंबाई 1 और 100 के बीच होनी चाहिए</value>
+  </data>
+  <data name="msgErrorProfileSettingsWhole" xml:space="preserve">
+    <value>अधिकतम लंबाई पूर्णांक होना चाहिए</value>
+  </data>
+  <data name="msgInvalidProfileSettingsValue" xml:space="preserve">
+    <value>अमान्य उपयोगकर्ता प्रोफ़ाइल मान</value>
+  </data>
+  <data name="msgInvalidSelfReg" xml:space="preserve">
+    <value>अमान्य स्वयं पंजीकरण विस्तार</value>
+  </data>
+  <data name="msgMxlSelfRegEmailAddress" xml:space="preserve">
+    <value>ईमेल पता लंबाई 255 अक्षरों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgReqEmailContent" xml:space="preserve">
+    <value>कृपया ईमेल सामग्री दर्ज करें</value>
+  </data>
+  <data name="msgReqEmailSubject" xml:space="preserve">
+    <value>कृपया ईमेल विषय दर्ज करें</value>
+  </data>
+  <data name="msgReqFromEmail" xml:space="preserve">
+    <value>कृपया ईमेल से दर्ज करें</value>
+  </data>
+  <data name="msgReqHelpContent" xml:space="preserve">
+    <value>कृपया सहायता सामग्री दर्ज करें</value>
+  </data>
+  <data name="msgReqSelfRegEmailAddress" xml:space="preserve">
+    <value>कृपया ईमेल पता दें</value>
+  </data>
+  <data name="msgRngProfileMaxLength" xml:space="preserve">
+    <value>कृपया मान्य अधिकतम लंबाई दर्ज करें (&lt;= 2000)</value>
+  </data>
+  <data name="msgSelfRegEmailExists" xml:space="preserve">
+    <value>ईमेल पता पहले से ही मौजूद है</value>
+  </data>
+  <data name="msgSelfRegFirstName" xml:space="preserve">
+    <value>कृपया प्रथम नाम दर्ज करें</value>
+  </data>
+  <data name="msgSelfRegLastName" xml:space="preserve">
+    <value>कृपया अंतिम नाम दर्ज करें</value>
+  </data>
+  <data name="msgSelfRegSubmit" xml:space="preserve">
+    <value>अपना विवरण सबमिट करने के लिए धन्यवाद</value>
+  </data>
+  <data name="msgStrProfileMaxLengthNumeric" xml:space="preserve">
+    <value>प्रोफाइल की अधिकतम लंबाई केवल संख्याएं होने चाहिए</value>
+  </data>
+  <data name="msgValidSelfRegEmailAddress" xml:space="preserve">
+    <value>कृपया एक वैध ई - मेल एड्रेस डालें</value>
+  </data>
+  <data name="reqProfileTitle" xml:space="preserve">
+    <value>कृपया प्रोफ़ाइल का शीर्षक दर्ज करें</value>
+  </data>
+  <data name="reqProfileValuesTitle" xml:space="preserve">
+    <value>कृपया प्रोफ़ाइल मान दर्ज करें</value>
+  </data>
+  <data name="thEmailIsOn" xml:space="preserve">
+    <value>चालू</value>
+  </data>
+  <data name="thEmailModifiedby" xml:space="preserve">
+    <value>अंतिम संशोधित द्वारा</value>
+  </data>
+  <data name="thEmailModifiedDate" xml:space="preserve">
+    <value>अंतिम संशोधित तिथि</value>
+  </data>
+  <data name="thEmailName" xml:space="preserve">
+    <value>ईमेल नाम</value>
+  </data>
+  <data name="thEmailSubject" xml:space="preserve">
+    <value>विषय</value>
+  </data>
+  <data name="thFromEmail" xml:space="preserve">
+    <value>ई - मेल से</value>
+  </data>
+  <data name="thHelpModule" xml:space="preserve">
+    <value>मॉड्यूल शीर्षक</value>
+  </data>
+  <data name="thHelpModuleParent" xml:space="preserve">
+    <value>मूल</value>
+  </data>
+  <data name="thIsDisplay" xml:space="preserve">
+    <value>प्रदर्शन</value>
+  </data>
+  <data name="thIsMandatory" xml:space="preserve">
+    <value>अनिवार्य</value>
+  </data>
+  <data name="thLanguage" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="thmaxLength" xml:space="preserve">
+    <value>अधिकतम लंबाई</value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="thProfileOptions" xml:space="preserve">
+    <value>प्रोफाइल विकल्प</value>
+  </data>
+  <data name="thProfileTitle" xml:space="preserve">
+    <value>प्रोफ़ाइल शीर्षक</value>
+  </data>
+  <data name="thProfileType" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="thProfileValues" xml:space="preserve">
+    <value>प्रोफाइल मान</value>
+  </data>
+  <data name="thSelfRegEmail" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="thSelfRegFirstName" xml:space="preserve">
+    <value>प्रथम नाम</value>
+  </data>
+  <data name="thSelfRegLastName" xml:space="preserve">
+    <value>अंतिम नाम</value>
+  </data>
+  <data name="fldBlockName" xml:space="preserve">
+    <value>ब्लॉक नाम</value>
+  </data>
+  <data name="fldDistrictName" xml:space="preserve">
+    <value>जिला का नाम</value>
+  </data>
+  <data name="fldGroupsName" xml:space="preserve">
+    <value>समूह का नाम</value>
+  </data>
+  <data name="fldSchoolName" xml:space="preserve">
+    <value>विद्यालय का नाम</value>
+  </data>
+  <data name="fldUserNames" xml:space="preserve">
+    <value>उपयोगकर्ता का नाम</value>
+  </data>
+  <data name="msgSelectGroupName" xml:space="preserve">
+    <value>कृपया कम से कम एक समूह का नाम चुनें।</value>
+  </data>
+  <data name="msgSelectUserName" xml:space="preserve">
+    <value>कृपया कम से कम एक उपयोगकर्ता नाम चुनें।</value>
+  </data>
+  <data name="fldStudentName" xml:space="preserve">
+    <value>छात्र का नाम</value>
+  </data>
+</root>

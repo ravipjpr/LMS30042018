@@ -1,0 +1,81 @@
+﻿@{
+    string orglogo = "";
+
+    var db = new CLSLms.LeopinkLMSDBEntities();
+    var userid = string.IsNullOrWhiteSpace(Session["UserID"].ToString()) ? 0 : Convert.ToInt32(Session["UserID"].ToString());
+    var us = db.UserProfiles.Find(userid);
+    var grp = db.UserGroups.Where(g => g.UserId == userid).Select(gp => gp.Group.GroupName).FirstOrDefault();
+    orglogo = string.IsNullOrWhiteSpace(us.Organisation.OrganisationLogo) ? "" : "/" + System.Configuration.ConfigurationManager.AppSettings["ApplicationName"].ToString() + us.Organisation.OrganisationLogo;
+    //"~/images/compu_lms_logo.png"
+}
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top"
+     id="mainNav" th:fragment="header">
+    <a class="navbar-brand" href="#" style="padding-top: 0px;"><img src="@orglogo.Replace("\\", "/")" alt="Logo" style="width: 150px; height: 34px;"></a>
+    <button class="navbar-toggler navbar-toggler-right bg-dark" type="button"
+            data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav bg-dark" id="exampleAccordion">
+            @*<li id="userHome" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblHome">
+                <a class="nav-link"
+                   href="~/User">
+                    <i class="fa fa-fw fa-home"></i> <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblHome</span>
+                </a>
+            </li>*@
+            <li id="allCourses" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblViewAllcourses">
+                <a class="nav-link"
+                   href="~/UserCourse">
+                    <i class="fa fa-fw fa-laptop"></i> <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblViewAllcourses</span>
+                </a>
+            </li>
+            <li id="catalogues" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblCatalogue">
+                <a class="nav-link"
+                   href="~/UserCourse/Catalogue">
+                    <i class="fa fa-fw fa-server"></i> <span class="nav-link-text">@LMSResourse.Common.ApplicationMenu.lblCatalogue</span>
+                </a>
+            </li>
+            <li id="userProfile" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.Common.ApplicationMenu.lblProfile">
+                <a class="nav-link"
+                   href="~/User/EditUserProfile">
+                    <i class="fa fa-fw fa-user"></i> <span class="nav-link-text"> @LMSResourse.Common.ApplicationMenu.lblProfile</span>
+                </a>
+            </li>
+            <li id="chatSession" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="Live chat">
+                <a class="nav-link"
+                   href="~/LmsChat/ChatSessions">
+                    <i class="fa fa-fw fa-comments-o"></i> <span class="nav-link-text">@LMSResourse.Admin.ChatRoom.lblLiveChat</span>
+                </a>
+            </li>
+            @*<li id="FAQ" class="nav-item" data-toggle="tooltip"
+                data-placement="right" title="@LMSResourse.User.UserCourse.lblFAQ">
+                <a class="nav-link"
+                   href="~/Queries/FAQ">
+                    <i class="fa fa-fw fa-quora"></i> <span class="nav-link-text"> @LMSResourse.User.UserCourse.lblFAQ</span>
+                </a>
+            </li>*@            
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center"
+                   id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span id="classname" style="color:#721c24"><b>@grp</b></span>
+            </li>
+        </ul>
+        <div class="user_dropdown" style="float:right; vertical-align:text-top;height:100%;">@Html.Partial("_LoginPartial")</div>
+    </div>
+</nav>
