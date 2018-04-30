@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @{
+        Session["IsAdminView"] = "false";
+        string appTitle = "";
+        var db = new CLSLms.LeopinkLMSDBEntities();
+        var InstanceInfo = db.InstanceInfoes.Find(1);
+        appTitle = System.Configuration.ConfigurationManager.AppSettings["ApplicationTitle"].ToString();
+    }
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="~/favicon.ico" />
+
+    <title>@appTitle</title>
+    @Styles.Render("~/bundles/sb-admin-css")
+    @Styles.Render("~/Include/responsive.css")
+    @Scripts.Render("~/bundles/jqueryval2")
+    @Scripts.Render("~/bundles/sb-admin-script")
+    @Scripts.Render("~/bundles/admin-lms")
+</head>
+<body class="fixed-nav sticky-footer bg-light" id="page-top">
+    @Html.Partial("fragments/_UserLayoutHeader")
+    <div class="lg-12" style="border-top:2px solid #0781df;height:1px;"></div>
+    <div class="content-wrapper">
+        @RenderBody()
+        @Html.Partial("fragments/footer")
+    </div>
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({
+            template: '<div class="tooltip navbar-sidenav-tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        });
+        if (~window.location.pathname.indexOf("EditUserProfile")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#userProfile").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Catalogue")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#catalogues").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("FAQ")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#FAQ").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("UserCourse")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#allCourses").addClass("active");
+        }
+        else if (~window.location.pathname.toLowerCase().indexOf("start") && document.referrer.indexOf("UserCourse") > -1) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#allCourses").addClass("active");
+        }
+        else if (~window.location.pathname.indexOf("Chat")) {
+            $("#exampleAccordion li").removeClass("active");
+            $("#chatSession").addClass("active");
+        }
+        else {
+            $("#exampleAccordion li").removeClass("active");
+            $("#userHome").addClass("active");
+        }
+
+        $("#sidenavToggler").click(function (e) {
+            e.preventDefault();
+            $("body").toggleClass("sidenav-toggled");
+            $(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
+            $(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
+        });
+
+        $("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll", function (a) {
+            var e = a.originalEvent;
+            t = e.wheelDelta || -e.detail;
+            var calcTop = $(this).scrollTop() + (30 * parseInt(t));
+            $(this).scrollTop(parseInt(calcTop));
+            a.preventDefault();
+        });
+
+        $(document).scroll(function () {
+            $(this).scrollTop() > 100 ? $(".scroll-to-top").fadeIn() : $(".scroll-to-top").fadeOut();
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $(document).on("click", "a.scroll-to-top", function (e) {
+            var t = $(this);
+            $("html, body").stop().animate({
+                scrollTop: $(t.attr("href")).offset().top
+            }
+				, 1e3, "easeInOutExpo"), e.preventDefault()
+        });
+    });
+</script>
+@RenderSection("scripts", required: false)
+</html>

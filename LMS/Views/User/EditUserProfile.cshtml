@@ -1,0 +1,388 @@
+﻿@using MvcCheckBoxList.Model
+@using CLSLms
+@using LMS.Models
+@model LMS.Models.UserProfileModel
+@{
+    ViewBag.Title = "EditUserProfile";
+    if (Session["IsParentTeacher"].ToString().ToLower() == "true")
+    {
+        Layout = "~/Views/Shared/_PTMLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    var db = new LeopinkLMSDBEntities();
+    var currentuser = db.UserProfiles.Find(Convert.ToInt64(Session["UserID"])); // user logs in
+    var defaultRole = db.InstanceInfoes.Find(1).RoleName;
+    var orgId = db.Organisations.Find(Model.OrganisationID);
+}
+@using (Html.BeginForm("EditUserProfile", "User", FormMethod.Post))
+{
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                @if (Session["IsParentTeacher"].ToString().ToLower() == "true")
+                {
+                    <li class="breadcrumb-item"><a href="~/ParentTeacher">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item"><a href="~/UserCourse">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                }
+
+                <li class="breadcrumb-item active">@LMSResourse.Common.ApplicationMenu.lblProfile</li>
+                <li class="breadcrumb-item active">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</li>
+            </ol>
+        </nav>
+        <div id="servererrors"></div>
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(e => e.EmailAddress)
+        @Html.HiddenFor(o => o.OrganisationID)
+        <div class="errormessage" role="alert" id="errorMessages">
+            <div>@Html.ValidationMessageFor(model => model.EmployeeID)</div>
+            <div>@Html.ValidationMessageFor(model => model.OrganisationID)</div>
+            <div>@Html.ValidationMessageFor(model => model.ManagerName)</div>
+            <div>@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+            <div>@Html.ValidationMessageFor(model => model.FirstName)</div>
+            <div>@Html.ValidationMessageFor(model => model.LastName)</div>
+            <div>@Html.ValidationMessageFor(model => model.ContactNo)</div>
+            <div>@Html.ValidationMessageFor(model => model.Password)</div>
+            <div>@Html.ValidationMessageFor(model => model.ConfirmPassword)</div>
+            <div id="servererrors"></div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.EmployeeID)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.EmployeeID, new { @class = "form-control", @aria_describedby = "basic-addon2", disabled = "disable" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.EmailAddress)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @aria_describedby = "basic-addon2", disabled = "disable" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.FirstName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="FirstName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.LastName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="LastName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ContactNo)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="ContactNo_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Designation)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Designation, new { @class = "form-control", @aria_describedby = "basic-addon2", disabled = "disable" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ManagerName)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.ManagerName, new { @class = "form-control", @aria_describedby = "basic-addon2", disabled = "disable" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.OrganisationID)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="text" value="@orgId.OrganisationName" class="form-control" disabled="disable" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Password)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="Password_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.ConfirmPassword)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="ConfirmPassword_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <input type="submit" value="@LMSResourse.Common.Common.btnModifyProfile" class="btn btn-primary" id="create" />&nbsp;
+                    @if (Session["IsParentTeacher"].ToString().ToLower() == "true")
+                    {
+                        <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "ParentTeacher")';" />
+                    }
+                    else
+                    {
+                        <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "User")';" />
+                    }
+                    @Html.HiddenFor(model => model.ActionType)
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/commonadmin.js"></script>
+    <script type="text/javascript">
+
+        function validate(e) {
+            e.preventDefault();
+            // now trigger the form validation, result is 1 or 0
+            var result = $('form').valid();
+            if (result == false) {
+            }
+            else {
+                $('form')[0].submit();
+            }
+        }
+        $("#btnGeneratePassword").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "../../UserManagement/AjaxGeneratePassword",
+                success: function (data) {
+                    $("#Password").val(data);
+                },
+                async: false,
+                cache: false
+            });
+        });
+
+        $("#create").click(function (e) {
+            $("#ActionType").val("0");
+            //validate(e);
+        });
+
+        $("#create_n_assigngroup").click(function (e) {
+            $("#ActionType").val("1");
+            //validate(e);
+        });
+        $("#create_n_addanother").click(function (e) {
+            $("#ActionType").val("2");
+            //validate(e);
+        });
+
+
+
+
+
+        $(document).ready(function () {
+            $("#mainmenuUser li").removeClass("active");
+            $("#mainmenuUser li:eq(2)").addClass("active");
+            fieldLength($("#EmployeeID"), $("#EmployeeID_feedback"));
+            fieldLength($("#FirstName"), $("#FirstName_feedback"));
+            fieldLength($("#LastName"), $("#LastName_feedback"));
+            fieldLength($("#EmailAddress"), $("#EmailAddress_feedback"));
+            fieldLength($("#Password"), $("#Password_feedback"));
+            fieldLength($("#ConfirmPassword"), $("#ConfirmPassword_feedback"));
+            fieldLength($("#ContactNo"), $("#ContactNo_feedback"));
+            fieldLength($("#ManagerName"), $("#ManagerName_feedback"));
+            $("#FirstName").focus();
+            //loadProfileValues();
+
+            $('#userroles input[type=checkbox]').attr('disabled', 'true');
+
+            if ('@Model.IsGroupAdmin.ToString().ToLower()' == "true" && '@Model.UserId' == '@currentuser.UserId') {
+                $("#usRoles input[type='checkbox']").each(function () {
+                    $(this).attr("disabled", true);
+                });
+
+            }
+
+        });
+
+        function loadProfileValues() {
+            var currentOrganisation = '@Model.OrganisationID';
+            if (currentOrganisation != "") {
+
+                var param = {
+                    OrgId: currentOrganisation,
+                    LangaugeId: "@Model.UserLanguageId"
+                };
+                var x = [];
+                $.ajax({
+
+                    url: "../../UserManagement/GetUserProfiles",
+                    contentType: "application/x-www-form-urlencoded",
+                    type: "GET",
+                    datatype: "json",
+                    async: false,
+                    data: param,
+                    error: function (xmlHttpRequest, errorText, thrownError) {
+                        return false;
+                    },
+                    success: function (data) {
+                        if (data != null) {
+                            // window.location.reload();
+                            //alert(data);
+                        }
+                    },
+                    complete: function (data) {
+                        x = JSON.parse(data.responseText);
+
+                        $(document).find("[data-dyc='" + 1 + "']").remove();
+                        $("#Option1-error").html("");
+                        $("#Option2-error").html("");
+
+                        for (var i = 0; i < x.length; i++) {
+                            var controlValue = "";
+                            switch (x[i].profileSettingId) {
+                                case 1:
+                                    controlValue = '@Model.Option1';
+                                    break;
+                                case 2:
+                                    controlValue = '@Model.Option2';
+                                    break;
+                                default:
+                                    controlValue = '';
+                                    break;
+                            }
+
+
+                            if (x[i].IsDisplay == true) {
+                                var Objadd = "";
+                                if (x[i].ProfileType == 1) {
+                                    if (x[i].IsMandatory == true) {
+
+                                        Objadd = '<div class="row top_margin15"  data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                            '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label></div>' +
+                                        '<div class="col-md-6">' +
+                                        '<input class="form_textbox" size = "40" data-val="true" required data-val-length-max="' + x[i].MaxLength + '" title="' + x[i].ReqValidationMessage_For_Text + '" data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" type="text" value="' + controlValue + '" ></input>' +
+                                        '<div id="Option' + x[i].profileSettingId + '_feedback"></div><div class="mandatory_mark">*</div></div><div class="col-md-3"><div >' +
+                                        '<span class="field-validation-valid" data-valmsg-for="Option' + x[i].profileSettingId + '" data-valmsg-replace="true"></span>' +
+                                        '</div></div></div>';
+                                        $("#lastelement").before(Objadd);
+                                        fieldLength($("#Option" + x[i].profileSettingId), $("#Option" + x[i].profileSettingId + "_feedback"));
+                                    }
+                                    else {
+                                        Objadd = Objadd = '<div class="row top_margin15"  data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                           '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label></div>' +
+                                       '<div class="col-md-6">' +
+                                       '<input class="form_textbox" size = "40" data-val="true" data-val-length-max="' + x[i].MaxLength + '" title="' + x[i].ReqValidationMessage_For_Text + '" data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" type="text"  value="' + controlValue + '" ></input>' +
+                                       '<div id="Option' + x[i].profileSettingId + '_feedback"></div><div class="mandatory_mark"></div></div><div class="col-md-3"><div >' +
+                                       '<span class="field-validation-valid" data-valmsg-for="Option' + x[i].profileSettingId + '" data-valmsg-replace="true"></span>' +
+                                       '</div></div></div>';
+                                        $("#lastelement").before(Objadd);
+                                        fieldLength($("#Option" + x[i].profileSettingId), $("#Option" + x[i].profileSettingId + "_feedback"));
+
+                                    }
+                                }
+                                else if (x[i].ProfileType == 2) {
+                                    if (x[i].IsMandatory == true) {
+
+                                        Objadd = '<div class="row top_margin15" data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                           '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label>' +
+                                           '</div><div class="col-md-6">' +
+                                           '<select class="form_textbox required valid" style = "width:332px;" data-val="true" data-val-number="The field Organisation must be a number." data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" aria-required="true" aria-invalid="false" title="' + x[i].ReqValidationMessage_For_Dropdown + '">' +
+                                           '<option value="">-- Select --</option>';
+                                        for (var y = 0; y < x[i].DropdownValues.length; y++) {
+                                            if (controlValue == x[i].DropdownValues[y].ValueText)
+                                                Objadd = Objadd + '<option selected value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                            else
+                                                Objadd = Objadd + '<option value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                        }
+                                        Objadd = Objadd + '</select>' +
+                                            '<div class="mandatory_mark">*</div></div><div class="col-md-3">' +
+                                            '<div ><span class="field-validation-valid" data-valmsg-for="Option' + x[i].profileSettingId + '" data-valmsg-replace="true"></span></div></div></div>';
+
+                                        $("#lastelement").before(Objadd);
+
+                                    }
+                                    else {
+
+                                        Objadd = '<div class="row top_margin15" data-dyc="1"><div class="col-md-1">&nbsp;</div><div class="col-md-2">' +
+                                            '<label for="Option' + x[i].profileSettingId + '">' + x[i].ProfileTitle + '</label>' +
+                                            '</div><div class="col-md-6">' +
+                                            '<select class="form_textbox required valid" style = "width:332px;" data-val="true" data-val-number="The field Organisation must be a number." data-val-required="' + x[i].ReqValidationMessage_For_Text + '" id="Option' + x[i].profileSettingId + '" name="Option' + x[i].profileSettingId + '" aria-required="true" aria-invalid="false" title="' + x[i].ReqValidationMessage_For_Dropdown + '">' +
+                                            '<option value="">-- Select --</option>';
+                                        for (var y = 0; y < x[i].DropdownValues.length; y++) {
+                                            if (controlValue == x[i].DropdownValues[y].ValueText)
+                                                Objadd = Objadd + '<option selected value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                            else
+                                                Objadd = Objadd + '<option value="' + x[i].DropdownValues[y].ValueId + '">' + x[i].DropdownValues[y].ValueText + '</option>';
+                                        }
+                                        Objadd = Objadd + '</select>' +
+                                            '<div class="mandatory_mark"></div></div><div class="col-md-3">' +
+                                            '<div ><span class="field-validation-valid" data-valmsg-for="Option' + x[i].profileSettingId + '" data-valmsg-replace="true"></span></div></div></div>';
+                                        $("#lastelement").before(Objadd);
+
+
+                                    }
+                                }
+                            }
+                            $(document).find("[data-dyc='" + 1 + "']").addClass("form-group row")
+                        }
+
+                    }
+                });
+            }
+        }
+
+    </script>
+}
