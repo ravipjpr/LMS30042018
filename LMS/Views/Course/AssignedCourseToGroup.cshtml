@@ -1,0 +1,286 @@
+﻿@model LMS.Models.Course_Assigned_T_Group
+@{
+    ViewBag.Title = "AssignCourse";
+    @Styles.Render("~/Content/jquery.dataTables.min.css");
+    @Styles.Render("~/Content/jquery-ui.css")
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <style>
+        .ui-datepicker-trigger {
+            padding: 2px;
+        }
+    </style>
+}
+<div class="container-fluid">
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+            <li class="breadcrumb-item"><a href="~/Course">@LMSResourse.Common.ApplicationMenu.lblCourses</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Html.DisplayFor(model => model.CourseName)</li>
+        </ol>
+    </nav>
+    <div style="align-items:center;text-align:center;vertical-align:middle;">
+        <div id="errormessage" style="display:none;" class="alert alert-danger" role="alert"></div>
+    </div>
+
+    <div class="table-responsive margin-top-20">
+        <table border="0" class="table table-bordered dataTable table-hover " id="myDataTable">
+            <thead>
+                <tr>
+                    <th class="border-left-top-bottom">@LMSResourse.Admin.Group.thGroup</th>
+                    <th>@LMSResourse.Admin.Course.thOrganisation</th>
+                    <th style="width:110px">@LMSResourse.Admin.Course.thMaxUserAllwoed</th>
+                    <th style="width:110px">@LMSResourse.Admin.Course.thNoOfUserAssigned</th>
+                    <th style="width:120px">@LMSResourse.Admin.Course.thExpiryDate</th>
+                    <th class="border-right-top-bottom" style="width:50px">@LMSResourse.Admin.Course.thAction</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-md-6">
+                <input type="submit" class="btn btn-primary" value="@LMSResourse.Common.Common.btnSave" id="create" />&nbsp;
+                <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "Course")';" />
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/datatable-js")
+    <script type="text/javascript">
+        jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function (oSettings, iDelay) {
+            var _that = this;
+
+            if (iDelay === undefined) {
+                iDelay = 250;
+            }
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var
+                    $this = this,
+                    oTimerId = null,
+                    sPreviousSearch = null,
+                    anControl = $('input', _that.fnSettings().aanFeatures.f);
+
+                anControl.unbind('keyup search input').bind('keyup search input', function () {
+                    var $$this = $this;
+
+                    if (sPreviousSearch === null || sPreviousSearch != anControl.val()) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = anControl.val();
+                        oTimerId = window.setTimeout(function () {
+                            $.fn.dataTableExt.iApiIndex = i;
+                            _that.fnFilter(anControl.val());
+                        }, iDelay);
+                    }
+                });
+
+                return this;
+            });
+            return this;
+        };
+
+        function htmlEncode(value) {
+            //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+            //then grab the encoded contents back out.  The div never exists on the page.
+            return $('<div/>').text(value).html();
+        }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function SetDate(chkId) {
+
+            var CheckBoxId = $(chkId).attr("id").toString();
+            var divCal = CheckBoxId.replace("AssignStatus", "divCal");
+            var ExpId = CheckBoxId.replace("AssignStatus", "ExpDate");
+            if ($(chkId).prop("checked").toString() === "true") {
+                $("#" + divCal).show();
+            }
+            else { $("#" + divCal).hide(); }
+        }
+
+        function fillGrid() {
+
+            var fileUrl = "../../Include/datatablefiles/";
+            var filename = "en-us.txt";
+            if (filename == '')
+                fileUrl = fileUrl + "en-us.txt";
+            else
+                fileUrl = fileUrl + filename;
+            //var Display = parseInt('@Session["ListiDisplayLength"]');
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "../AjaxHandlerCourseAssignedGroups",
+                "bProcessing": true,
+                "bStateSave": false,
+                "bDestroy": true,
+                "sPaginationType": "full_numbers",
+                "sDom": '<"top"lfip>rt<"bottom"ip<"clear">',
+                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, '@LMSResourse.Common.Common.GridAll']],
+                "oLanguage": { "sUrl": fileUrl },
+                "fnServerParams": function (aoData) {
+                    aoData.push({ "name": "iD", "value": '@Model.CourseId' })
+                },
+                "aoColumns": [
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    return ('<div id="CourseTitle' + oObj.aData[6] + '">' + htmlEncode(oObj.aData[0].toString()) + '</div>');
+                                }
+                            },
+                            {
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[1].toString()));
+
+                                }
+
+                            },
+                            //{
+                            //    "fnRender": function (oObj) {
+                            //        return (htmlEncode(oObj.aData[2].toString()));
+
+                            //    }
+
+                            //},
+                            //{
+                            //    "fnRender": function (oObj) {
+                            //        return (htmlEncode(oObj.aData[3].toString()));
+
+                            //    }
+
+                            //},
+                             {
+                                 "fnRender": function (oObj) {
+                                     return (htmlEncode(oObj.aData[7].toString()));
+                                 }
+                             },
+                            {
+                                "fnRender": function (oObj) {
+                                    return (htmlEncode(oObj.aData[8].toString()));
+                                }
+                            },
+                            {
+                                "fnRender": function (oObj) {
+                                    //return (htmlEncode(oObj.aData[4].toString()));
+                                    //alert(oObj.aData[4].toString());
+                                    if (oObj.aData[5].toString() === "True")
+                                        return '<div id="divCal' + oObj.aData[6].toString() + '"><input type="hidden" id="ExpDateValue' + oObj.aData[6].toString() + '" value ="' + oObj.aData[4] + '"/><input disabled="disable" style="width:100px;" type="text" data-dyc="1" id="ExpDate' + oObj.aData[6].toString() + '"  text ="' + oObj.aData[4] + '" value ="' + oObj.aData[4] + '" /></div>'
+                                    else
+                                        return '<div style="display:none;" id="divCal' + oObj.aData[6].toString() + '"><input type="hidden" id="ExpDateValue' + oObj.aData[6].toString() + '" value ="' + oObj.aData[4] + '"/><input disabled="disable" style="width:100px;" type="text" data-dyc="1" id="ExpDate' + oObj.aData[6].toString() + '" text ="' + oObj.aData[4] + '" value ="' + oObj.aData[4] + '" /></div>'
+
+                                }
+
+                            },
+                            {
+                                "fnRender": function (oObj) {
+
+                                    if (oObj.aData[5].toString() === "True")
+                                        return '<input type="checkbox" checked="checked" id="AssignStatus' + oObj.aData[6] + '" onclick="SetDate(this);" />';
+                                    else
+                                        return '<input type="checkbox" id="AssignStatus' + oObj.aData[6].toString() + '" onclick="SetDate(this);" />';
+                                }
+
+                            }
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $(document).find("[data-dyc='" + 1 + "']").each(function () {
+                        var x = $(this).attr("id");
+                        $("#" + x).datepicker({
+                            showOn: "button",
+                            buttonImage: "../../Images/calandar_icon.png",
+                            buttonImageOnly: true,
+                            buttonText: "@LMSResourse.Common.Common.toolTipSelectdate",
+                            changeMonth: true,
+                            changeYear: true,
+                            onSelect: function (dateText) {
+                                compareDates("#" + x);
+                            }
+                        });
+
+                        $("#" + x).datepicker("option", "dateFormat", "@Model.DateFormatForClientSide.ToString()");
+                        $("#" + x).datepicker("setDate", $("#" + x.replace("ExpDate", "ExpDateValue")).val());
+                    });
+                }
+            });
+            setTimeout(function () { oTable.fnSetFilteringDelay(600); }, 500);
+        }
+
+        function compareDates(id) {
+            if (new Date(myDateFormatter($(id).val())) < new Date()) {
+                alert("Expiry date cannot be less than current date");
+                $(id).val("");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function myDateFormatter(dateObject) {
+            var date = dateObject.split("/");
+            var d = new Date("" + date[2] + "/" + date[1] + "/" + date[0] + " 23:59:59");
+
+            return d;
+        }
+
+        $(document).ready(function () {
+            fillGrid();
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(4)").addClass("active");
+            $("#create").click(function () {
+                var IsError = false;
+                $("#errormessage").text("");
+                $("#errormessage").hide();
+
+                var SubmitAssignmentData = [];
+                $(document).find("[data-dyc='" + 1 + "']").each(function () {
+                    var x = $(this).attr("id");
+                    var obj;
+                    //var DateVariable = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+                    var GroupId = x.replace("ExpDate", "");
+                    var checkBoxId = "AssignStatus" + GroupId;
+                    var courseTitle = "CourseTitle" + GroupId
+
+
+                    var reqDateForCourse = "";
+                    if (($("#" + checkBoxId).prop("checked").toString() === "true") && $("#" + x).val() === "") {
+                        obj = { GroupId: GroupId, CourseId: '@Model.CourseId', AssignmentStatus: $("#" + checkBoxId).prop("checked").toString(), AssignmentDate: $("#" + x).val() };
+                        //alert("Please select date for " + $("#" + courseTitle).text());
+                        $("#errormessage").html($("#errormessage").html() + (($("#errormessage").html().length > 0) ? ", " : "") + "@LMSResourse.Admin.User.msgErrorSelectdata" + "[" + $("#" + courseTitle).text() + "] ");
+                        IsError = true;
+                    }
+                    else
+                        obj = { GroupId: GroupId, CourseId: '@Model.CourseId', AssignmentStatus: $("#" + checkBoxId).prop("checked").toString(), AssignmentDate: $("#" + x).val() };
+                    if (obj != null)
+                        SubmitAssignmentData.push(obj);
+                });
+
+                if (IsError == false) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../../Course/AssignCourseToGroup",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(SubmitAssignmentData),
+                        dataType: "json",
+                        sucess: function () { },
+                        complete: function (jqXHR, textStatus) {
+                            window.location.reload(true);
+                        },
+                        async: false
+                    });
+                }
+                else {
+                    $("#errormessage").show();
+                    $('#errormessage').delay(parseInt((($("#errormessage").text().length * 0.2) + $("#errormessage").text().length) / 16) * 1000).fadeOut();
+                    $("#delete_popup").css("display", "none");
+                    return false;
+                }
+
+            });
+        });
+    </script>
+}
