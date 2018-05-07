@@ -1,0 +1,483 @@
+﻿@model CLSLms.Course
+@{
+    ViewBag.Title = "Edit course";
+
+}
+@using (Html.BeginForm("EditCourse", "Course", FormMethod.Post, new { enctype = "multipart/form-data", @id = "myform" }))
+{
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+                <li class="breadcrumb-item"><a href="~/Course">@LMSResourse.Common.ApplicationMenu.lblCourses</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@LMSResourse.Common.ApplicationMenu.tooltipEditCourse</li>
+            </ol>
+        </nav>
+        <div style="display:none;" class="errormessage" role="alert" id="errorMessages">
+            <div>@Html.ValidationMessageFor(model => model.CourseName)</div>
+            <div>@Html.ValidationMessageFor(model => model.CategoryId)</div>
+            <div>@Html.ValidationMessageFor(model => model.IsUserDefined)</div>
+            <div>@Html.ValidationMessageFor(model => model.WindowHeight)</div>
+            <div>@Html.ValidationMessageFor(model => model.WindowWidth)</div>
+            <div>@Html.ValidationMessageFor(model => model.CourseDescription)</div>
+            <div>@Html.ValidationMessageFor(model => model.FolderLocation)</div>
+            <div>@Html.ValidationMessageFor(model => model.PassMarks)</div>
+            <div> @Html.ValidationMessageFor(model => model.CertificateId)</div>
+            <div id="servererrorsFile"></div>
+        </div>
+        @Html.HiddenFor(model => model.CourseId)
+        @Html.Hidden("ModificationOption", "0")
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CourseName)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="CourseName_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CategoryId)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.CategoriesList, @LMSResourse.Common.Common.dropSelectCategory, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CourseType)*</div>
+                <div class="col-md-4">
+                    <div class="btn-group" data-toggle="buttons" style="pointer-events:none;">
+                        <label class="btn btn-outline-primary">
+                            @Html.RadioButtonFor(m => m.CourseType, "1", new { name = "courseType", Class = "courseTypeL" }) Scorm 1.2
+                        </label>
+                        <label class="btn btn-outline-primary">
+                            @Html.RadioButtonFor(m => m.CourseType, "4", new { name = "courseType", Class = "courseTypeL" }) You Tube to Scorm 1.2
+                        </label>
+                        <label class="btn btn-outline-primary">
+                            @Html.RadioButtonFor(m => m.CourseType, "2", new { name = "courseType", Class = "courseTypeL" }) XAPI
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.IsUserDefined)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.IsUserDefined, (IEnumerable<SelectListItem>)ViewBag.BrowseType, htmlAttributes: new { id = "ddlbrowsetype", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="dvwinconf">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.WindowHeight)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.WindowHeight, new { @class = "form-control", @aria_describedby = "basic-addon2", data_val_length_max = "4" })
+                        <span class="input-group-addon" id="WindowHeight_feedback"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">&nbsp;</div>
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.WindowWidth)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.WindowWidth, new { @class = "form-control", @aria_describedby = "basic-addon2", data_val_length_max = "4" })
+                        <span class="input-group-addon" id="WindowWidth_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CourseDescription)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextAreaFor(model => model.CourseDescription, new { @class = "form-control", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-addon" id="CourseDescription_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Tags)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextAreaFor(model => model.Tags, new { @class = "form-control", @aria_describedby = "basic-addon2", @placeholder = "Enter tags separated by (,)" })
+                        <span class="input-group-addon" id="Tags_feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@LMSResourse.Admin.Course.fldModificationOption</div>
+                <div class="col-md-4">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-outline-primary active" id="lblNoModification">
+                            <input id="NoModification" class="form_textbox" style="padding-left: 10px;" name="Content" type="radio" checked />@LMSResourse.Admin.Course.optNoModification
+                        </label>
+                        <label class="btn btn-outline-primary" id="lblContent">
+                            <input id="Content" class="form_textbox" style="padding-left 10px;" name="Content" type="radio" />@LMSResourse.Admin.Course.optContentModification
+                        </label>
+                        <label class="btn btn-outline-primary" id="lblFull">
+                            <input id="Full" class="form_textbox" style="padding-left 10px;" name="Content" type="radio" />@LMSResourse.Admin.Course.optFullModification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group upload_file">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.FolderLocation)*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="file" id="FolderLocation" name="FolderLocation" disabled="disabled" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group you_tubeurl">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">You Tube URL*</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="url" id="YouTubeURL" name="YouTubeURL" class="form-control" value="@ViewBag.youtubeURL" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CertificateId)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("CertificateId", (IEnumerable<SelectListItem>)ViewBag.CertificateList, @LMSResourse.Common.Common.dropSelectCertificate, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.PassMarks)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.PassMarks, new { @class = "form-control", data_val_length_max = "3" })
+                        <div class="input-group-addon" id="PassMarks_feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.IsMobile)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.IsMobile, (IEnumerable<SelectListItem>)ViewBag.MobileCompatibleType, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Mandaotry)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.Mandaotry, (IEnumerable<SelectListItem>)ViewBag.MandaotryType, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CourseDurationMin)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.CourseDurationMin, htmlAttributes: new { @class = "form-control", maxlength = "3" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.FeeType)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.FeeType, (IEnumerable<SelectListItem>)ViewBag.FeeTypeList, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.CourseFees)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.CourseFees, htmlAttributes: new { @class = "form-control", maxlength = "5" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.Status)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.CheckBoxFor(model => model.Status)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">@Html.LabelFor(model => model.SurveyID)</div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.DropDownList("SurveyID", (IEnumerable<SelectListItem>)ViewBag.SurveyList, @LMSResourse.Common.Common.dropSelect, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-primary" value="@LMSResourse.Common.Common.btnSave" id="create" />&nbsp;
+                    <input type="button" class="btn btn-secondary" value="@LMSResourse.Common.Common.btnCancel" onclick="window.location.href='@Url.Action("index", "Course")';" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var courseTypeVal = 1;
+            $(".courseTypeL").each(function () {
+                if ($(this).is(':checked')) {
+                    $(this).parent().addClass("active");
+                    courseTypeVal = $(this).attr("value");
+                }
+            });
+
+            $(".upload_file").show();
+            $(".you_tubeurl").hide();
+
+            if (courseTypeVal == "2") {
+                $("#lblContent").css("pointer-events", "none");
+                $("#ModificationOption").val("0");
+                $("#FolderLocation").attr('disabled', 'disabled');
+                $("div.input-append").attr('disabled', 'disabled');
+                $("div.input-append").children("*").addClass('disable');
+            }
+            else if (courseTypeVal == "4") {
+                $(".upload_file").hide();
+                $(".you_tubeurl").show();
+
+                $("#ModificationOption").val("1");
+                $("#lblNoModification").removeClass("active");
+                $("#lblContent").addClass("active");
+                $("#lblContent").parent().css("pointer-events", "none");
+            }
+
+            fieldLength($("#CourseName"), $("#CourseName_feedback"));
+            fieldLength($("#CourseDescription"), $("#CourseDescription_feedback"));
+            fieldLength($("#Tags"), $("#Tags_feedback"));
+            fieldLength($("#WindowHeight"), $("#WindowHeight_feedback"));
+            fieldLength($("#WindowWidth"), $("#WindowWidth_feedback"));
+            fieldLength($("#PassMarks"), $("#PassMarks_feedback"));
+            $("#CourseName").focus();
+
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(4)").addClass("active");
+
+            if ($('select#ddlbrowsetype option:selected').val() == "true")
+                $('#dvwinconf').show();
+            else {
+                $('#dvwinconf').hide();
+                $('#txtwinheight').val(0);
+                $('#txtwinwidth').val(0);
+            }
+
+
+            $('#ddlbrowsetype').change(function () {
+                if ($('select#ddlbrowsetype option:selected').val() == "true")
+                    $('#dvwinconf').show();
+                else {
+                    $('#dvwinconf').hide();
+                }
+            })
+
+            if ($("#ModificationOption").val() === "0") {
+                $("div.input-append").children("*").addClass('disable');
+            }
+
+            if ($("#ModificationOption").val() == 1) {
+                $("#ModificationOption").val("1");
+                $("#FolderLocation").removeAttr("disabled");
+                $("#Content").prop("checked", true);
+                $("#Full").removeAttr("checked");
+                $("#NoModification").removeAttr("checked");
+            }
+            else if ($("#ModificationOption").val() == 2) {
+                $("#ModificationOption").val("2");
+                $("#FolderLocation").removeAttr("disabled");
+                $("#Content").removeAttr("checked");
+                $("#Full").prop("checked", true);
+                $("#NoModification").removeAttr("checked");
+            }
+
+            function showerror() {
+                if ($('#errorMessages').text().trim().length > 0) {
+                    $("#errorMessages").show();
+                } else $("#errorMessages").hide();
+            }
+
+            if ($('#errorMessages').text().trim().length > 0) {
+                $("#errorMessages").show();
+            } else $("#errorMessages").hide();
+
+            $("#CourseName").keypress(function () { showerror(); });
+            $("#CourseDescription").keypress(function () { showerror(); });
+            $("#WindowHeight").keypress(function () { showerror(); });
+            $("#WindowWidth").keypress(function () { showerror(); });
+            $("#PassMarks").keypress(function () { showerror(); });
+
+            $("#CourseName").blur(function () { showerror(); });
+            $("#CourseDescription").blur(function () { showerror(); });
+            $("#WindowHeight").blur(function () { showerror(); });
+            $("#WindowWidth").blur(function () { showerror(); });
+            $("#PassMarks").blur(function () { showerror(); });
+            $("#mainmenu li").removeClass("active");
+            $("#mainmenu li:eq(4)").addClass("active");
+        });
+
+        $("#lblContent").click(function () {
+            $("#ModificationOption").val("1");
+            $("#FolderLocation").removeAttr("disabled");
+
+            $("div.input-append").removeAttr('disabled');
+            $("div.input-append").children("*").removeClass('disable');
+        });
+        $("#lblFull").click(function () {
+            $("#ModificationOption").val("2");
+            $("#FolderLocation").removeAttr("disabled");
+
+            $("div.input-append").removeAttr('disabled');
+            $("div.input-append").children("*").removeClass('disable');
+        });
+        $("#lblNoModification").click(function () {
+            $("#ModificationOption").val("0");
+            $("#FolderLocation").attr('disabled', 'disabled');
+
+            $("div.input-append").attr('disabled', 'disabled');
+            $("div.input-append").children("*").addClass('disable');
+        });
+        function getNameFromPath(strFilepath) {
+            var objRE = new RegExp(/([^\/\\]+)$/);
+            var strName = objRE.exec(strFilepath);
+
+            if (strName == null) {
+                return null;
+            }
+            else {
+                return strName[0];
+            }
+        }
+
+        function checkFileType() {
+            var file = getNameFromPath($("#FolderLocation").val());
+            var AllowedFileExtensions = null;
+            var errorMessage = '@LMSResourse.Common.Common.msgInvalidFile';
+            var found = -1;
+            var flag = false;
+            if ($("#ModificationOption").val() == "1" || $("#ModificationOption").val() == "2") {
+                if (file != null && file != 'undefined' && file != 'null') {
+                    var extension = file.substr((file.lastIndexOf('.'))).toString().toLowerCase();
+                    AllowedFileExtensions = new Array(".zip", ".mp4");
+                    found = $.inArray(extension, AllowedFileExtensions)
+                    if (found > -1) {
+                        flag = true;
+                        $("#servererrors").html("");
+                        return true;
+                    }
+                    else {
+                        flag = false;
+                        $("#servererrors").html(errorMessage);
+                        return false;
+                    }
+                }
+                else {
+                    $("#servererrors").html('@LMSResourse.Common.Common.msgReqFile');
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }
+
+        $("#FolderLocation").change(function () {
+            checkFileType();
+        });
+
+        $("#create").click(function (e) {
+            var result = $('#myform').valid();
+            if ($("#YouTubeURL").val().trim() == "" && courseTypeVal == 4) {
+                $("#FolderLocation").val("temp.zip");
+                //showerror();
+                $("#servererrorsFile").html("Please enter YouTube URL.");
+                $("#errorMessages").show();
+                return false;
+            }
+
+            if ($('#myform').valid()) {
+                if (checkFileType() == false && courseTypeVal != 4) {
+                    $("#errorMessages").show();
+                    return false;
+                }
+                else {
+                    $("#errorMessages").hide();
+                    $('#myform').submit();
+                    return true;
+                }
+            }
+            else { $("#errorMessages").show(); return false; }
+        });
+    </script>
+}
+
+
+
