@@ -1,0 +1,466 @@
+﻿@model IEnumerable<CLSLms.Course>
+@{
+    var IsGAdmin = false;
+    var IsCourseManager = string.Empty;
+    if (!string.IsNullOrWhiteSpace(Convert.ToString(Session["IsGroupAdmin"])))
+    {
+        IsGAdmin = Convert.ToBoolean(Convert.ToString(Session["IsGroupAdmin"]));
+    }
+    if (!string.IsNullOrWhiteSpace(Convert.ToString(Session["CourseMangerRole"])))
+    {
+        IsCourseManager = Convert.ToString(Session["CourseMangerRole"]);
+    }
+
+}
+@{
+    ViewBag.Title = "Course list";
+    @Styles.Render("~/Content/jquery.dataTables.min.css");
+    <style type="text/css">
+        .hover {
+            background-color: lightyellow;
+        }
+
+        .selected {
+            background-color: blue;
+        }
+    </style>
+}
+<div class="container-fluid">
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="Admin">@LMSResourse.Common.ApplicationMenu.lblHome</a></li>
+            <li class="breadcrumb-item active">@LMSResourse.Common.ApplicationMenu.lblCourses</li>
+        </ol>
+    </nav>
+    <input type="hidden" id="isindividual" value="@LMS.Models.Common.IsIndividual().ToString()" />
+    <input type="hidden" id="isAdmin" value="@LMS.Models.Common.IsAdmin().ToString()" />
+    <div style="align-items:center;text-align:center;vertical-align:middle;">
+        <div id="errormessage" style="display:none;" class="alert alert-danger" role="alert"></div>
+    </div>
+    <input type="hidden" id="SelectedId" value="0" />
+    <div class="breadcrumb" style="background-color:transparent">
+        <nav class="nav nav-pills flex-column flex-sm-row" style="font-size:20px;">
+            @if (IsCourseManager == "NA")
+            {
+                <div class="btn-group" style="margin-right:20px;">
+                    <button type="button" data-placement="bottom" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateCourse" >
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="~/Course/CreateCourse">@LMSResourse.Admin.Course.lblScorm12 / @LMSResourse.Admin.Course.lblXAPI</a>
+                        <a class="dropdown-item" href="~/Course/CustomCourse">@LMSResourse.Admin.Course.lblCustomCourse</a>
+                    </div>
+                </div>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipEditCourse" class="btn btn-outline-primary disabled" id="btnEdit" href=""><i class="fa fa-pencil-square-o"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipDeleteCourse" class="btn btn-outline-primary disabled" id="btnDelete" href=""><i class="fa fa-trash-o"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipAssignCourseToGroup" class="btn btn-outline-primary disabled" id="btnAssignGroup" href=""><i class="fa fa-users"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipAssignCourseToUser" class="btn btn-outline-primary disabled" id="btnAssignUser" href=""><i class="fa fa-user-plus"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipChangeState" class="btn btn-outline-primary disabled" id="btnCourseState" href=""><i class="fa fa-check-square-o"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Admin.Course.btnViewQuestionAsked" class="btn btn-outline-primary disabled" id="btnFaq" href=""><i class="fa fa-question-circle-o"></i></a>
+            }
+            else if (IsCourseManager == "CC")
+            {
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipCreateCourse" class="btn btn-outline-primary" href="~/Course/CreateCourse"><i class="fa fa-plus"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipEditCourse" class="btn btn-outline-primary disabled" id="btnEdit" href=""><i class="fa fa-pencil-square-o"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipChangeState" class="btn btn-outline-primary disabled" id="btnCourseState" href=""><i class="fa fa-check-square-o"></i></a>
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Admin.Course.btnViewQuestionAsked" class="btn btn-outline-primary disabled" id="btnFaq" href=""><i class="fa fa-question-circle-o"></i></a>
+            }
+            else
+            {
+                <a style="margin-right:20px;" data-toggle="tooltip" data-placement="bottom" title="@LMSResourse.Common.ApplicationMenu.tooltipChangeState" class="btn btn-outline-primary disabled" id="btnCourseState" href=""><i class="fa fa-check-square-o"></i></a>
+            }
+        </nav>
+    </div>
+    <div class="table-responsive margin-top-20">
+        <table border="0" class="table table-bordered dataTable table-hover " id="myDataTable">
+            <thead>
+                <tr>
+                    <th class="border-left-top-bottom" style="width:250px" >
+                        @LMSResourse.Admin.Course.thCourse
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Course.thCategory
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Course.fldCourseType
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Course.thCertificate
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Course.thStatus
+                    </th>
+                    <th>
+                        @LMSResourse.Admin.Course.thState
+                    </th>
+                    <th>
+                        @LMSResourse.Common.Common.thCreationDate
+                    </th>
+                    <th style="width:75px" class="border-right-top-bottom">
+                        @LMSResourse.Common.Common.thPreview
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.Admin.Course.lblConfirmDeleteHeading</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @LMSResourse.Admin.Course.msgConfirmDelete
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@LMSResourse.Common.Common.btnCancel</button>
+                <button type="button" class="btn btn-primary" id="btn_deleteOk">@LMSResourse.Admin.Course.btnConfirmDelete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@LMSResourse.Admin.Course.lblChangeCourseState</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="courseStatebox">@LMSResourse.Admin.Course.lblCourseState</label>
+                <select name="courseStatebox" class="form-control" id="courseStatebox">
+                    @if (IsCourseManager == "NA")
+                    {
+                        <option value="1">@LMSResourse.Admin.Course.optInReview</option>
+                        <option value="2">@LMSResourse.Admin.Course.optReadyPublish</option>
+                        <option value="3">@LMSResourse.Admin.Course.optPublished</option>
+                        <option value="4">@LMSResourse.Admin.Course.optRejected</option>
+                    }
+                    else if (IsCourseManager == "CC")
+                    {
+                        <option value="1">@LMSResourse.Admin.Course.optInReview</option>
+                        <option value="4">@LMSResourse.Admin.Course.optRejected</option>
+                    }
+                    else if (IsCourseManager == "CR")
+                    {
+                        <option value="2">@LMSResourse.Admin.Course.optReadyPublish</option>
+                        <option value="4">@LMSResourse.Admin.Course.optRejected</option>
+                    }
+                    else if (IsCourseManager == "CP")
+                    {
+                        <option value="3">@LMSResourse.Admin.Course.optPublished</option>
+                        <option value="4">@LMSResourse.Admin.Course.optRejected</option>
+                    }
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn_coursestate">@LMSResourse.Common.Common.btnSave</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@LMSResourse.Common.Common.btnCancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/datatable-js")
+    <script src="@Url.Content("~/Scripts/base64.js")"></script>
+    <script type="text/javascript">
+        jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function (oSettings, iDelay) {
+            var _that = this;
+
+            if (iDelay === undefined) {
+                iDelay = 250;
+            }
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var
+                    $this = this,
+                    oTimerId = null,
+                    sPreviousSearch = null,
+                    anControl = $('input', _that.fnSettings().aanFeatures.f);
+
+                anControl.unbind('keyup search input').bind('keyup search input', function () {
+                    var $$this = $this;
+
+                    if (sPreviousSearch === null || sPreviousSearch != anControl.val()) {
+                        window.clearTimeout(oTimerId);
+                        sPreviousSearch = anControl.val();
+                        oTimerId = window.setTimeout(function () {
+                            $.fn.dataTableExt.iApiIndex = i;
+                            _that.fnFilter(anControl.val());
+                        }, iDelay);
+                    }
+                });
+
+                return this;
+            });
+            return this;
+        };
+    </script>
+    <script type="text/javascript">
+
+        function ShowHideAction() {
+            if ($("#SelectedId").val() == "")
+                $("#SelectedId").val(0);
+            if ($("#SelectedId").val() == "0") {
+                $("#btnEdit").addClass("disabled").click(function () { return false; });
+                $("#btnDelete").addClass("disabled").click(function () { return false; });
+                $("#btnAssignGroup").addClass("disabled").click(function () { return false; });
+                $("#btnAssignUser").addClass("disabled").click(function () { return false; });
+                $("#btnCourseState").addClass("disabled").click(function () { return false; });
+                $("#btnFaq").addClass("disabled").click(function () { return false; });
+                
+            }
+            else {
+                var ispublish = $("#myDataTable > tbody tr.selected").find('#Ispublished').val();
+                $("#btnEdit").removeClass("disabled").click(function () {
+                    if ($("#SelectedId").val() != "0") {
+                        var $row = $("#myDataTable > tbody tr.selected");
+                        var text = $row.find(".label").data("id");
+                        if (text == 3)
+                            window.location = 'Course/CustomCourseEdit/' + $("#SelectedId").val();
+                        else
+                            window.location = 'Course/EditCourse/' + $("#SelectedId").val();
+                    }
+                    else {
+                        return false;
+                    }
+                });
+                $("#btnFaq").removeClass("disabled").click(function () {
+                    if ($("#SelectedId").val() != "0") {
+                        window.location = 'Course/CourseFaqList/' + $("#SelectedId").val();
+                    }
+                    else {
+                        return false;
+                    }
+                });
+                $("#btnDelete").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { return false; } else { return false; } });
+                $("#btnCourseState").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { return false; } else { return false; } });
+                if ($("#isAdmin").val() == "True") {
+                    if (ispublish == 3) {
+                        $("#btnAssignUser").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Course/AssignCourseToUser/' + $("#SelectedId").val(); } else { return false; } });
+                        $("#btnAssignGroup").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Course/AssignedCourseToGroup/' + $("#SelectedId").val(); } else { return false; } });
+                    }
+                    else {
+                        $("#btnAssignGroup").addClass("disabled").click(function () { return false; });
+                        $("#btnAssignUser").addClass("disabled").click(function () { return false; });
+                    }
+                } else {
+                    if ($("#isindividual").val() == "True") {
+                        $("#btnAssignGroup").addClass("disabled");
+                        $("#btnAssignUser").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Course/AssignCourseToUser/' + $("#SelectedId").val(); } else { return false; } });
+                    } else {
+                        $("#btnAssignUser").addClass("disabled");
+                        $("#btnAssignGroup").removeClass("disabled").click(function () { if ($("#SelectedId").val() != "0") { window.location = 'Course/AssignedCourseToGroup/' + $("#SelectedId").val(); } else { return false; } });
+
+                    }
+                    if (ispublish != 3) {
+                        $("#btnAssignGroup").addClass("disabled").click(function () { return false; });
+                        $("#btnAssignUser").addClass("disabled").click(function () { return false; });
+                    }
+                }
+            }
+        }
+
+        function htmlEncode(value) {
+            //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+            //then grab the encoded contents back out.  The div never exists on the page.
+            return $('<div/>').text(value).html();
+        }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function fillGrid() {
+
+            var fileUrl = "Include/datatablefiles/";
+            var filename = "en-us.txt";
+            if (filename == '')
+                fileUrl = fileUrl + "en-us.txt";
+            else
+                fileUrl = fileUrl + filename;
+            //var Display = parseInt('@Session["ListiDisplayLength"]');
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "Course/AjaxHandlerCourse",
+                "bProcessing": true,
+                "bStateSave": false,
+                "bDestroy": true,
+                "sPaginationType": "full_numbers",
+                "sDom": '<"top"lfip>rt<"bottom"ip<"clear">',
+                "aLengthMenu": [[10, 25, 30, 50, 100], [10, 25, 25, 50, 100]],
+                "oLanguage": { "sUrl": fileUrl },
+                "fnServerParams": function (aoData) {
+                    // aoData.push({ "name": "fCol1", "value": $('#userstatus').val() })
+                },
+                "aoColumns": [
+
+                            {
+                                "bSortable": true,
+                                "fnRender": function (oObj) {
+                                    if(oObj.aData[17].toString()=="0")
+                                        return (htmlEncode(oObj.aData[0].toString()));
+                                    else
+                                        return (htmlEncode(oObj.aData[0].toString())) + '<i class="fa fa-question-circle-o" title="Course has unanswered questions" style="color:red"></i>';
+
+                                }
+                            },
+                            {
+
+
+                            },
+                            {
+                                "fnRender": function (o, val) {
+                                    return "<label class='label' data-id='" + o.aData[12] + "'>" + o.aData[2] + "</label>";
+                                }
+
+                            },
+                            {
+
+                            },
+                            {
+
+
+                            },
+                            {
+                                "bSortable": false,
+                                "fnRender": function (oObj) {
+                                    return htmlEncode(oObj.aData[5].toString()) + '<input type="hidden" id="Ispublished" value="' + oObj.aData[16].toString() + '" />';
+                                }
+                            },
+                            {
+                                "bSortable": false,
+
+                            },
+                            {
+                                "bSortable": false,
+                                "fnRender": function (o, val) {
+                                    if (o.aData[12] == "2") {
+                                        return "<a href='#' class='courseLaunch_btn' onclick='javascript:documnets.PreviewXAPI(\"0\",\"" + o.aData[8].replace(/\\/g, "/").replace("/", "") + "\",\"" + o.aData[9] + "\",\"" + o.aData[10] + "\",\"" + o.aData[13] + "\",\"" + o.aData[14] + "\",1,\"" + o.aData[15] + "\");' ><i class='fa fa-play-circle-o fa-2x' aria-hidden='true'></i></a><input type='hidden' id='CourseId' value='" + o.aData[11].toString() + "' />";
+                                    }
+                                    else if (o.aData[12] == "3") {
+                                        return '<a href=\'#\' class=\'coursePreview_btn\' onclick=\'javascript:PreviewCustom("' + o.aData[7] + '");\' ><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></a>' + '<input type="hidden" id="CourseId" value="' + o.aData[11].toString() + '" />';
+                                    }
+                                    else {
+                                        return '<a href=\'#\' class=\'coursePreview_btn\' onclick=\'javascript:Preview("' + o.aData[7] + '","' + o.aData[8] + '","' + o.aData[9] + '","' + o.aData[10] + '");\' ><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></a>' + '<input type="hidden" id="CourseId" value="' + o.aData[11].toString() + '" />';
+                                        //return '<a href=\'#\' class=\'coursePreview_btn\' onclick=\'javascript:Preview("' + o.aData[5] + '","' + o.aData[6] + '","' + o.aData[7] + '","' + o.aData[8] + '");\' ></a>' + '<input type="hidden" id="CourseId" value="' + o.aData[9].toString() + '" />&nbsp;<a onclick=GetCertificate(' + o.aData[9].toString() + ',4)>chk certificate</a>';
+                                    }
+                                }
+
+                            }
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $("#SelectedId").val("0");
+                    ShowHideAction();
+                }
+            });
+            setTimeout(function () { oTable.fnSetFilteringDelay(600); }, 500);
+        }
+
+        function GetCertificate(couseid, userid) {
+            $.ajax({
+                type: "GET",
+                url: "../Certificate/GenerateCertificate/",
+                success: function (data) {
+                },
+                async: false,
+                cache: false
+            });
+        }
+
+        $(document).ready(function () {
+            fillGrid();
+            $('#myDataTable > tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                    $("#SelectedId").val(0);
+                }
+                else {
+                    $('#myDataTable > tbody tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    $("#SelectedId").val($(this).find('#CourseId').val());
+                }
+                ShowHideAction();
+            });
+
+            $("#btnDelete").click(function () {
+                if ($("#SelectedId").val() > 0)
+                    $('#exampleModal').modal('show')
+            });
+            $("#btnCourseState").click(function () {
+                if ($("#SelectedId").val() > 0)
+                    $('#courseModal').modal('show')
+            });
+
+            $("#btn_deleteOk").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: "Course/DeleteCourse/" + $("#SelectedId").val(),
+                    contentType: "application/json; charset=utf-8",
+                    data: "",
+                    dataType: "json",
+                    sucess: function (data) {
+                    },
+                    complete: function (data, textStatus) {
+
+                        if (data.responseText != null && data.responseText != "") {
+                            $("#errormessage").html(data.responseText);
+                            $("#errormessage").show();
+                            $('#errormessage').delay(parseInt(((data.responseText.length * 0.2) + data.responseText.length) / 16) * 1000).fadeOut();
+                            $("#delete_popup").css("display", "none");
+                        }
+                        else if (data.responseText == "")
+                        { window.location.reload(true); }
+                        else { window.location.reload(true); }
+                    },
+                    async: false
+                });
+
+            });
+            $("#btn_coursestate").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "Course/CourseState/",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ stateid: $("#courseStatebox").val(), id: $("#SelectedId").val() }),
+                    dataType: "json",
+                    sucess: function (data) {
+                    },
+                    complete: function (data, textStatus) {
+                        if (data.responseText == "") {
+                            window.location.reload(true);
+                         }
+                        else {
+                            alert(data.responseText);
+                        }
+                    },
+                    async: false
+                });
+
+            });
+
+        });
+
+        function Preview(ID, Location, windowheight, windowwidth) {
+            if (windowheight == 0 && windowwidth == 0)   //Maximise
+                window.open("Scorm/scormversionswitcher.aspx?mastercourseid=" + ID + "&reviewFlag=Y", "Preview", "width=" + (screen.availWidth - 20) + ",height=" + (screen.availHeight - 60) + ",toolbar=no,menubar=no,resizable=yes,scrollbars=yes");
+            else
+                window.open("Scorm/scormversionswitcher.aspx?mastercourseid=" + ID + "&reviewFlag=Y", "Preview", "width=" + windowwidth + ",height=" + windowheight + ",toolbar=no,menubar=no,resizable=yes,scrollbars=yes");
+        }
+
+        function PreviewCustom(ID) {
+                window.open("Course/CustomPlayer?id=" + ID + "&reviewFlag=Y", "Preview", "width=" + (screen.availWidth - 20) + ",height=" + (screen.availHeight - 60) + ",toolbar=no,menubar=no,resizable=yes,scrollbars=yes");
+        }
+    </script>
+}

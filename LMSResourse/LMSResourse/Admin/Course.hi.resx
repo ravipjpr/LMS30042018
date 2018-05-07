@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddCourse" xml:space="preserve">
+    <value>कोर्स</value>
+  </data>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>पाठ्यक्रम हटाएं</value>
+  </data>
+  <data name="fldCategory" xml:space="preserve">
+    <value>विषय</value>
+  </data>
+  <data name="fldCertificate" xml:space="preserve">
+    <value>प्रमाणपत्र</value>
+  </data>
+  <data name="fldCourseDurationInMin" xml:space="preserve">
+    <value>अवधि (मिनट)</value>
+  </data>
+  <data name="fldCourseFees" xml:space="preserve">
+    <value>शुल्क</value>
+  </data>
+  <data name="fldCourseFeeStatus" xml:space="preserve">
+    <value>शुल्क प्रकार</value>
+  </data>
+  <data name="fldCourseFileUrl" xml:space="preserve">
+    <value>सामग्री अपलोड करें</value>
+  </data>
+  <data name="fldCourseName" xml:space="preserve">
+    <value>पाठ्यक्रम का नाम</value>
+  </data>
+  <data name="fldDescription" xml:space="preserve">
+    <value>पाठ्यक्रम विवरण</value>
+  </data>
+  <data name="fldIsMobile" xml:space="preserve">
+    <value>मोबाइल संगत</value>
+  </data>
+  <data name="fldMandatory" xml:space="preserve">
+    <value>अनिवार्य</value>
+  </data>
+  <data name="fldModificationOption" xml:space="preserve">
+    <value>संशोधन विकल्प</value>
+  </data>
+  <data name="fldPassMarks" xml:space="preserve">
+    <value>उत्तीर्णांक (%)</value>
+  </data>
+  <data name="fldScoLabel" xml:space="preserve">
+    <value>स्कोर लेबल</value>
+  </data>
+  <data name="fldStatus" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="fldUserDefined" xml:space="preserve">
+    <value>विंडो प्रकार</value>
+  </data>
+  <data name="fldWindowheight" xml:space="preserve">
+    <value>विंडो ऊँचाई</value>
+  </data>
+  <data name="fldWindowwidth" xml:space="preserve">
+    <value>विंडो चौड़ाई</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>पाठ्यक्रम हटाएं?</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>क्या आप वाकई चयनित कोर्स को हटाना चाहते हैं?</value>
+  </data>
+  <data name="msgCourseAlreadyExist" xml:space="preserve">
+    <value>पाठ्यक्रम पहले से मौजूद है</value>
+  </data>
+  <data name="msgDeleteCourse" xml:space="preserve">
+    <value>चयनित पाठ्यक्रम से जुड़े डेटा मौजूद हैं। [{0}] हटाया नहीं जा सकता</value>
+  </data>
+  <data name="msgDupCourseName" xml:space="preserve">
+    <value>कोर्स का नाम पहले से मौजूद है</value>
+  </data>
+  <data name="msgErrNotScormCompliant" xml:space="preserve">
+    <value>पाठ्यक्रम SCORM 1.2 संगत नहीं है।</value>
+  </data>
+  <data name="msgErrScormLarge" xml:space="preserve">
+    <value>स्कर्म कोर्स बहुत बड़ा है, अधिकतम स्वीकार्य आकार है: 200 एमबी</value>
+  </data>
+  <data name="msgErrScormNotSupport" xml:space="preserve">
+    <value>वैध स्कॉम फ़ाइल चुनें| समर्थित प्रारूप हैं</value>
+  </data>
+  <data name="msgIncorrectVersion" xml:space="preserve">
+    <value>अमान्य कोर्स कृपया केवल SCORM 1.2 संगत पाठ्यक्रम अपलोड करें।</value>
+  </data>
+  <data name="msgInvalidCourse" xml:space="preserve">
+    <value>अमान्य कोर्स</value>
+  </data>
+  <data name="msgMxlScoLabel" xml:space="preserve">
+    <value>स्कोर लेबल की लंबाई 10 अक्षरों से अधिक नहीं हो सकती</value>
+  </data>
+  <data name="msgNoManifiest" xml:space="preserve">
+    <value>सामग्री पैकेज में imsmanifest.xml नहीं होना चाहिए</value>
+  </data>
+  <data name="msgPacInvalidFormat" xml:space="preserve">
+    <value>पैकेज मान्य प्रारूप में नहीं है।</value>
+  </data>
+  <data name="msgReqCertificate" xml:space="preserve">
+    <value>कृपया प्रमाण पत्र का चयन करें।</value>
+  </data>
+  <data name="msgReqCourseCategory" xml:space="preserve">
+    <value>कृपया पाठ्यक्रम विषय चुनें।</value>
+  </data>
+  <data name="msgReqCourseDesc" xml:space="preserve">
+    <value>कृपया कोर्स विवरण दर्ज करें।</value>
+  </data>
+  <data name="msgReqCourseFile" xml:space="preserve">
+    <value>कृपया अपलोड करने के लिए फ़ाइल का चयन करें।</value>
+  </data>
+  <data name="msgReqCourseName" xml:space="preserve">
+    <value>कृपया पाठ्यक्रम का नाम दर्ज करें।</value>
+  </data>
+  <data name="msgRngPassMarks" xml:space="preserve">
+    <value>कृपया वैध पास अंक दर्ज करें।</value>
+  </data>
+  <data name="msgRngWindowheight" xml:space="preserve">
+    <value>कृपया वैध ऊंचाई दर्ज करें</value>
+  </data>
+  <data name="msgRngWindowwidth" xml:space="preserve">
+    <value>कृपया वैध चौड़ाई दर्ज करें</value>
+  </data>
+  <data name="msgStrPassMarksNumeric" xml:space="preserve">
+    <value>पास अंक केवल संख्याओं के लिए होना चाहिए</value>
+  </data>
+  <data name="msgStrWinHeightNumeric" xml:space="preserve">
+    <value>विंडो ऊँचाई केवल संख्याओं के लिए होनी चाहिए।</value>
+  </data>
+  <data name="msgStrWinWidthNumeric" xml:space="preserve">
+    <value>विंडो की चौड़ाई केवल संख्याओं का होना चाहिए।</value>
+  </data>
+  <data name="msgUnSupportedScrom" xml:space="preserve">
+    <value>असमर्थित संस्करण मिला समर्थित संस्करण है (1.1 - 1.2.7)</value>
+  </data>
+  <data name="optContentModification" xml:space="preserve">
+    <value>सामग्री संशोधन</value>
+  </data>
+  <data name="optFeeTypeFree" xml:space="preserve">
+    <value>मुक्त</value>
+  </data>
+  <data name="optFeeTypePaid" xml:space="preserve">
+    <value>भुगतान किया है</value>
+  </data>
+  <data name="optFeeTypeTrail" xml:space="preserve">
+    <value>निशान</value>
+  </data>
+  <data name="optFullModification" xml:space="preserve">
+    <value>पूर्ण संशोधन</value>
+  </data>
+  <data name="optMandatory" xml:space="preserve">
+    <value>अनिवार्य</value>
+  </data>
+  <data name="optMaximise" xml:space="preserve">
+    <value>अधिकतम</value>
+  </data>
+  <data name="optMobileNo" xml:space="preserve">
+    <value>नहीं</value>
+  </data>
+  <data name="optMobileYes" xml:space="preserve">
+    <value>हाँ</value>
+  </data>
+  <data name="optNoModification" xml:space="preserve">
+    <value>कोई संशोधन नहीं</value>
+  </data>
+  <data name="optOptional" xml:space="preserve">
+    <value>ऐच्छिक</value>
+  </data>
+  <data name="optUserDefined" xml:space="preserve">
+    <value>उपयोगकर्ता परिभाषित</value>
+  </data>
+  <data name="thAction" xml:space="preserve">
+    <value>नियुक्त</value>
+  </data>
+  <data name="thCategory" xml:space="preserve">
+    <value>विषय</value>
+  </data>
+  <data name="thCertificate" xml:space="preserve">
+    <value>प्रमाणपत्र</value>
+  </data>
+  <data name="thCourse" xml:space="preserve">
+    <value>कोर्स</value>
+  </data>
+  <data name="thEmailAddress" xml:space="preserve">
+    <value>ईमेल पता</value>
+  </data>
+  <data name="thExpiryDate" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="thManager" xml:space="preserve">
+    <value>हेड / मैनेजर का नाम</value>
+  </data>
+  <data name="thMaxUserAllwoed" xml:space="preserve">
+    <value>अनुमत उपयोगकर्ता</value>
+  </data>
+  <data name="thNoOfUserAssigned" xml:space="preserve">
+    <value>असाइन किए गए उपयोगकर्ता</value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>संगठन</value>
+  </data>
+  <data name="thStatus" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="fldCourseState" xml:space="preserve">
+    <value>कोर्स अवस्था</value>
+  </data>
+  <data name="fldCourseStateComment" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="msgReqCourseStateComment" xml:space="preserve">
+    <value>कृपया टिप्पणी दर्ज करें|</value>
+  </data>
+  <data name="thState" xml:space="preserve">
+    <value>अवस्था</value>
+  </data>
+  <data name="lblChangeCourseState" xml:space="preserve">
+    <value>पाठ्यक्रम अवस्था बदलें</value>
+  </data>
+  <data name="lblCourseState" xml:space="preserve">
+    <value>पाठ्यक्रम की अवस्था</value>
+  </data>
+  <data name="optInReview" xml:space="preserve">
+    <value>समीक्षा में</value>
+  </data>
+  <data name="optPublished" xml:space="preserve">
+    <value>प्रकाशित</value>
+  </data>
+  <data name="optReadyPublish" xml:space="preserve">
+    <value>प्रकाशन के लिए तैयार</value>
+  </data>
+  <data name="optReadyReview" xml:space="preserve">
+    <value>समीक्षा के लिए तैयार</value>
+  </data>
+  <data name="optRejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="fldCourseType" xml:space="preserve">
+    <value>पाठ्यक्रम प्रकार</value>
+  </data>
+  <data name="fldUnitContent" xml:space="preserve">
+    <value>इकाई सामग्री</value>
+  </data>
+  <data name="fldUnitOrder" xml:space="preserve">
+    <value>इकाई क्रम</value>
+  </data>
+  <data name="fldUnitPathURL" xml:space="preserve">
+    <value>इकाई स्रोत</value>
+  </data>
+  <data name="fldUnitType" xml:space="preserve">
+    <value>इकाई प्रकार</value>
+  </data>
+  <data name="lblCustomCourse" xml:space="preserve">
+    <value>अनुकूलित पाठ्यक्रम</value>
+  </data>
+  <data name="lblScorm12" xml:space="preserve">
+    <value>SCORM 1.2</value>
+  </data>
+  <data name="lblUnitAudio" xml:space="preserve">
+    <value>ऑडियो</value>
+  </data>
+  <data name="lblUnitContent" xml:space="preserve">
+    <value>लेख सामग्री</value>
+  </data>
+  <data name="lblUnitDocument" xml:space="preserve">
+    <value>दस्तावेज़</value>
+  </data>
+  <data name="lblUnitVideo" xml:space="preserve">
+    <value>वीडियो</value>
+  </data>
+  <data name="lblUnitWebContent" xml:space="preserve">
+    <value>वेब सामग्री</value>
+  </data>
+  <data name="lblXAPI" xml:space="preserve">
+    <value>XAPI</value>
+  </data>
+  <data name="fldCourseUnitName" xml:space="preserve">
+    <value>इकाई का नाम</value>
+  </data>
+  <data name="msgReqCourseUnitName" xml:space="preserve">
+    <value>कृपया इकाई का नाम दर्ज करें।</value>
+  </data>
+  <data name="msgReqUnitContent" xml:space="preserve">
+    <value>कृपया लेख सामग्री दर्ज करें।</value>
+  </data>
+  <data name="msgReqUnitWebContentURL" xml:space="preserve">
+    <value>कृपया मान्य यूआरएल दर्ज करें।</value>
+  </data>
+  <data name="tooltipCreateUnit" xml:space="preserve">
+    <value>इकाई बनाएं</value>
+  </data>
+  <data name="btnAddCourseUnit" xml:space="preserve">
+    <value>इकाई जोड़ें</value>
+  </data>
+  <data name="btnCourseunit" xml:space="preserve">
+    <value>इकाई</value>
+  </data>
+  <data name="btnDeleteCourseUnit" xml:space="preserve">
+    <value>इकाई हटाएं</value>
+  </data>
+  <data name="btnEditCourseUnit" xml:space="preserve">
+    <value>इकाई संपादित करें</value>
+  </data>
+  <data name="lblConfirmUnitDeleteHeading" xml:space="preserve">
+    <value>पाठ्यक्रम इकाई हटाएं?</value>
+  </data>
+  <data name="lblEditCourseAttributes" xml:space="preserve">
+    <value>पाठ्यक्रम विशेषताओं को संपादित करें</value>
+  </data>
+  <data name="msgConfirmUnitDelete" xml:space="preserve">
+    <value>क्या आप वाकई चयनित पाठ्यक्रम इकाई को हटाना चाहते हैं?</value>
+  </data>
+  <data name="lblMarkUnitComplete" xml:space="preserve">
+    <value>इकाई को पूर्ण रूप से चिह्नित करें</value>
+  </data>
+  <data name="msgErrAudioLarge" xml:space="preserve">
+    <value>ऑडियो बहुत बड़ा है, अधिकतम अनुमत आकार है:</value>
+  </data>
+  <data name="msgErrAudioNotSupport" xml:space="preserve">
+    <value>वैध ऑडियो फ़ाइल का चयन करें। समर्थित प्रारूप हैं</value>
+  </data>
+  <data name="msgErrDocumentLarge" xml:space="preserve">
+    <value>दस्तावेज़ बहुत बड़ा है, अधिकतम अनुमत आकार है:</value>
+  </data>
+  <data name="msgErrDocumentNotSupport" xml:space="preserve">
+    <value>कृपया वैध दस्तावेज़ फ़ाइल का चयन करें। समर्थित प्रारूप हैं</value>
+  </data>
+  <data name="msgErrVideoLarge" xml:space="preserve">
+    <value>वीडियो बहुत बड़ा है, अधिकतम अनुमत आकार है:</value>
+  </data>
+  <data name="msgErrVideoNotSupport" xml:space="preserve">
+    <value>वैध वीडियो फ़ाइल चुनें। समर्थित प्रारूप हैं</value>
+  </data>
+  <data name="msgReqUnitFile" xml:space="preserve">
+    <value>कृपया अपलोड करने के लिए फ़ाइल का चयन करें।</value>
+  </data>
+  <data name="optUnitLocalFile" xml:space="preserve">
+    <value>वीडियो फ़ाइल</value>
+  </data>
+  <data name="optUnitYouTube" xml:space="preserve">
+    <value>यूट्यूब</value>
+  </data>
+  <data name="tooltilYouEmbedURL" xml:space="preserve">
+    <value>केवल यूट्यूब एम्बेड यूआरएल का उपयोग करें</value>
+  </data>
+  <data name="btnSaveUnitOrder" xml:space="preserve">
+    <value>क्रम सहेजें</value>
+  </data>
+  <data name="tooltipReorderUnit" xml:space="preserve">
+    <value>इकाई पुन: व्यवस्थित करें</value>
+  </data>
+  <data name="lblSelectedUnitAssessment" xml:space="preserve">
+    <value>चयनित मूल्यांकन</value>
+  </data>
+  <data name="lblUnitAssessment" xml:space="preserve">
+    <value>मूल्यांकन</value>
+  </data>
+  <data name="lblUnitNoMatchedFound" xml:space="preserve">
+    <value>कोई मेल नहीं मिले</value>
+  </data>
+  <data name="msgReqUnitAssessment" xml:space="preserve">
+    <value>कृपया खोज करें और जोड़ने के लिए मूल्यांकन का चयन करें।</value>
+  </data>
+  <data name="tooltipUnitAssessmentSearch" xml:space="preserve">
+    <value>न्यूनतम 2 वर्ण टंकित करें और सूची से चयन करें. ऊपर / नीचे तीर का उपयोग करें.</value>
+  </data>
+  <data name="lblApproveCourseRequest" xml:space="preserve">
+    <value>पाठ्यक्रम अनुरोध स्वीकार करें</value>
+  </data>
+  <data name="fldRequestDate" xml:space="preserve">
+    <value>अनुरोध तिथि</value>
+  </data>
+  <data name="fldUnitAudioContent" xml:space="preserve">
+    <value>ऑडियो विलंब (सेकंड)</value>
+  </data>
+  <data name="lblUnitContentAudio" xml:space="preserve">
+    <value>ऑडियो स्रोत</value>
+  </data>
+  <data name="btnUnitClose" xml:space="preserve">
+    <value>बंद करे</value>
+  </data>
+  <data name="btnUnitNotes" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="btnUnitNoteSave" xml:space="preserve">
+    <value>टिप्पणियाँ सहेजें</value>
+  </data>
+  <data name="lblUnitNotes" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="lblUnitNotesHeading" xml:space="preserve">
+    <value>टिप्पणियाँ लिख देना</value>
+  </data>
+  <data name="msgReqUnitNotes" xml:space="preserve">
+    <value>कृपया टिप्पणियाँ दर्ज करें।</value>
+  </data>
+  <data name="fldTags" xml:space="preserve">
+    <value>टैग</value>
+  </data>
+  <data name="btnCourseQuestionReply" xml:space="preserve">
+    <value>प्रश्न के उत्तर दें</value>
+  </data>
+  <data name="btnViewExistingQuestion" xml:space="preserve">
+    <value>मौजूदा प्रश्न देखें</value>
+  </data>
+  <data name="btnViewQuestionAsked" xml:space="preserve">
+    <value>पूछे गए प्रश्न देखें</value>
+  </data>
+  <data name="fldCourseNewQuestion" xml:space="preserve">
+    <value>नया प्रश्न</value>
+  </data>
+  <data name="fldCourseQuestion" xml:space="preserve">
+    <value>प्रश्न</value>
+  </data>
+  <data name="fldCourseQuestionAns" xml:space="preserve">
+    <value>उत्तर</value>
+  </data>
+  <data name="lblCourseNoQuestions" xml:space="preserve">
+    <value>प्रदर्शित करने के लिए कोई भी मौजूदा प्रश्न नहीं है</value>
+  </data>
+  <data name="lblCourseRaiseQuestion" xml:space="preserve">
+    <value>मन में संदेह है? प्रशिक्षक से प्रश्न पूछें</value>
+  </data>
+  <data name="lblQuestionStatePending" xml:space="preserve">
+    <value>विचाराधीन</value>
+  </data>
+  <data name="lblQuestionStateReplied" xml:space="preserve">
+    <value>उत्तर दिया</value>
+  </data>
+  <data name="msgReqCourseAnswerText" xml:space="preserve">
+    <value>कृपया उत्तर दर्ज करें</value>
+  </data>
+  <data name="msgReqCourseQuestionText" xml:space="preserve">
+    <value>कृपया प्रश्न दर्ज करें</value>
+  </data>
+  <data name="thCourseQDateAsked" xml:space="preserve">
+    <value>पूछे जाने की तिथि</value>
+  </data>
+  <data name="thCourseQuestion" xml:space="preserve">
+    <value>प्रश्न</value>
+  </data>
+  <data name="thCourseQuestionState" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="lblCourseQuestionList" xml:space="preserve">
+    <value>प्रश्न सूची</value>
+  </data>
+</root>

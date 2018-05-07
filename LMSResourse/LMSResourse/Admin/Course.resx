@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddCourse" xml:space="preserve">
+    <value>Add course</value>
+  </data>
+  <data name="btnConfirmDelete" xml:space="preserve">
+    <value>Delete course</value>
+  </data>
+  <data name="fldCategory" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="fldCertificate" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
+  <data name="fldCourseDurationInMin" xml:space="preserve">
+    <value>Duration (minutes)</value>
+  </data>
+  <data name="fldCourseFees" xml:space="preserve">
+    <value>Fees</value>
+  </data>
+  <data name="fldCourseFeeStatus" xml:space="preserve">
+    <value>Fee type</value>
+  </data>
+  <data name="fldCourseFileUrl" xml:space="preserve">
+    <value>Upload content</value>
+  </data>
+  <data name="fldCourseName" xml:space="preserve">
+    <value>Course name</value>
+  </data>
+  <data name="fldDescription" xml:space="preserve">
+    <value>Course description</value>
+  </data>
+  <data name="fldIsMobile" xml:space="preserve">
+    <value>Mobile compatible</value>
+  </data>
+  <data name="fldMandatory" xml:space="preserve">
+    <value>Mandatory</value>
+  </data>
+  <data name="fldModificationOption" xml:space="preserve">
+    <value>Modification option</value>
+  </data>
+  <data name="fldPassMarks" xml:space="preserve">
+    <value>Pass mark (%)</value>
+  </data>
+  <data name="fldScoLabel" xml:space="preserve">
+    <value>Sco label</value>
+  </data>
+  <data name="fldStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="fldUserDefined" xml:space="preserve">
+    <value>Window type</value>
+  </data>
+  <data name="fldWindowheight" xml:space="preserve">
+    <value>Window height</value>
+  </data>
+  <data name="fldWindowwidth" xml:space="preserve">
+    <value>Window width</value>
+  </data>
+  <data name="lblConfirmDeleteHeading" xml:space="preserve">
+    <value>Delete course?</value>
+  </data>
+  <data name="msgConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete selected course?</value>
+  </data>
+  <data name="msgCourseAlreadyExist" xml:space="preserve">
+    <value>Course already exists</value>
+  </data>
+  <data name="msgDeleteCourse" xml:space="preserve">
+    <value>There are data associated with selected course. [{0}] can't be deleted.</value>
+  </data>
+  <data name="msgDupCourseName" xml:space="preserve">
+    <value>Course name already exist</value>
+  </data>
+  <data name="msgErrNotScormCompliant" xml:space="preserve">
+    <value>Course is not SCORM 1.2 compliant.</value>
+  </data>
+  <data name="msgErrScormLarge" xml:space="preserve">
+    <value>Scorm course is too large, maximum allowed size is : 200MB.</value>
+  </data>
+  <data name="msgErrScormNotSupport" xml:space="preserve">
+    <value>Please select valid scorm file. Supported formats are</value>
+  </data>
+  <data name="msgIncorrectVersion" xml:space="preserve">
+    <value>Invalid Course. Please upload only SCORM 1.2 compatible courses.</value>
+  </data>
+  <data name="msgInvalidCourse" xml:space="preserve">
+    <value>Invalid Course</value>
+  </data>
+  <data name="msgMxlScoLabel" xml:space="preserve">
+    <value>Sco label length cannot exceed 10 char.</value>
+  </data>
+  <data name="msgNoManifiest" xml:space="preserve">
+    <value>Content package should not contain imsmanifest.xml</value>
+  </data>
+  <data name="msgPacInvalidFormat" xml:space="preserve">
+    <value>Package does not in valid format</value>
+  </data>
+  <data name="msgReqCertificate" xml:space="preserve">
+    <value>Please select certificate</value>
+  </data>
+  <data name="msgReqCourseCategory" xml:space="preserve">
+    <value>Please select course subject</value>
+  </data>
+  <data name="msgReqCourseDesc" xml:space="preserve">
+    <value>Please enter course description</value>
+  </data>
+  <data name="msgReqCourseFile" xml:space="preserve">
+    <value>Please select file to upload</value>
+  </data>
+  <data name="msgReqCourseName" xml:space="preserve">
+    <value>Please enter course name</value>
+  </data>
+  <data name="msgRngPassMarks" xml:space="preserve">
+    <value>Please enter valid pass marks.</value>
+  </data>
+  <data name="msgRngWindowheight" xml:space="preserve">
+    <value>Please enter valid height.</value>
+  </data>
+  <data name="msgRngWindowwidth" xml:space="preserve">
+    <value>Please enter valid width.</value>
+  </data>
+  <data name="msgStrPassMarksNumeric" xml:space="preserve">
+    <value>Pass marks must be numbers only.</value>
+  </data>
+  <data name="msgStrWinHeightNumeric" xml:space="preserve">
+    <value>Window height must be numbers only.</value>
+  </data>
+  <data name="msgStrWinWidthNumeric" xml:space="preserve">
+    <value>Window width must be numbers only.</value>
+  </data>
+  <data name="msgUnSupportedScrom" xml:space="preserve">
+    <value>Unsupported version found. Supported version is (1.1 - 1.2.7)</value>
+  </data>
+  <data name="optContentModification" xml:space="preserve">
+    <value>Content modification</value>
+  </data>
+  <data name="optFullModification" xml:space="preserve">
+    <value>Full modification</value>
+  </data>
+  <data name="optMaximise" xml:space="preserve">
+    <value>Maximise</value>
+  </data>
+  <data name="optNoModification" xml:space="preserve">
+    <value>No modification</value>
+  </data>
+  <data name="optUserDefined" xml:space="preserve">
+    <value>User defined</value>
+  </data>
+  <data name="thAction" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="thCategory" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="thCertificate" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
+  <data name="thCourse" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="thEmailAddress" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="thExpiryDate" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="thManager" xml:space="preserve">
+    <value>Head / Manager's name</value>
+  </data>
+  <data name="thMaxUserAllwoed" xml:space="preserve">
+    <value>Allowed users</value>
+  </data>
+  <data name="thNoOfUserAssigned" xml:space="preserve">
+    <value>Assigned users </value>
+  </data>
+  <data name="thOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="thStatus" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="optFeeTypeFree" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="optFeeTypePaid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="optFeeTypeTrail" xml:space="preserve">
+    <value>Trail</value>
+  </data>
+  <data name="optMandatory" xml:space="preserve">
+    <value>Mandatory</value>
+  </data>
+  <data name="optMobileNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="optMobileYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="optOptional" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="fldCourseState" xml:space="preserve">
+    <value>Course state</value>
+  </data>
+  <data name="fldCourseStateComment" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="msgReqCourseStateComment" xml:space="preserve">
+    <value>Please enter comments.</value>
+  </data>
+  <data name="thState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="lblChangeCourseState" xml:space="preserve">
+    <value>Change courses state</value>
+  </data>
+  <data name="lblCourseState" xml:space="preserve">
+    <value>Course state</value>
+  </data>
+  <data name="optInReview" xml:space="preserve">
+    <value>In review</value>
+  </data>
+  <data name="optPublished" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="optReadyPublish" xml:space="preserve">
+    <value>Ready to publish</value>
+  </data>
+  <data name="optReadyReview" xml:space="preserve">
+    <value>Reday to review</value>
+  </data>
+  <data name="optRejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="fldCourseType" xml:space="preserve">
+    <value>Course type</value>
+  </data>
+  <data name="fldUnitContent" xml:space="preserve">
+    <value>Unit content</value>
+  </data>
+  <data name="fldUnitOrder" xml:space="preserve">
+    <value>Unit order</value>
+  </data>
+  <data name="fldUnitPathURL" xml:space="preserve">
+    <value>Unit source</value>
+  </data>
+  <data name="fldUnitType" xml:space="preserve">
+    <value>Unit type</value>
+  </data>
+  <data name="lblCustomCourse" xml:space="preserve">
+    <value>Custom course</value>
+  </data>
+  <data name="lblScorm12" xml:space="preserve">
+    <value>SCORM 1.2</value>
+  </data>
+  <data name="lblUnitAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="lblUnitContent" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="lblUnitDocument" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="lblUnitVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="lblUnitWebContent" xml:space="preserve">
+    <value>Web content</value>
+  </data>
+  <data name="lblXAPI" xml:space="preserve">
+    <value>XAPI</value>
+  </data>
+  <data name="fldCourseUnitName" xml:space="preserve">
+    <value>Unit name</value>
+  </data>
+  <data name="msgReqCourseUnitName" xml:space="preserve">
+    <value>Please enter unit name</value>
+  </data>
+  <data name="msgReqUnitContent" xml:space="preserve">
+    <value>Please enter content</value>
+  </data>
+  <data name="msgReqUnitWebContentURL" xml:space="preserve">
+    <value>Please enter valid URL</value>
+  </data>
+  <data name="tooltipCreateUnit" xml:space="preserve">
+    <value>Create unit</value>
+  </data>
+  <data name="btnAddCourseUnit" xml:space="preserve">
+    <value>Add unit</value>
+  </data>
+  <data name="btnCourseunit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="btnDeleteCourseUnit" xml:space="preserve">
+    <value>Delete unit</value>
+  </data>
+  <data name="btnEditCourseUnit" xml:space="preserve">
+    <value>Edit unit</value>
+  </data>
+  <data name="lblConfirmUnitDeleteHeading" xml:space="preserve">
+    <value>Delete course unit?</value>
+  </data>
+  <data name="lblEditCourseAttributes" xml:space="preserve">
+    <value>Edit course attributes</value>
+  </data>
+  <data name="msgConfirmUnitDelete" xml:space="preserve">
+    <value>Are you sure you want to delete selected course unit?</value>
+  </data>
+  <data name="lblMarkUnitComplete" xml:space="preserve">
+    <value>Mark unit as complete</value>
+  </data>
+  <data name="msgErrAudioLarge" xml:space="preserve">
+    <value>Audio is too large, maximum allowed size is :</value>
+  </data>
+  <data name="msgErrAudioNotSupport" xml:space="preserve">
+    <value>Please select valid audio file. Supported formats are</value>
+  </data>
+  <data name="msgErrDocumentLarge" xml:space="preserve">
+    <value>Documentis too large, maximum allowed size is :</value>
+  </data>
+  <data name="msgErrDocumentNotSupport" xml:space="preserve">
+    <value>Please select valid document file. Supported formats are</value>
+  </data>
+  <data name="msgErrVideoLarge" xml:space="preserve">
+    <value>Video is too large, maximum allowed size is :</value>
+  </data>
+  <data name="msgErrVideoNotSupport" xml:space="preserve">
+    <value>Please select valid video file. Supported formats are</value>
+  </data>
+  <data name="msgReqUnitFile" xml:space="preserve">
+    <value>Please select file to upload</value>
+  </data>
+  <data name="optUnitLocalFile" xml:space="preserve">
+    <value>Video file</value>
+  </data>
+  <data name="optUnitYouTube" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="tooltilYouEmbedURL" xml:space="preserve">
+    <value>Use Youtube embed URL only</value>
+  </data>
+  <data name="btnSaveUnitOrder" xml:space="preserve">
+    <value>Save order</value>
+  </data>
+  <data name="tooltipReorderUnit" xml:space="preserve">
+    <value>Reorder units</value>
+  </data>
+  <data name="lblSelectedUnitAssessment" xml:space="preserve">
+    <value>Selected assessment</value>
+  </data>
+  <data name="lblUnitAssessment" xml:space="preserve">
+    <value>Assessment</value>
+  </data>
+  <data name="lblUnitNoMatchedFound" xml:space="preserve">
+    <value>No matches found</value>
+  </data>
+  <data name="msgReqUnitAssessment" xml:space="preserve">
+    <value>Please search and select assessment to add</value>
+  </data>
+  <data name="tooltipUnitAssessmentSearch" xml:space="preserve">
+    <value>Type min. 2 chars and select from list. Use Up/Down arrow to select.</value>
+  </data>
+  <data name="lblApproveCourseRequest" xml:space="preserve">
+    <value>Approve course request</value>
+  </data>
+  <data name="fldRequestDate" xml:space="preserve">
+    <value>Request date</value>
+  </data>
+  <data name="fldUnitAudioContent" xml:space="preserve">
+    <value>Audio delay (seconds)</value>
+  </data>
+  <data name="lblUnitContentAudio" xml:space="preserve">
+    <value>Audio source</value>
+  </data>
+  <data name="btnUnitClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btnUnitNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="btnUnitNoteSave" xml:space="preserve">
+    <value>Save notes</value>
+  </data>
+  <data name="lblUnitNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="lblUnitNotesHeading" xml:space="preserve">
+    <value>Make notes</value>
+  </data>
+  <data name="msgReqUnitNotes" xml:space="preserve">
+    <value>Please enter notes.</value>
+  </data>
+  <data name="fldTags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="btnCourseQuestionReply" xml:space="preserve">
+    <value>Reply to question</value>
+  </data>
+  <data name="btnViewExistingQuestion" xml:space="preserve">
+    <value>View existing questions</value>
+  </data>
+  <data name="btnViewQuestionAsked" xml:space="preserve">
+    <value>View/Reply questions</value>
+  </data>
+  <data name="fldCourseNewQuestion" xml:space="preserve">
+    <value>New question</value>
+  </data>
+  <data name="fldCourseQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="fldCourseQuestionAns" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="lblCourseNoQuestions" xml:space="preserve">
+    <value>No existing questions to display </value>
+  </data>
+  <data name="lblCourseRaiseQuestion" xml:space="preserve">
+    <value>Have doubt in mind? Ask questions to Instructor</value>
+  </data>
+  <data name="lblQuestionStatePending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="lblQuestionStateReplied" xml:space="preserve">
+    <value>Replied</value>
+  </data>
+  <data name="msgReqCourseAnswerText" xml:space="preserve">
+    <value>Please enter answer</value>
+  </data>
+  <data name="msgReqCourseQuestionText" xml:space="preserve">
+    <value>Please enter question</value>
+  </data>
+  <data name="thCourseQDateAsked" xml:space="preserve">
+    <value>Date asked</value>
+  </data>
+  <data name="thCourseQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="thCourseQuestionState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="lblCourseQuestionList" xml:space="preserve">
+    <value>Question list</value>
+  </data>
+</root>
